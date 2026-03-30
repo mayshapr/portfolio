@@ -1,20 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Maysha Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya | Kreatif & Profesional</title>
+    <!-- Tailwind CSS untuk desain cepat dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons untuk ikon yang cantik -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
 
-<body>
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl p-4 shadow-lg">
+            <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">HaloSapa.</h1>
+            <div class="flex items-center gap-6">
+                <ul class="hidden md:flex gap-6 font-medium">
+                    <li><a href="#home" class="hover:text-blue-600 transition">Beranda</a></li>
+                    <li><a href="#about" class="hover:text-blue-600 transition">Tentang</a></li>
+                    <li><a href="#projects" class="hover:text-blue-600 transition">Proyek</a></li>
+                    <li><a href="#contact" class="hover:text-blue-600 transition">Kontak</a></li>
+                </ul>
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<h1 id="name"></h1>
-<h2 id="role"></h2>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-4xl text-center">
+            <div class="reveal">
+                <span class="px-4 py-2 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold dark:bg-blue-900/30 dark:text-blue-300">Selamat Datang</span>
+                <h1 class="text-5xl md:text-7xl font-bold mt-6 leading-tight">Membangun Masa Depan Lewat <span class="text-blue-600">Kreativitas.</span></h1>
+                <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Saya adalah seorang pembelajar yang bersemangat dalam dunia teknologi dan desain. Inilah perjalanan karya-karya saya.</p>
+                <div class="mt-10 flex gap-4 justify-center">
+                    <a href="#projects" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">Lihat Karya</a>
+                    <a href="#contact" class="px-8 py-4 rounded-xl font-bold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition">Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p id="about"></p>
+    <!-- Tentang Saya -->
+    <section id="about" class="py-24 px-6 bg-slate-100 dark:bg-slate-900/50">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <div class="aspect-square rounded-3xl bg-gradient-to-br from-blue-400 to-indigo-600 overflow-hidden shadow-2xl relative">
+                    <div class="absolute inset-0 flex items-center justify-center text-white text-9xl font-bold opacity-20">ME</div>
+                    <!-- Kamu bisa ganti teks di atas dengan gambar nantinya -->
+                </div>
+            </div>
+            <div class="reveal">
+                <h2 class="text-3xl font-bold mb-6">Tentang Saya</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                    Saya percaya bahwa setiap masalah memiliki solusi yang estetik. Dengan fokus pada pengalaman pengguna, saya mencoba untuk menggabungkan fungsi dan keindahan dalam setiap proyek yang saya kerjakan.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 glass rounded-xl">
+                        <h4 class="font-bold text-blue-600">UI/UX Design</h4>
+                        <p class="text-sm">Membuat tampilan menarik.</p>
+                    </div>
+                    <div class="p-4 glass rounded-xl">
+                        <h4 class="font-bold text-blue-600">Web Creator</h4>
+                        <p class="text-sm">Membangun website statis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Projects</h2>
-<div id="projects"></div>
+    <!-- Proyek -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold">Proyek Unggulan</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">Beberapa hasil kerja keras saya belakangan ini.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="reveal card-hover group">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800">
+                        <div class="h-48 bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                            <i data-lucide="layout" class="w-12 h-12 text-blue-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Desain E-Commerce</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Eksperimen desain toko online minimalis untuk produk fashion lokal.</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Figma</span>
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">HTML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<script src="script.js"></script>
+                <!-- Project 2 -->
+                <div class="reveal card-hover group" style="transition-delay: 0.1s;">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800">
+                        <div class="h-48 bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center">
+                            <i data-lucide="smartphone" class="w-12 h-12 text-indigo-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Aplikasi Pengatur Tugas</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Sistem manajemen waktu sederhana untuk membantu pelajar tetap produktif.</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Mobile</span>
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">UI Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Project 3 -->
+                <div class="reveal card-hover group" style="transition-delay: 0.2s;">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800">
+                        <div class="h-48 bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
+                            <i data-lucide="camera" class="w-12 h-12 text-purple-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Portfolio Fotografi</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Website galeri foto dengan fokus pada keindahan alam Indonesia.</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Photography</span>
+                                <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Web</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="py-24 px-6 bg-blue-600 text-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl font-bold mb-6">Tertarik Bekerja Sama?</h2>
+            <p class="text-blue-100 mb-10 text-lg">Saya selalu terbuka untuk diskusi proyek baru atau sekadar menyapa.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="mailto:emailanda@Gmail.com" class="flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition">
+                    <i data-lucide="mail" class="w-5 h-5"></i> Kirim Email
+                </a>
+                <div class="flex gap-4">
+                    <a href="#" class="p-3 bg-blue-700 rounded-full hover:bg-blue-800 transition"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="p-3 bg-blue-700 rounded-full hover:bg-blue-800 transition"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="p-3 bg-blue-700 rounded-full hover:bg-blue-800 transition"><i data-lucide="github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-slate-500 text-sm dark:text-slate-500">
+        <p>&copy; 2024 Nama Kamu. Dibuat dengan semangat.</p>
+    </footer>
+
+    <script>
+        // Inisialisasi Ikon
+        lucide.createIcons();
+
+        // Fitur Mode Gelap
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+        });
+
+        // Animasi Scroll (Reveal)
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Efek Smooth Scroll untuk Navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
