@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Maysha Aprillia - Learning & Development Professional | Instructional Designer | Digital Learning Content Specialist">
-    <title>Portfolio Maysha Aprillia | L&D Professional</title>
+    <title>Maysha Aprillia | L&D Professional</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 6 -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -27,12 +27,12 @@
             font-family: 'Outfit', sans-serif;
         }
         .glass {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
         .dark .glass {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .reveal {
@@ -63,9 +63,7 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
+        .animate-blob { animation: blob 7s infinite; }
 
         .star-field {
             position: absolute;
@@ -95,32 +93,17 @@
             vertical-align: middle;
         }
         @keyframes blink { 50% { opacity: 0; } }
-
-        .mesh-bg-1 {
-            background-image: radial-gradient(at 80% 0%, hsla(330, 100%, 85%, 0.4) 0px, transparent 50%),
-                              radial-gradient(at 0% 100%, hsla(340, 100%, 85%, 0.4) 0px, transparent 50%);
-        }
-        .dark .mesh-bg-1 {
-            background-image: radial-gradient(at 80% 0%, hsla(330, 80%, 40%, 0.2) 0px, transparent 50%),
-                              radial-gradient(at 0% 100%, hsla(340, 80%, 40%, 0.2) 0px, transparent 50%);
-        }
-        .mesh-bg-2 {
-            background-image: radial-gradient(at 0% 0%, hsla(350, 100%, 85%, 0.4) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, hsla(320, 100%, 85%, 0.4) 0px, transparent 50%);
-        }
-        .dark .mesh-bg-2 {
-            background-image: radial-gradient(at 0% 0%, hsla(350, 80%, 40%, 0.2) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, hsla(320, 80%, 40%, 0.2) 0px, transparent 50%);
-        }
-
-        @keyframes float-skill {
+		
+		/* Animasi Float untuk Core Skills */
+        @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-        .float-anim { animation: float-skill 4s ease-in-out infinite; }
-        .float-anim-delay-1 { animation: float-skill 5s ease-in-out infinite 1s; }
-        .float-anim-delay-2 { animation: float-skill 4.5s ease-in-out infinite 0.5s; }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        .float-anim-delay-1 { animation: float 5s ease-in-out infinite 1s; }
+        .float-anim-delay-2 { animation: float 4.5s ease-in-out infinite 0.5s; }
 
+        /* Social Creative Hover */
         .social-creative {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -190,211 +173,232 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
-                
-                <!-- Foto Profil -->
-                <div class="md:col-span-5 flex justify-center reveal">
-                    <div class="relative w-64 h-80">
-                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-400 rounded-[2rem] rotate-3 opacity-20"></div>
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" 
-                             alt="Maysha Aprillia - L&D Professional"
-                             class="relative w-full h-full object-cover rounded-[2rem] border-4 border-white dark:border-slate-700 shadow-2xl">
-                    </div>
-                </div>
-
-                <!-- Teks -->
-                <div class="md:col-span-7 reveal">
-                    <h2 class="text-3xl font-heading font-black mb-6 flex items-center gap-4">
-                        <span class="w-10 h-1 bg-pink-500 rounded-full"></span> 
-                        TENTANG SAYA
-                    </h2>
-                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
-                        Halo! Saya Maysha. Saya memadukan latar belakang pendidikan dengan kreativitas visual untuk menciptakan program pelatihan yang berdampak. Berfokus pada kemajuan teknologi digital dalam dunia edukasi dan korporasi.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                            <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Pendidikan</h4>
-                            <p class="text-sm font-bold">S1 Pendidikan UPI (3.79)</p>
-                        </div>
-                        <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                            <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Keahlian</h4>
-                            <p class="text-sm font-bold">L&D & Instructional Design</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Skills -->
-            <div class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 reveal">
-                <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 text-center">Core Skills</h3>
-                <div class="flex flex-wrap justify-center gap-4 md:gap-5">
-                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
-                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Instructional Design</span>
-                    </div>
-                    <div class="glass mesh-bg-2 px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
-                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Training Facilitator</span>
-                    </div>
-                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim-delay-2 shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
-                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Digital Learning Content Development</span>
-                    </div>
-                    <div class="glass mesh-bg-2 px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
-                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Editorial Layout Design</span>
-                    </div>
-                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
-                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Content Writing</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tools -->
-            <div class="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 reveal text-center">
-                <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-10">Tools I Use Regularly</h3>
-                <div class="flex flex-wrap justify-center gap-10 md:gap-16 text-slate-400">
-                    <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-brands fa-figma text-4xl group-hover:text-[#F24E1E] transition-all"></i>
-                        <span class="text-[10px] font-black group-hover:text-slate-600">FIGMA</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-solid fa-paintbrush text-4xl group-hover:text-[#00C4CC] transition-all"></i>
-                        <span class="text-[10px] font-black group-hover:text-slate-600">CANVA</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-solid fa-laptop-code text-4xl group-hover:text-pink-500 transition-all"></i>
-                        <span class="text-[10px] font-black group-hover:text-slate-600">ARTICULATE</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-solid fa-file-powerpoint text-4xl group-hover:text-[#D24726] transition-all"></i>
-                        <span class="text-[10px] font-black group-hover:text-slate-600">MS OFFICE</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-solid fa-google text-4xl group-hover:text-[#4285F4] transition-all"></i>
-                        <span class="text-[10px] font-black group-hover:text-slate-600">GOOGLE WORKSPACE</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl font-heading font-black uppercase tracking-tight italic">Experience</h2>
-                <div class="w-20 h-1.5 bg-pink-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="space-y-12">
-                <!-- Exp 1 -->
-                <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
-                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-pink-500 rounded-full border-4 border-white dark:border-slate-950"></div>
-                    <div class="mb-2">
-                        <span class="text-xs font-black text-pink-500 uppercase tracking-widest">07/2024 — 12/2024</span>
-                        <h3 class="text-2xl font-black font-heading mt-1">Training Officer</h3>
-                        <p class="font-bold text-slate-500 italic">Studio Renang</p>
-                    </div>
-                    <ul class="text-slate-600 dark:text-slate-400 space-y-2 list-disc list-outside ml-4 text-sm leading-relaxed">
-                        <li>Merancang program pelatihan 21 hari untuk Outlet Manager & Admin (Success rate 90-95%).</li>
-                        <li>Mengembangkan materi pelatihan administrasi dan CS sesuai SOP.</li>
-                        <li>Memfasilitasi sesi role-playing dan simulasi untuk 70+ karyawan baru.</li>
-                    </ul>
-                </div>
-
-                <!-- Exp 2 -->
-                <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
-                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-rose-400 rounded-full border-4 border-white dark:border-slate-950"></div>
-                    <div class="mb-2">
-                        <span class="text-xs font-black text-rose-400 uppercase tracking-widest">07/2023 — 12/2023</span>
-                        <h3 class="text-2xl font-black font-heading mt-1">Guru Bahasa Indonesia</h3>
-                        <p class="font-bold text-slate-500 italic">SMA Kartika XIX-2 Bandung</p>
-                    </div>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Menyusun modul digital interaktif dan podcast edukasi untuk meningkatkan keterlibatan siswa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Education Section - Versi Clean & Modern -->
-<section id="education" class="py-24 px-6 bg-slate-50 dark:bg-slate-950">
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16 reveal">
-            <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">
-                Education
-            </h2>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Latar belakang akademis saya</p>
-            <div class="w-16 h-1 bg-gradient-to-r from-pink-500 to-rose-400 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+    <!-- About Section - Versi Diperbaiki -->
+<section id="about" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
             
-            <!-- Card 1: Universitas Pendidikan Indonesia -->
-            <div class="reveal group">
-                <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-pink-200 dark:hover:border-pink-900/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
-                    <div class="flex items-start gap-5">
-                        <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-400 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white">Universitas Pendidikan Indonesia</h3>
-                            <p class="text-pink-600 dark:text-pink-400 font-semibold mt-1">S1 Pendidikan Bahasa dan Sastra Indonesia</p>
-                            
-                            <div class="mt-6 space-y-4">
-                                <div>
-                                    <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
-                                    <p class="font-bold text-lg">2023 • IPK <span class="text-pink-500">3.79 / 4.00</span></p>
-                                </div>
-                                
-                                <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm leading-relaxed border border-slate-100 dark:border-slate-700">
-                                    Fokus pada inovasi media pembelajaran digital dan desain instruksional.
-                                </div>
-
-                                <div class="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-950/50 dark:to-rose-950/50 border border-pink-100 dark:border-pink-900/30 rounded-2xl p-5 text-sm italic">
-                                    <span class="font-semibold text-pink-600 dark:text-pink-400">"Thesis: Development of the BEBI Educational Mobile Learning App using the ADDIE Model"</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Foto -->
+            <div class="md:col-span-5 flex justify-center reveal">
+                <div class="relative w-64 h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-400 rounded-[2rem] rotate-3 opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                         alt="Maysha Aprillia"
+                         class="relative w-full h-full object-cover rounded-[2rem] border-4 border-white dark:border-slate-700 shadow-2xl">
                 </div>
             </div>
 
-            <!-- Card 2: SMK Negeri 26 Jakarta -->
-            <div class="reveal group" style="animation-delay: 150ms;">
-                <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-rose-200 dark:hover:border-rose-900/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
-                    <div class="flex items-start gap-5">
-                        <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-orange-400 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-black text-3xl">01</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white">SMK Negeri 26 Jakarta</h3>
-                            <p class="text-rose-600 dark:text-rose-400 font-semibold mt-1">Teknik Komputer dan Jaringan</p>
-                            
-                            <div class="mt-6 space-y-4">
-                                <div>
-                                    <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
-                                    <p class="font-bold text-lg">2018 • Nilai <span class="text-rose-500">88 / 100</span></p>
-                                </div>
-                                
-                                <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm leading-relaxed border border-slate-100 dark:border-slate-700">
-                                    Memiliki dasar kuat dalam infrastruktur IT, jaringan komputer, dan pengembangan sistem aplikasi.
-                                </div>
+            <!-- Teks -->
+            <div class="md:col-span-7 reveal">
+                <h2 class="text-3xl md:text-4xl font-heading font-black mb-6 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-pink-500 rounded-full"></span> 
+                    About me 👋🏻
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
+                    Halo! Saya Maysha. Saya memadukan latar belakang pendidikan dengan kreativitas visual untuk menciptakan program pelatihan yang berdampak. 
+                    Berfokus pada kemajuan teknologi digital dalam dunia edukasi dan korporasi.
+                </p>
 
-                                <div class="bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-950/50 dark:to-amber-950/50 border border-rose-100 dark:border-rose-900/30 rounded-2xl p-5 text-sm">
-                                    <span class="font-semibold text-rose-600 dark:text-rose-400">"Project Work: Design of a Web & Mobile-Based Student Attendance System Application at SMK Negeri 26 Jakarta"</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Pendidikan</h4>
+                        <p class="text-sm font-bold">S1 Pendidikan UPI (3.79)</p>
+                    </div>
+                    <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Keahlian Utama</h4>
+                        <p class="text-sm font-bold">L&D & Instructional Design</p>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <!-- Core Skills -->
+        <div class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 reveal">
+            <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 text-center">Core Skills</h3>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-5">
+                <div class="glass px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(236,72,153,0.1)]">Instructional Design</div>
+                <div class="glass px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(236,72,153,0.1)]">Training Facilitator</div>
+                <div class="glass px-6 py-4 rounded-2xl float-anim-delay-2 shadow-[0_8px_20px_rgba(236,72,153,0.1)]">Digital Learning Content</div>
+                <div class="glass px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(236,72,153,0.1)]">Editorial Layout Design</div>
+                <div class="glass px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(236,72,153,0.1)]">Content Writing</div>
+            </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 reveal text-center">
+            <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-10">Tools I Use Regularly</h3>
+            <div class="flex flex-wrap justify-center gap-10 md:gap-16 text-slate-400">
+                <div class="flex flex-col items-center gap-3 group">
+                    <i class="fa-brands fa-figma text-4xl group-hover:text-[#F24E1E] transition-all"></i>
+                    <span class="text-[10px] font-black group-hover:text-slate-600">FIGMA</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-paintbrush text-4xl group-hover:text-[#00C4CC] transition-all"></i>
+                    <span class="text-[10px] font-black group-hover:text-slate-600">CANVA</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-laptop-code text-4xl group-hover:text-pink-500 transition-all"></i>
+                    <span class="text-[10px] font-black group-hover:text-slate-600">ARTICULATE</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i class="fa-solid fa-file-powerpoint text-4xl group-hover:text-[#D24726] transition-all"></i>
+                    <span class="text-[10px] font-black group-hover:text-slate-600">MS OFFICE</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i class="fa-brands fa-google text-4xl group-hover:text-[#4285F4] transition-all"></i>
+                    <span class="text-[10px] font-black group-hover:text-slate-600">GOOGLE WORKSPACE</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-    <!-- Projects Section - Versi Unik dengan Tombol View Details -->
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">Experience</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-3 text-lg">Perjalanan profesional saya dalam dunia Learning & Development</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Exp 1 -->
+                <div class="reveal group">
+                    <div class="glass rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-2 bg-gradient-to-b from-pink-500 to-rose-400"></div>
+                            <div class="flex-1 p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mb-6">
+                                    <div>
+                                        <span class="text-xs font-black uppercase tracking-widest text-pink-500">Juli 2024 — Desember 2024</span>
+                                        <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white mt-1">Training Officer</h3>
+                                        <p class="text-lg font-semibold text-slate-600 dark:text-slate-400">Studio Renang</p>
+                                    </div>
+                                    <div class="md:ml-auto">
+                                        <div class="inline-flex items-center gap-2 bg-pink-100 dark:bg-pink-950 text-pink-600 dark:text-pink-400 px-5 py-2 rounded-2xl text-sm font-semibold">
+                                            <i class="fa-solid fa-clock"></i> 6 Bulan
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                                    <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Merancang program pelatihan 21 hari untuk Outlet Manager & Admin dengan success rate 90-95%.</li>
+                                    <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Mengembangkan materi pelatihan administrasi dan customer service sesuai SOP.</li>
+                                    <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Memfasilitasi sesi role-playing dan simulasi untuk 70+ karyawan baru.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="reveal group" style="animation-delay: 150ms;">
+                    <div class="glass rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-2 bg-gradient-to-b from-rose-400 to-purple-500"></div>
+                            <div class="flex-1 p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mb-6">
+                                    <div>
+                                        <span class="text-xs font-black uppercase tracking-widest text-rose-400">Juli 2023 — Desember 2023</span>
+                                        <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white mt-1">Guru Bahasa Indonesia</h3>
+                                        <p class="text-lg font-semibold text-slate-600 dark:text-slate-400">SMA Kartika XIX-2 Bandung</p>
+                                    </div>
+                                    <div class="md:ml-auto">
+                                        <div class="inline-flex items-center gap-2 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 px-5 py-2 rounded-2xl text-sm font-semibold">
+                                            <i class="fa-solid fa-clock"></i> 6 Bulan
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                                    <li class="flex gap-3"><span class="text-rose-400 mt-1">•</span> Menyusun modul digital interaktif dan podcast edukasi untuk meningkatkan keterlibatan siswa.</li>
+                                    <li class="flex gap-3"><span class="text-rose-400 mt-1">•</span> Mengembangkan materi pembelajaran yang mengintegrasikan teknologi digital.</li>
+                                    <li class="flex gap-3"><span class="text-rose-400 mt-1">•</span> Melakukan evaluasi dan improvement metode pengajaran.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download CV Button -->
+            <div class="flex justify-center mt-16 reveal">
+                <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" 
+                   class="btn-pink group inline-flex items-center gap-3 px-10 py-5 rounded-3xl font-black uppercase tracking-widest text-sm shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <span>Download My CV</span>
+                    <i class="fa-solid fa-download text-lg group-hover:rotate-12 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6 bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">Education</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Latar belakang akademis saya</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-pink-500 to-rose-400 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+                <!-- UPI Card -->
+                <div class="reveal group">
+                    <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-pink-200 dark:hover:border-pink-900/50 transition-all">
+                        <div class="flex items-start gap-5">
+                            <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-400 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading font-black text-2xl">Universitas Pendidikan Indonesia</h3>
+                                <p class="text-pink-600 dark:text-pink-400 font-semibold mt-1">S1 Pendidikan Bahasa dan Sastra Indonesia</p>
+                                <div class="mt-6 space-y-4">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
+                                        <p class="font-bold text-lg">2023 • IPK <span class="text-pink-500">3.79 / 4.00</span></p>
+                                    </div>
+                                    <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm border border-slate-100 dark:border-slate-700">
+                                        Fokus pada inovasi media pembelajaran digital dan desain instruksional.
+                                    </div>
+                                    <div class="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-950/50 dark:to-rose-950/50 border border-pink-100 dark:border-pink-900/30 rounded-2xl p-5 text-sm italic">
+                                        Thesis: Development of the BEBI Educational Mobile Learning App using the ADDIE Model
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SMK Card -->
+                <div class="reveal group" style="animation-delay: 150ms;">
+                    <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-rose-200 dark:hover:border-rose-900/50 transition-all">
+                        <div class="flex items-start gap-5">
+                            <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-orange-400 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-black text-3xl">01</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading font-black text-2xl">SMK Negeri 26 Jakarta</h3>
+                                <p class="text-rose-600 dark:text-rose-400 font-semibold mt-1">Teknik Komputer dan Jaringan</p>
+                                <div class="mt-6 space-y-4">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
+                                        <p class="font-bold text-lg">2018 • Nilai <span class="text-rose-500">88 / 100</span></p>
+                                    </div>
+                                    <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm border border-slate-100 dark:border-slate-700">
+                                        Memiliki dasar kuat dalam infrastruktur IT dan pengembangan sistem aplikasi.
+                                    </div>
+                                    <div class="bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-950/50 dark:to-amber-950/50 border border-rose-100 dark:border-rose-900/30 rounded-2xl p-5 text-sm">
+                                        Project Work: Design of a Web & Mobile-Based Student Attendance System Application
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Projects Section - Versi Unik dengan Tombol View Details -->
 <section id="projects" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 reveal">
@@ -515,14 +519,13 @@
     </div>
 </section>
 
-    <!-- Footer dengan Formspree -->
+    <!-- Footer -->
     <footer id="contact" class="relative overflow-hidden pt-32 pb-16 bg-slate-950">
         <div class="star-field"></div>
         <div class="absolute top-0 right-1/4 w-96 h-96 bg-pink-600/20 blur-[120px] rounded-full"></div>
 
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-16 mb-24 items-center">
-                
                 <div class="text-left reveal">
                     <h2 class="text-5xl md:text-7xl font-heading font-black mb-6 text-white tracking-tighter">
                         LET'S BUILD <br/> 
@@ -531,41 +534,33 @@
                     <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-10">maysha9910@gmail.com</p>
                     
                     <div class="flex gap-6">
-                        <a href="https://linkedin.com/in/maysha-aprillia" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#0077B5] hover:border-transparent">
+                        <a href="https://linkedin.com/in/maysha-aprillia" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#0077B5]">
                             <i class="fa-brands fa-linkedin-in text-3xl"></i>
                         </a>
-                        <a href="https://instagram.com/mayshapr" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent">
+                        <a href="https://instagram.com/mayshaprl" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]">
                             <i class="fa-brands fa-instagram text-3xl"></i>
                         </a>
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/62889627656653" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#25D366] hover:border-transparent">
+                        <a href="https://wa.me/628XXXXXXXXXX" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#25D366]">
                             <i class="fa-brands fa-whatsapp text-3xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Form Contact dengan Formspree -->
-                <div class="reveal glass bg-white/5 border border-white/10 p-8 rounded-[2rem] shadow-2xl">
+                <!-- Contact Form -->
+                <div class="reveal glass bg-white/5 border border-white/10 p-8 rounded-[2rem]">
                     <h3 class="text-white font-black text-2xl font-heading mb-6">Kirim Pesan</h3>
                     <form action="https://formspree.io/f/myourformid" method="POST" class="flex flex-col gap-4">
-                        <input type="text" name="name" placeholder="Nama Anda" required 
-                               class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all">
-                        <input type="email" name="email" placeholder="Email Anda" required 
-                               class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all">
-                        <textarea name="message" rows="4" placeholder="Pesan Anda..." required 
-                                  class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all resize-none"></textarea>
-                        <button type="submit" class="btn-pink w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm mt-2 flex items-center justify-center gap-2">
-                            Kirim <i class="fa-solid fa-paper-plane"></i>
-                        </button>
+                        <input type="text" name="name" placeholder="Nama Anda" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:border-pink-500">
+                        <input type="email" name="email" placeholder="Email Anda" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:border-pink-500">
+                        <textarea name="message" rows="4" placeholder="Pesan Anda..." required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:border-pink-500 resize-none"></textarea>
+                        <button type="submit" class="btn-pink w-full py-4 rounded-xl font-black uppercase tracking-widest">Kirim <i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
 
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
+            <div class="pt-12 border-t border-white/5 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] flex flex-col md:flex-row justify-between items-center gap-8">
                 <p>&copy; 2026 Maysha Aprillia • Handcrafted with Love</p>
-                <a href="https://maysha-portfolio.my.canva.site" target="_blank" class="hover:text-rose-400 transition flex items-center gap-2">
-                    CANVA PORTFOLIO <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <a href="https://maysha-portfolio.my.canva.site" target="_blank" class="hover:text-rose-400 transition">CANVA PORTFOLIO →</a>
             </div>
         </div>
     </footer>
@@ -573,8 +568,7 @@
     <script>
         window.onload = function() {
             // Theme Toggle
-            const themeToggle = document.getElementById('themeToggle');
-            themeToggle.addEventListener('click', () => {
+            document.getElementById('themeToggle').addEventListener('click', () => {
                 document.body.classList.toggle('dark');
             });
 
@@ -583,12 +577,12 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add('active');
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.15 });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
             // Typing Effect
             const typingText = document.getElementById('typing-text');
-            const phrases = ["✨ Learning & Development Enthusiast", "🧩 Instructional Designer", "💻 Content Developer"];
+            const phrases = ["✨ Learning & Development Enthusiast", "🧩 Instructional Designer", "💻 Digital Learning Content Developer", "🚀 Curiosity-Driven Educator"];
             let pIdx = 0, cIdx = 0, deleting = false;
 
             function type() {
