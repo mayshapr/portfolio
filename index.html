@@ -13,8 +13,8 @@
     
     <style>
         :root {
-            --primary-purple: #7c3aed;
-            --hover-purple: #6d28d9;
+            --primary-pink: #ec4899; /* Pink-500 */
+            --hover-pink: #db2777;  /* Pink-600 */
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -43,17 +43,17 @@
             transform: translateY(0);
         }
         
-        /* Tombol Ungu Solid Request */
-        .btn-purple {
-            background-color: var(--primary-purple);
+        /* Tombol Pink Solid Request */
+        .btn-pink {
+            background-color: var(--primary-pink);
             color: white;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
         }
-        .btn-purple:hover {
-            background-color: var(--hover-purple);
+        .btn-pink:hover {
+            background-color: var(--hover-pink);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
         }
 
         /* Animasi Blob dari Versi Favorit */
@@ -67,7 +67,7 @@
             animation: blob 7s infinite;
         }
 
-        /* Starfield Animation untuk Footer */
+        /* Starfield Animation untuk Footer (Diperjelas) */
         @keyframes stars {
             from { transform: translateY(0px); }
             to { transform: translateY(-1000px); }
@@ -75,13 +75,15 @@
         .star-field {
             position: absolute;
             top: 0; left: 0; width: 200%; height: 200%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0));
+            background-image: radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                              radial-gradient(2.5px 2.5px at 50px 160px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                              radial-gradient(3px 3px at 90px 40px, #ffd700, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 150px 100px, #ffb6c1, rgba(0,0,0,0));
             background-repeat: repeat;
             background-size: 200px 200px;
             animation: stars 100s linear infinite;
-            opacity: 0.2;
+            opacity: 0.7; /* Opacity ditingkatkan agar lebih jelas */
+            filter: drop-shadow(0 0 4px rgba(255,255,255,0.6)); /* Glow bintang */
         }
 
         /* Typing Cursor */
@@ -96,26 +98,62 @@
             vertical-align: middle;
         }
         @keyframes blink { 50% { opacity: 0; } }
+
+        /* Mesh Gradient & Floating Animations (Fitur Baru Core Skills) */
+        .mesh-bg-1 {
+            background-image: radial-gradient(at 80% 0%, hsla(330, 100%, 85%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 0% 100%, hsla(340, 100%, 85%, 0.4) 0px, transparent 50%);
+        }
+        .dark .mesh-bg-1 {
+            background-image: radial-gradient(at 80% 0%, hsla(330, 80%, 40%, 0.2) 0px, transparent 50%),
+                              radial-gradient(at 0% 100%, hsla(340, 80%, 40%, 0.2) 0px, transparent 50%);
+        }
+        .mesh-bg-2 {
+            background-image: radial-gradient(at 0% 0%, hsla(350, 100%, 85%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(320, 100%, 85%, 0.4) 0px, transparent 50%);
+        }
+        .dark .mesh-bg-2 {
+            background-image: radial-gradient(at 0% 0%, hsla(350, 80%, 40%, 0.2) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(320, 80%, 40%, 0.2) 0px, transparent 50%);
+        }
+
+        @keyframes float-skill {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-anim { animation: float-skill 4s ease-in-out infinite; }
+        .float-anim-delay-1 { animation: float-skill 5s ease-in-out infinite 1s; }
+        .float-anim-delay-2 { animation: float-skill 4.5s ease-in-out infinite 0.5s; }
+
+        /* Interaktif Icon Footer Kreatif */
+        .social-creative {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .social-creative:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
 
     <!-- Latar Belakang Animasi Blobs -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-violet-200/40 dark:bg-violet-900/20 rounded-full blur-3xl animate-blob"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-fuchsia-200/40 dark:bg-fuchsia-900/20 rounded-full blur-3xl animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-pink-200/40 dark:bg-pink-900/20 rounded-full blur-3xl animate-blob"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-rose-200/40 dark:bg-rose-900/20 rounded-full blur-3xl animate-blob" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Navigasi -->
     <nav class="fixed w-full z-50 p-4">
         <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl p-4 shadow-sm">
-            <h1 class="text-2xl font-black font-heading text-violet-600 tracking-tighter">MA.</h1>
+            <h1 class="text-2xl font-black font-heading text-pink-500 tracking-tighter">MA.</h1>
             <div class="flex items-center gap-6">
                 <ul class="hidden md:flex gap-8 font-bold text-xs uppercase tracking-widest">
-                    <li><a href="#home" class="hover:text-violet-600 transition">Home</a></li>
-                    <li><a href="#about" class="hover:text-violet-600 transition">About</a></li>
-                    <li><a href="#experience" class="hover:text-violet-600 transition">Experience</a></li>
-                    <li><a href="#projects" class="hover:text-violet-600 transition">Projects</a></li>
+                    <li><a href="#home" class="hover:text-pink-500 transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-pink-500 transition">About</a></li>
+                    <li><a href="#experience" class="hover:text-pink-500 transition">Experience</a></li>
+                    <li><a href="#education" class="hover:text-pink-500 transition">Education</a></li>
+                    <li><a href="#projects" class="hover:text-pink-500 transition">Projects</a></li>
                 </ul>
                 <button id="themeToggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                     <i class="fa-solid fa-moon dark:hidden"></i>
@@ -131,7 +169,7 @@
             <div class="reveal">
                 <p class="text-xl md:text-3xl font-heading font-black text-slate-400 dark:text-slate-500 mb-2 uppercase tracking-[0.2em]">Hi, I am</p>
                 
-                <h1 class="text-6xl md:text-7xl font-heading font-black leading-none tracking-tighter mb-8 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-violet-600 bg-clip-text text-transparent">
+                <h1 class="text-6xl md:text-7xl font-heading font-black leading-none tracking-tighter mb-8 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 bg-clip-text text-transparent">
                     MAYSHA <br class="md:hidden"> APRILLIA
                 </h1>
 
@@ -145,10 +183,10 @@
                     </p>
                     
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="#projects" class="btn-purple px-10 py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-xl">
+                        <a href="#projects" class="btn-pink px-10 py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-xl">
                             Explore My Work
                         </a>
-                        <a href="#contact" class="px-10 py-4 rounded-2xl font-black border-2 border-slate-200 dark:border-slate-800 hover:border-violet-600 hover:text-violet-600 transition text-sm uppercase tracking-wider bg-white/50 dark:bg-transparent backdrop-blur-sm">
+                        <a href="#contact" class="px-10 py-4 rounded-2xl font-black border-2 border-slate-200 dark:border-slate-800 hover:border-pink-500 hover:text-pink-500 transition text-sm uppercase tracking-wider bg-white/50 dark:bg-transparent backdrop-blur-sm">
                             Let's Talk
                         </a>
                     </div>
@@ -157,7 +195,7 @@
         </div>
     </section>
 
-    <!-- Tentang Saya - Proporsional Layout Request -->
+    <!-- Tentang Saya -->
     <section id="about" class="py-24 px-6">
         <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
             <div class="grid md:grid-cols-12 gap-12 items-center">
@@ -165,7 +203,7 @@
                 <!-- Foto Proporsional & Tengah -->
                 <div class="md:col-span-5 flex justify-center reveal">
                     <div class="relative w-64 h-80">
-                        <div class="absolute inset-0 bg-violet-600 rounded-[2rem] rotate-3 opacity-20"></div>
+                        <div class="absolute inset-0 bg-pink-500 rounded-[2rem] rotate-3 opacity-20"></div>
                         <div class="relative w-full h-full rounded-[2rem] bg-slate-900 overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl flex items-center justify-center">
                             <span class="text-white/20 font-black text-xl">[FOTO]</span>
                         </div>
@@ -175,7 +213,7 @@
                 <!-- Teks Teratur -->
                 <div class="md:col-span-7 reveal">
                     <h2 class="text-3xl font-heading font-black mb-6 flex items-center gap-4">
-                        <span class="w-10 h-1 bg-violet-600 rounded-full"></span> 
+                        <span class="w-10 h-1 bg-pink-500 rounded-full"></span> 
                         TENTANG SAYA
                     </h2>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
@@ -184,19 +222,41 @@
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                            <h4 class="font-black text-violet-600 mb-1 uppercase text-[10px] tracking-widest">Pendidikan</h4>
+                            <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Pendidikan</h4>
                             <p class="text-sm font-bold">S1 Pendidikan UPI (3.79)</p>
                         </div>
                         <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                            <h4 class="font-black text-violet-600 mb-1 uppercase text-[10px] tracking-widest">Keahlian</h4>
+                            <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Keahlian</h4>
                             <p class="text-sm font-bold">L&D & Instructional Design</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Ikon Tools - Font Awesome Fix -->
-            <div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 reveal text-center">
+            <!-- Core Skills - Fitur Tambahan Floating Mesh Cards -->
+            <div class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 reveal">
+                <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 text-center">Core Skills</h3>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-5">
+                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
+                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Instructional Design</span>
+                    </div>
+                    <div class="glass mesh-bg-2 px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(2fb,113,133,0.1)] border-white/60 dark:border-slate-700/50">
+                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Training Facilitator</span>
+                    </div>
+                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim-delay-2 shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
+                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Digital Learning Content Development</span>
+                    </div>
+                    <div class="glass mesh-bg-2 px-6 py-4 rounded-2xl float-anim shadow-[0_8px_20px_rgba(2fb,113,133,0.1)] border-white/60 dark:border-slate-700/50">
+                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Editorial Layout Design</span>
+                    </div>
+                    <div class="glass mesh-bg-1 px-6 py-4 rounded-2xl float-anim-delay-1 shadow-[0_8px_20px_rgba(236,72,153,0.1)] border-white/60 dark:border-slate-700/50">
+                        <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Content Writing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ikon Tools -->
+            <div class="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 reveal text-center">
                 <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-10">Tools I Use Regularly</h3>
                 <div class="flex flex-wrap justify-center gap-10 md:gap-16 text-slate-400">
                     <div class="flex flex-col items-center gap-3 group">
@@ -208,7 +268,7 @@
                         <span class="text-[10px] font-black group-hover:text-slate-600">CANVA</span>
                     </div>
                     <div class="flex flex-col items-center gap-3 group">
-                        <i class="fa-solid fa-laptop-code text-4xl group-hover:text-violet-600 transition-all"></i>
+                        <i class="fa-solid fa-laptop-code text-4xl group-hover:text-pink-500 transition-all"></i>
                         <span class="text-[10px] font-black group-hover:text-slate-600">ARTICULATE</span>
                     </div>
                     <div class="flex flex-col items-center gap-3 group">
@@ -224,20 +284,20 @@
         </div>
     </section>
 
-    <!-- Experience & Education (Content Restored) -->
+    <!-- Experience -->
     <section id="experience" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-heading font-black uppercase tracking-tight italic">Experience</h2>
-                <div class="w-20 h-1.5 bg-violet-600 mx-auto mt-4 rounded-full"></div>
+                <div class="w-20 h-1.5 bg-pink-500 mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="space-y-12">
                 <!-- Exp 1 -->
                 <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
-                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-violet-600 rounded-full border-4 border-white dark:border-slate-950"></div>
+                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-pink-500 rounded-full border-4 border-white dark:border-slate-950"></div>
                     <div class="mb-2">
-                        <span class="text-xs font-black text-violet-600 uppercase tracking-widest">07/2024 — 12/2024</span>
+                        <span class="text-xs font-black text-pink-500 uppercase tracking-widest">07/2024 — 12/2024</span>
                         <h3 class="text-2xl font-black font-heading mt-1">Training Officer</h3>
                         <p class="font-bold text-slate-500 italic">Studio Renang</p>
                     </div>
@@ -250,9 +310,9 @@
 
                 <!-- Exp 2 -->
                 <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
-                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-fuchsia-600 rounded-full border-4 border-white dark:border-slate-950"></div>
+                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-rose-400 rounded-full border-4 border-white dark:border-slate-950"></div>
                     <div class="mb-2">
-                        <span class="text-xs font-black text-fuchsia-600 uppercase tracking-widest">07/2023 — 12/2023</span>
+                        <span class="text-xs font-black text-rose-400 uppercase tracking-widest">07/2023 — 12/2023</span>
                         <h3 class="text-2xl font-black font-heading mt-1">Guru Bahasa Indonesia</h3>
                         <p class="font-bold text-slate-500 italic">SMA Kartika XIX-2 Bandung</p>
                     </div>
@@ -262,8 +322,48 @@
         </div>
     </section>
 
+    <!-- Education Section (Baru Ditambahkan) -->
+    <section id="education" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-heading font-black uppercase tracking-tight italic">Education</h2>
+                <div class="w-20 h-1.5 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Edu 1 -->
+                <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
+                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-pink-500 rounded-full border-4 border-white dark:border-slate-950"></div>
+                    <div class="mb-2">
+                        <span class="text-xs font-black text-pink-500 uppercase tracking-widest">Lulus 2023</span>
+                        <h3 class="text-2xl font-black font-heading mt-1">S1 Pendidikan Bahasa dan Sastra Indonesia</h3>
+                        <p class="font-bold text-slate-500 italic">Universitas Pendidikan Indonesia</p>
+                    </div>
+                    <ul class="text-slate-600 dark:text-slate-400 space-y-2 list-disc list-outside ml-4 text-sm leading-relaxed">
+                        <li>IPK: 3.79/4.00</li>
+                        <li>Skripsi: Pengembangan Aplikasi Mobile Learning Edukasi BEBI Berbasis Model ADDIE.</li>
+                    </ul>
+                </div>
+
+                <!-- Edu 2 -->
+                <div class="reveal relative pl-10 border-l-2 border-slate-200 dark:border-slate-700">
+                    <div class="absolute -left-2.5 top-0 w-5 h-5 bg-rose-400 rounded-full border-4 border-white dark:border-slate-950"></div>
+                    <div class="mb-2">
+                        <span class="text-xs font-black text-rose-400 uppercase tracking-widest">Lulus 2018</span>
+                        <h3 class="text-2xl font-black font-heading mt-1">Teknik Komputer dan Jaringan</h3>
+                        <p class="font-bold text-slate-500 italic">SMK Negeri 26 Jakarta</p>
+                    </div>
+                    <ul class="text-slate-600 dark:text-slate-400 space-y-2 list-disc list-outside ml-4 text-sm leading-relaxed">
+                        <li>Nilai: 88/100</li>
+                        <li>Project Work: Rancang Bangun Aplikasi Sistem Absensi Siswa Berbasis Web & Mobile di SMK Negeri 26 Jakarta.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Grid -->
-    <section id="projects" class="py-24 px-6">
+    <section id="projects" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-heading font-black uppercase tracking-tight">Projects</h2>
@@ -271,55 +371,89 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="reveal glass p-8 rounded-[2rem] border-b-4 border-violet-600 hover:-translate-y-2 transition-transform">
-                    <i class="fa-solid fa-mobile-screen text-4xl text-violet-600 mb-6"></i>
-                    <h3 class="text-xl font-black mb-2">APLIKASI BEBI</h3>
+                <!-- Project 1 -->
+                <div class="reveal glass p-6 rounded-[2rem] border-b-4 border-pink-500 hover:-translate-y-2 transition-transform">
+                    <div class="w-full h-44 mb-6 rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600&h=400" alt="Mobile App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-pink-500/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    <h3 class="text-xl font-black mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen text-pink-500"></i> APLIKASI BEBI
+                    </h3>
                     <p class="text-sm text-slate-500">Mobile learning app dengan model ADDIE untuk skripsi.</p>
                 </div>
-                <div class="reveal glass p-8 rounded-[2rem] border-b-4 border-fuchsia-600 hover:-translate-y-2 transition-transform" style="transition-delay: 0.1s;">
-                    <i class="fa-solid fa-laptop text-4xl text-fuchsia-600 mb-6"></i>
-                    <h3 class="text-xl font-black mb-2">MODUL DIGITAL</h3>
+                
+                <!-- Project 2 -->
+                <div class="reveal glass p-6 rounded-[2rem] border-b-4 border-rose-500 hover:-translate-y-2 transition-transform" style="transition-delay: 0.1s;">
+                    <div class="w-full h-44 mb-6 rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400" alt="Digital Module" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-rose-500/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    <h3 class="text-xl font-black mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop text-rose-500"></i> MODUL DIGITAL
+                    </h3>
                     <p class="text-sm text-slate-500">Interaktif e-learning untuk siswa SMA Kartika.</p>
                 </div>
-                <div class="reveal glass p-8 rounded-[2rem] border-b-4 border-slate-600 hover:-translate-y-2 transition-transform" style="transition-delay: 0.2s;">
-                    <i class="fa-solid fa-id-card text-4xl text-slate-600 mb-6"></i>
-                    <h3 class="text-xl font-black mb-2">ABSENSI WEB</h3>
+                
+                <!-- Project 3 -->
+                <div class="reveal glass p-6 rounded-[2rem] border-b-4 border-slate-600 hover:-translate-y-2 transition-transform" style="transition-delay: 0.2s;">
+                    <div class="w-full h-44 mb-6 rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=600&h=400" alt="Web Absensi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-500/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    <h3 class="text-xl font-black mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-slate-600"></i> ABSENSI WEB
+                    </h3>
                     <p class="text-sm text-slate-500">Sistem manajemen absensi SMK Negeri 26 Jakarta.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Galaxy (Versi Favorit) -->
+    <!-- Footer Galaxy dengan Form Email -->
     <footer id="contact" class="relative overflow-hidden pt-32 pb-16 bg-slate-950">
         <div class="star-field"></div>
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-pink-600/20 blur-[120px] rounded-full"></div>
 
         <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="text-center reveal mb-20">
-                <h2 class="text-5xl md:text-7xl font-heading font-black mb-6 text-white tracking-tighter">
-                    LET'S BUILD <br/> 
-                    <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-blue-400 bg-clip-text text-transparent italic">Something Great</span>
-                </h2>
-                <p class="text-slate-400 font-bold uppercase tracking-widest text-xs">maysha9910@gmail.com</p>
-            </div>
-            
-            <!-- Ikon Media Sosial - Font Awesome Fix -->
-            <div class="flex justify-center gap-8 mb-24">
-                <a href="https://linkedin.com/in/maysha-aprillia" target="_blank" class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#0077B5] hover:border-transparent transition-all transform hover:-translate-y-2">
-                    <i class="fa-brands fa-linkedin-in text-3xl"></i>
-                </a>
-                <a href="https://instagram.com/mayshaprl" target="_blank" class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent transition-all transform hover:-translate-y-2">
-                    <i class="fa-brands fa-instagram text-3xl"></i>
-                </a>
-                <a href="mailto:maysha9910@gmail.com" class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-violet-600 hover:border-transparent transition-all transform hover:-translate-y-2">
-                    <i class="fa-solid fa-envelope text-3xl"></i>
-                </a>
+            <div class="grid md:grid-cols-2 gap-16 mb-24 items-center">
+                
+                <!-- Teks & Ikon Media Sosial -->
+                <div class="text-left reveal">
+                    <h2 class="text-5xl md:text-7xl font-heading font-black mb-6 text-white tracking-tighter">
+                        LET'S BUILD <br/> 
+                        <span class="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-300 bg-clip-text text-transparent italic">Something Great</span>
+                    </h2>
+                    <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-10">maysha9910@gmail.com</p>
+                    
+                    <div class="flex gap-6">
+                        <a href="https://linkedin.com/in/maysha-aprillia" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#0077B5] hover:border-transparent">
+                            <i class="fa-brands fa-linkedin-in text-3xl"></i>
+                        </a>
+                        <a href="https://instagram.com/mayshaprl" target="_blank" class="social-creative w-16 h-16 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Contact (Baru Ditambahkan) -->
+                <div class="reveal glass bg-white/5 border border-white/10 p-8 rounded-[2rem] shadow-2xl">
+                    <h3 class="text-white font-black text-2xl font-heading mb-6">Kirim Pesan</h3>
+                    <form action="#" method="POST" class="flex flex-col gap-4">
+                        <input type="text" placeholder="Nama Anda" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all">
+                        <input type="email" placeholder="Email Anda" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all">
+                        <textarea rows="4" placeholder="Pesan Anda..." required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all resize-none"></textarea>
+                        <button type="submit" class="btn-pink w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm mt-2 flex items-center justify-center gap-2">
+                            Kirim <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
             </div>
 
             <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
                 <p>&copy; 2024 Maysha Aprillia • Handcrafted with Love</p>
-                <a href="https://maysha-portfolio.my.canva.site" target="_blank" class="hover:text-fuchsia-400 transition flex items-center gap-2">
+                <a href="https://maysha-portfolio.my.canva.site" target="_blank" class="hover:text-rose-400 transition flex items-center gap-2">
                     CANVA PORTFOLIO <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
