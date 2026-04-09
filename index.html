@@ -1117,170 +1117,375 @@
 </footer>
 
     <script>
-        // ==================== 1. DATA PROJECT (Isi dari Canva/Portofoliomu) ====================
-    const projectData = [
-        {
-            title: "Gamified Onboarding System",
-            badge: "Instructional Design",
-            img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200", // Ganti link ini dengan gambar projectmu
-            desc: "Transformasi SOP retail menjadi perjalanan belajar 21 hari yang interaktif. Fokus pada retensi tinggi bagi manajer baru melalui elemen gamifikasi.",
-            impact: "95% Readiness Rate",
-            stack: "Articulate 360",
-            gallery: [
-                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400",
-                "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400"
-            ]
-        },
-        {
-            title: "Toko Maysha Jaya Branding",
-            badge: "Creative Branding",
-            img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200",
-            desc: "Digitalisasi bisnis distribusi telur tradisional menjadi brand modern. Mencakup pembuatan logo, visual identity, dan optimasi Shopee store.",
-            impact: "Professional Presence",
-            stack: "Figma & Canva",
-            gallery: [
-                "https://images.unsplash.com/photo-1506784919141-93503993f310?q=80&w=400",
-                "https://images.unsplash.com/photo-1522071823991-b9671e30326e?q=80&w=400"
-            ]
-        },
-        {
-            title: "Digital Training Module",
-            badge: "E-Learning",
-            img: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1200",
-            desc: "Pengembangan konten pembelajaran asinkronus untuk siswa SMA, mengintegrasikan podcast dan modul digital interaktif.",
-            impact: "Score Average 90+",
-            stack: "CapCut & Canva",
-            gallery: [
-                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400",
-                "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=400"
-            ]
-        }
-    ];
+        // ==================== GLOBAL VARIABLES & DATA ====================
+        let isGridMode = false;
+        let autoSlide;
+        let currentIdx = 0;
 
-    // ==================== 2. CORE FUNCTIONS (Layout & Render) ====================
-    let isGrid = false;
-    const marquee = document.getElementById('marquee');
-    const layoutBtn = document.getElementById('toggleLayout');
-    const layoutText = document.getElementById('layoutText');
+        const projectsData = [
+            { id: 0, title: "LMS Gamification", tags: ["Instructional Design"], desc: "Mengembangkan modul onboarding berbasis game untuk meningkatkan engagement karyawan baru hingga 40%.", role: "Content Specialist", tech: "Articulate 360", visual: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800" },
+            { id: 1, title: "Maysha Jaya Branding", tags: ["Branding", "E-Commerce"], desc: "Digitalisasi bisnis distribusi telur tradisional menjadi brand modern di platform Shopee.", role: "Digital Strategist", tech: "Figma & Canva", visual: "https://images.unsplash.com/photo-1506784919141-93503993f310?q=80&w=800" },
+            { id: 2, title: "Leadership Workshop", tags: ["Corporate Training"], desc: "Penyusunan kurikulum pelatihan kepemimpinan untuk manajer tingkat menengah.", role: "L&D Trainer", tech: "Adobe Premiere", visual: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" },
+            { id: 3, title: "Micro-Learning Series", tags: ["Digital Content"], desc: "Produksi video pembelajaran durasi pendek untuk internal organisasi.", role: "Motion Designer", tech: "After Effects", visual: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" }
+        ];
 
-    function renderCards() {
-        marquee.innerHTML = '';
-        // Jika Slider, kita duplikasi datanya agar loop mulus (infinite)
-        const list = isGrid ? projectData : [...projectData, ...projectData];
-        
-        list.forEach((project, index) => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <img src="${project.img}" class="project-img" alt="${project.title}">
-                <div class="card-overlay text-white">
-                    <span class="text-[10px] font-bold uppercase tracking-widest">${project.badge}</span>
-                    <h4 class="text-3xl font-black mt-1 font-heading">${project.title}</h4>
-                    <button class="view-btn" onclick="openModal(${index % projectData.length})">
-                        View Project <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+        // ==================== CORE FUNCTIONS ====================
+        function renderCards() {
+            const viewport = document.getElementById('viewport');
+            if(!viewport) return;
+            viewport.innerHTML = projectsData.map((p, i) => `
+                <div class="project-card" id="card-${i}" onclick="openDetail(${i})">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('${p.visual}')"></div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">${p.tags.map(t => `<span class="tag-pill">${t}</span>`).join('')}</div>
+                        <h4 class="text-2xl font-bold font-heading mb-3 text-gray-900 dark:text-white">${p.title}</h4>
+                        <div class="mt-8 flex items-center text-pink-500 font-black text-[10px] uppercase tracking-[0.2em]">
+                            Lihat Detail <i class="fa-solid fa-arrow-right-long ml-3"></i>
+                        </div>
+                    </div>
                 </div>
-            `;
-            marquee.appendChild(card);
-        });
-    }
-
-    layoutBtn.addEventListener('click', () => {
-        isGrid = !isGrid;
-        document.body.classList.toggle('grid-mode');
-        layoutText.innerText = isGrid ? "Slider Mode" : "Grid Mode";
-        layoutBtn.querySelector('i').classList.toggle('fa-table-cells-large');
-        layoutBtn.querySelector('i').classList.toggle('fa-arrows-left-right');
-        renderCards();
-    });
-
-    // ==================== 3. MODAL LOGIC ====================
-    function openModal(id) {
-        const data = projectData[id];
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalDesc').innerText = data.desc;
-        document.getElementById('modalImpact').innerText = data.impact;
-        document.getElementById('modalStack').innerText = data.stack;
-        document.getElementById('modalBadge').innerHTML = `<span class="px-4 py-2 bg-pink-100 text-pink-500 rounded-full text-xs font-bold uppercase">${data.badge}</span>`;
-        document.getElementById('modalImg').style.backgroundImage = `url(${data.img})`;
-        
-        document.getElementById('modalGallery').innerHTML = data.gallery.map(img => `
-            <div class="gallery-item"><img src="${img}" alt="gallery"></div>
-        `).join('');
-        
-        document.getElementById('projectModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        document.getElementById('projectModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // ==================== 4. UI ENHANCEMENTS (Typing, Theme, etc.) ====================
-    function initTyping() {
-        const typingText = document.getElementById('typing-text');
-        const phrases = ["Learning & Development Specialist", "Instructional Designer", "Digital Content Creator"];
-        let pIdx = 0, cIdx = 0, deleting = false;
-
-        function type() {
-            const current = phrases[pIdx];
-            typingText.innerHTML = current.substring(0, cIdx);
-            
-            if (!deleting && cIdx < current.length) {
-                cIdx++;
-                setTimeout(type, 100);
-            } else if (deleting && cIdx > 0) {
-                cIdx--;
-                setTimeout(type, 50);
-            } else {
-                deleting = !deleting;
-                if (!deleting) pIdx = (pIdx + 1) % phrases.length;
-                setTimeout(type, 1500);
-            }
+            `).join('');
+            updateCarousel();
         }
-        type();
-    }
 
-    // Theme Toggle
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        document.getElementById('moonIcon').classList.toggle('hidden');
-        document.getElementById('sunIcon').classList.toggle('hidden');
-    });
+        function updateCarousel() {
+            if (isGridMode) return;
+            projectsData.forEach((_, i) => {
+                const card = document.getElementById(`card-${i}`);
+                if (!card) return;
+                card.className = 'project-card';
+                if (i === currentIdx) card.classList.add('card-active');
+                else if (i === (currentIdx - 1 + projectsData.length) % projectsData.length) card.classList.add('card-prev');
+                else if (i === (currentIdx + 1) % projectsData.length) card.classList.add('card-next');
+                else card.classList.add('card-hidden');
+            });
+        }
 
-    // Flower Parallax
-    document.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth/2) / 40;
-        const moveY = (e.clientY - window.innerHeight/2) / 40;
-        document.getElementById('flowerTL').style.transform = `translate(${moveX}px, ${moveY}px)`;
-        document.getElementById('flowerBR').style.transform = `translate(${-moveX}px, ${-moveY}px)`;
-    });
+        function nextSlide() { 
+            currentIdx = (currentIdx + 1) % projectsData.length; 
+            updateCarousel(); 
+        }
 
-    // Scroll Reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
+        function prevSlide() { 
+            currentIdx = (currentIdx - 1 + projectsData.length) % projectsData.length; 
+            updateCarousel(); 
+        }
 
-    // Initialize All
+        function startAutoSlide() { 
+            clearInterval(autoSlide); 
+            if(!isGridMode) autoSlide = setInterval(nextSlide, 5000); 
+        }
+
+        function openDetail(id) {
+            const data = projectsData[id];
+            const overlay = document.getElementById('projectDetailOverlay');
+            if(!data || !overlay) return;
+
+            document.getElementById('detailVisual').style.backgroundImage = `url(${data.visual})`;
+            document.getElementById('detailTitle').innerText = data.title;
+            document.getElementById('detailDesc').innerText = data.desc;
+            document.getElementById('detailRole').innerText = data.role;
+            document.getElementById('detailTech').innerText = data.tech;
+            document.getElementById('detailTags').innerHTML = data.tags.map(t => `<span class="tag-pill">${t}</span>`).join('');
+            
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            clearInterval(autoSlide);
+        }
+
+        function closeDetail() {
+            const overlay = document.getElementById('projectDetailOverlay');
+            if(overlay) overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            startAutoSlide();
+        }
+
+        function closeDetailIfOutside(e) {
+            const overlay = document.getElementById('projectDetailOverlay');
+            if(e.target === overlay) closeDetail();
+        }
+
     document.addEventListener('DOMContentLoaded', () => {
-        renderCards();
-        initTyping();
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        
-        window.onclick = (e) => {
-            if (e.target == document.getElementById('projectModal')) closeModal();
-        };
+        // --- 1. Theme Toggle ---
+        const themeToggle = document.getElementById('themeToggle');
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
 
-        // Navbar Scroll
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                if (document.body.classList.contains('dark')) {
+                    moonIcon.classList.add('hidden');
+                    sunIcon.classList.remove('hidden');
+                } else {
+                    moonIcon.classList.remove('hidden');
+                    sunIcon.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- 2. Scroll Reveal Animation ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- 3. Typing Effect ---
+        const typingText = document.getElementById('typing-text');
+        if (typingText) {
+            const phrases = [
+                { emoji: "✨", text: "Learning & Development Enthusiast" },
+                { emoji: "🧩", text: "Instructional Designer" },
+                { emoji: "💻", text: "Digital Learning Content Developer" },
+                { emoji: "🚀", text: "Curiosity-Driven Educator" }
+            ];
+
+            let pIdx = 0;
+            let cIdx = 0;
+            let deleting = false;
+            let isPaused = false;
+
+            function type() {
+                if (isPaused) return;
+
+                const current = phrases[pIdx];
+
+                if (deleting) {
+                    typingText.innerHTML = `<span>${current.emoji}</span> ${current.text.substring(0, cIdx--)}`;
+                } else {
+                    typingText.innerHTML = `<span>${current.emoji}</span> ${current.text.substring(0, cIdx++)}`;
+                }
+
+                let speed = deleting ? 35 : 75;
+
+                if (!deleting && cIdx > current.text.length) {
+                    deleting = true;
+                    isPaused = true;
+                    setTimeout(() => { isPaused = false; type(); }, 1800);
+                    return;
+                }
+
+                if (deleting && cIdx < 0) {
+                    deleting = false;
+                    cIdx = 0;
+                    pIdx = (pIdx + 1) % phrases.length;
+                    isPaused = true;
+                    setTimeout(() => { isPaused = false; type(); }, 600);
+                    return;
+                }
+
+                setTimeout(type, speed);
+            }
+            
+            type();
+        }
+
+        // --- 4. Navbar Scroll Effect & Carousel Init ---
+        renderCards();
+        startAutoSlide();
+
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
-            else navbar.classList.remove('nav-scrolled');
+		window.addEventListener('scroll', () => {
+			// Kita gunakan variabel tambahan untuk cek posisi scroll
+			const scrollPos = window.scrollY || window.pageYOffset;
+
+			if (scrollPos > 50) {
+				// Cek dulu apakah class sudah ada, supaya browser tidak kerja dua kali
+				if (!navbar.classList.contains('nav-scrolled')) {
+					navbar.classList.add('nav-scrolled');
+				}
+			} else {
+				if (navbar.classList.contains('nav-scrolled')) {
+					navbar.classList.remove('nav-scrolled');
+				}
+			}
+		});
+
+        // --- 4b. View Toggle Logic ---
+        const viewToggle = document.getElementById('viewToggle');
+        const viewport = document.getElementById('viewport');
+        if(viewToggle && viewport) {
+            viewToggle.addEventListener('click', () => {
+                isGridMode = !isGridMode;
+                viewport.classList.toggle('grid-mode');
+                document.getElementById('controls').classList.toggle('hidden', isGridMode);
+                viewToggle.innerText = isGridMode ? 'Mode Carousel' : 'Mode Grid';
+                if (!isGridMode) { 
+                    updateCarousel(); 
+                    startAutoSlide(); 
+                } else { 
+                    clearInterval(autoSlide); 
+                    projectsData.forEach((_, i) => {
+                        const card = document.getElementById(`card-${i}`);
+                        if (card) card.className = 'project-card';
+                    });
+                }
+            });
+        }
+
+        // --- 5. Smooth Scroll for Nav Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return; // Prevent error if href="#"
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- 6. Enhanced Flower Parallax Interaction ---
+        const flowerTL = document.getElementById('flowerTL');
+        const flowerBR = document.getElementById('flowerBR');
+        
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            const moveX = (clientX - centerX) / 40;
+            const moveY = (clientY - centerY) / 40;
+            
+            if (flowerTL) flowerTL.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+            if (flowerBR) flowerBR.style.transform = `translate3d(${-moveX}px, ${-moveY}px, 0)`;
         });
     });
+	
+	const projectData = [
+            {
+                title: "LMS Gamified",
+                badge: "Instructional Design",
+                img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
+                desc: "Sistem manajemen pembelajaran dengan algoritma poin dan leaderboard untuk meningkatkan retensi materi.",
+                impact: "Completion Rate +45%",
+                stack: "Articulate 360",
+                gallery: [
+                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400",
+                    "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400"
+                ]
+            },
+            {
+                title: "Maysha Jaya",
+                badge: "Creative Branding",
+                img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
+                desc: "Transformasi identitas visual dari bisnis distribusi tradisional menjadi brand digital yang kompetitif.",
+                impact: "Social Presence 200%",
+                stack: "Adobe Illustrator",
+                gallery: [
+                    "https://images.unsplash.com/photo-1506784919141-93503993f310?q=80&w=400",
+                    "https://images.unsplash.com/photo-1522071823991-b9671e30326e?q=80&w=400"
+                ]
+            },
+            {
+                title: "Digital Training",
+                badge: "E-Learning",
+                img: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000",
+                desc: "Modul pelatihan asinkronus untuk tim operasional yang dapat diakses dari smartphone.",
+                impact: "Efficient Cost",
+                stack: "Vyond & Canvas",
+                gallery: [
+                    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400",
+                    "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=400"
+                ]
+            },
+            {
+                title: "UI Leadership",
+                badge: "Web Experience",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000",
+                desc: "Antarmuka dashboard untuk tracking performa kepemimpinan di level manajerial.",
+                impact: "Better Visual",
+                stack: "Figma & React",
+                gallery: [
+                    "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400",
+                    "https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=400"
+                ]
+            }
+        ];
+
+        const marquee = document.getElementById('marquee');
+        const layoutBtn = document.getElementById('toggleLayout');
+        const container = document.getElementById('projectContainer');
+        const layoutText = document.getElementById('layoutText');
+        let isGrid = false;
+
+        // Function to render cards
+        function renderCards() {
+            marquee.innerHTML = '';
+            // Clone if slider, single set if grid
+            const list = isGrid ? projectData : [...projectData, ...projectData];
+            
+            list.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <img src="${project.img}" class="project-img" alt="${project.title}">
+                    <div class="card-overlay text-white">
+                        <span class="text-[10px] font-bold uppercase tracking-widest">${project.badge}</span>
+                        <h4 class="text-3xl font-black mt-1 font-heading">${project.title}</h4>
+                        <button class="view-btn" onclick="openModal(${index % projectData.length})">
+                            View Project <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                `;
+                marquee.appendChild(card);
+            });
+        }
+
+        // Toggle Layout Logic
+        layoutBtn.addEventListener('click', () => {
+            isGrid = !isGrid;
+            document.body.classList.toggle('grid-mode');
+            layoutText.innerText = isGrid ? "Slider Mode" : "Grid Mode";
+            layoutBtn.querySelector('i').classList.toggle('fa-table-cells-large');
+            layoutBtn.querySelector('i').classList.toggle('fa-arrows-left-right');
+            renderCards();
+        });
+
+        // Modal Logic
+        function openModal(id) {
+            const data = projectData[id];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalDesc').innerText = data.desc;
+            document.getElementById('modalImpact').innerText = data.impact;
+            document.getElementById('modalStack').innerText = data.stack;
+            document.getElementById('modalBadge').innerHTML = `<span class="px-4 py-2 bg-pink-100 text-pink-500 rounded-full text-xs font-bold uppercase">${data.badge}</span>`;
+            document.getElementById('modalImg').style.backgroundImage = `url(${data.img})`;
+            
+            const galleryHtml = data.gallery.map(img => `
+                <div class="gallery-item">
+                    <img src="${img}" alt="gallery">
+                </div>
+            `).join('');
+            document.getElementById('modalGallery').innerHTML = galleryHtml;
+            
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('projectModal')) closeModal();
+        }
+
+        // Init
+        renderCards();
     </script>
 </body>
 </html>
