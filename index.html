@@ -35,6 +35,8 @@
             background: rgba(15, 23, 42, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
+        /* Reveal Animation Styles */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -57,30 +59,13 @@
             box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
         }
 
-        @keyframes blob {
+		@keyframes blob {
             0% { transform: translate(0px, 0px) scale(1); }
             33% { transform: translate(30px, -50px) scale(1.1); }
             66% { transform: translate(-20px, 20px) scale(0.9); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
         .animate-blob { animation: blob 7s infinite; }
-
-        .star-field {
-            position: absolute;
-            top: 0; left: 0; width: 200%; height: 200%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                              radial-gradient(2.5px 2.5px at 50px 160px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
-                              radial-gradient(3px 3px at 90px 40px, #ffd700, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 150px 100px, #ffb6c1, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            animation: stars 100s linear infinite;
-            opacity: 0.7;
-        }
-        @keyframes stars {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-1000px); }
-        }
 
         .typing-cursor::after {
             content: '';
@@ -102,6 +87,7 @@
         .float-anim { animation: float 4s ease-in-out infinite; }
         .float-anim-delay-1 { animation: float 5s ease-in-out infinite 1s; }
         .float-anim-delay-2 { animation: float 4.5s ease-in-out infinite 0.5s; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
 
         /* Social Creative Hover */
         .social-creative {
@@ -119,67 +105,505 @@
 		.social-item:hover {
 			transform: translateX(8px);
 		}
+
+        /* --- BAGIAN BUNGA GRADIENT INTERAKTIF --- */
+        .flower-hero {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            filter: blur(20px);
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+            transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation: slow-rotate 25s linear infinite;
+        }
+        
+        .flower-top-left { top: -15%; left: -10%; }
+        .flower-bottom-right { bottom: 0%; right: -10%; animation-direction: reverse; }
+
+        .flower-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #93c5fd, #60a5fa);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(147, 197, 253, 0.8), inset 0 0 15px rgba(255,255,255,0.6);
+            z-index: 10;
+            animation: pulse-core 4s ease-in-out infinite;
+        }
+
+        .petal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 170px;
+            height: 170px;
+            background: linear-gradient(135deg, #fbcfe8, #f472b6);
+            border: 2px solid rgba(253, 224, 71, 0.5);
+            border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+            transform-origin: 0% 0%;
+            animation: sway-enhanced 10s ease-in-out infinite alternate;
+            box-shadow: 
+                inset -10px -10px 20px rgba(255,255,255,0.4),
+                inset 10px 10px 20px rgba(0,0,0,0.05);
+        }
+
+        @keyframes slow-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-core {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); filter: brightness(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); filter: brightness(1.3); }
+        }
+
+        @keyframes sway-enhanced {
+            0% { 
+                transform: rotate(var(--angle)) scale(1) skew(0deg);
+                filter: hue-rotate(0deg) saturate(1);
+            }
+            50% {
+                filter: hue-rotate(10deg) saturate(1.2);
+            }
+            100% { 
+                transform: rotate(calc(var(--angle) + 25deg)) scale(1.1) skew(8deg);
+                filter: hue-rotate(-10deg) saturate(1);
+            }
+        }
+        /* --- AKHIR BAGIAN BUNGA --- */
+
+        .nav-scrolled #nav-inner {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .dark .nav-scrolled #nav-inner {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+		
+		/* LIGHT GLASSMORPHISM */
+        .glass-white {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-white:hover {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .input-light {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            color: #1e293b;
+            transition: all 0.3s ease;
+        }
+
+        .input-light:focus {
+            border-color: #ec4899;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.1);
+            outline: none;
+        }
+        
+        .pattern-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.5;
+        }
+
+        /* --- Custom Navigation --- */
+        #navbar {
+			transition: 
+				width 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+				top 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+				padding 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+				background-color 0.6s ease,
+				border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+				box-shadow 0.6s ease;
+			width: 100%;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%) translateZ(0); /* Tambahkan translateZ untuk akselerasi GPU */
+			padding: 1.5rem 2rem;
+			will-change: width, top, padding;
+			backface-visibility: hidden;
+		}
+
+		.nav-scrolled {
+			top: 15px !important;
+			width: 90% !important;
+			max-width: 1200px;
+			background: rgba(255, 255, 255, 0.75) !important;
+			backdrop-filter: blur(10px); /* Kurangi sedikit blur untuk performa */
+			-webkit-backdrop-filter: blur(10px);
+			border-radius: 24px;
+			padding: 0.75rem 2.5rem !important;
+			box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.4);
+		}
+
+        .dark .nav-scrolled {
+            background: rgba(15, 23, 42, 0.75) !important;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: var(--primary-pink);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Slider Container */
+        .slider-wrapper {
+            width: 100%;
+            padding: 60px 0;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .marquee-content {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        /* Animasi berhenti HANYA saat kursor di atas card tertentu */
+        .project-card:hover ~ .project-card { /* Optional: slow down effect */ }
+        
+        /* Logic baru: Wrapper tidak mematikan animasi, tapi Card yang memicu pause pada container */
+        .marquee-content:has(.project-card:hover) {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Project Card */
+        .project-card {
+            width: 320px;
+            height: 260px;
+            margin: 0 8px;
+            border-radius: 20px;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .dark .project-card { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+
+        .project-card:hover {
+            width: 450px;
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 100px -10px rgba(236, 72, 153, 0.3);
+            z-index: 10;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+            filter: brightness(0.6);
+        }
+
+        /* Grid Mode Styling */
+        .grid-mode .slider-wrapper {
+            overflow: visible;
+            padding: 40px 20px;
+        }
+        .grid-mode .marquee-content {
+            animation: none !important;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            width: 100% !important;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+            transform: none !important;
+        }
+        .grid-mode .project-card {
+            margin: 0;
+            width: 100%;
+        }
+        .grid-mode .project-card:nth-child(n+5) {
+            display: flex; /* Menampilkan clone yang biasanya tersembunyi jika diperlukan, atau filter unik */
+        }
+
+        /* Content Overlay */
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover .card-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .view-btn {
+            background: white;
+            color: var(--primary-pink);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease 0.2s;
+        }
+
+        .project-card:hover .view-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Modal Context */
+        #projectModal {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(25px);
+            background: rgba(15, 23, 42, 0.7);
+            padding: 20px;
+        }
+
+        .modal-body {
+            background: white;
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            box-shadow: 0 50px 150px -30px rgba(0,0,0,0.5);
+            animation: modalIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .dark .modal-body { background: #1e293b; color: white; }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Gallery in Modal */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 180px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+		
+		/* ENHANCED SLOW PULSE ANIMATION (WHITE FOR PINK BUTTON) */
+        @keyframes pulseEffect {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3.5); opacity: 0; }
+        }
+
+        .pulse-bullet-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 12px;
+            height: 12px;
+            margin-right: 14px;
+        }
+
+        .pulse-bullet-main {
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .pulse-bullet-ring {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: pulseEffect 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            z-index: 1;
+        }
+		
+		/* Bento Styles */
+        .bento-card {
+            background: #fff; border-radius: 35px; border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03); transition: all 0.4s ease;
+            overflow: hidden; position: relative; display: flex; flex-direction: column;
+        }
+        .dark .bento-card { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        .bento-card:hover { transform: translateY(-5px); border-color: rgba(236, 72, 153, 0.2); }
+        
+        .profile-blob {
+            position: absolute; width: 150%; height: 150%; top: -25%; left: -25%;
+            background: conic-gradient(from 0deg at 50% 50%, #ec4899, #8b5cf6, #3b82f6, #ec4899);
+            animation: spinBlob 12s linear infinite; opacity: 0.15; z-index: 0;
+        }
+        @keyframes spinBlob { 100% { transform: rotate(360deg); } }
+
+        .skill-pill {
+            background: #f8fafc; border: 1px solid #f1f5f9; color: #475569;
+            padding: 8px 16px; border-radius: 100px; font-size: 11px; font-weight: 700; transition: all 0.3s ease;
+        }
+        .skill-pill:hover { background: var(--primary-pink); color: white; transform: translateY(-2px); }
+
+        .tool-icon-wrapper {
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+            background: #f8fafc; border-radius: 15px; transition: all 0.3s ease;
+        }
+        .dark .tool-icon-wrapper { background: rgba(15, 23, 42, 0.4); }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
 
-    <!-- Background Blobs -->
+	<!-- Background Blobs -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-pink-200/40 dark:bg-pink-900/20 rounded-full blur-3xl animate-blob"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-rose-200/40 dark:bg-rose-900/20 rounded-full blur-3xl animate-blob" style="animation-delay: 2s;"></div>
     </div>
 
-    <!-- Navigation - Fixed + Smooth Scroll + Toggle Fix -->
-	<nav id="navbar" class="fixed w-full z-50 pt-4 transition-all duration-300">
-		<div id="nav-container" class="max-w-6xl mx-auto px-1 py-1 transition-all duration-500">
-			<div class="flex justify-between items-center bg-transparent backdrop-blur-none rounded-3xl px-5 py-3 transition-all duration-500">
-				
-				<h1 class="text-2xl font-black font-heading text-pink-500 tracking-tighter">MA.</h1>
-				
-				<div class="flex items-center gap-6">
-					<ul class="hidden md:flex gap-8 font-bold text-xs uppercase tracking-widest">
-						<li><a href="#home" class="hover:text-pink-500 transition-colors">Home</a></li>
-						<li><a href="#about" class="hover:text-pink-500 transition-colors">About</a></li>
-						<li><a href="#experience" class="hover:text-pink-500 transition-colors">Experience</a></li>
-						<li><a href="#education" class="hover:text-pink-500 transition-colors">Education</a></li>
-						<li><a href="#projects" class="hover:text-pink-500 transition-colors">Projects</a></li>
-					</ul>
-					
-					<!-- Tombol Theme Toggle yang sudah diperbaiki -->
-					<button id="themeToggle" class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all hover:scale-105">
-						<i id="moonIcon" class="fa-solid fa-moon"></i>
-						<i id="sunIcon" class="fa-solid fa-sun hidden"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</nav>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed z-50 flex justify-between items-center bg-transparent">
+        <div class="flex items-center gap-2">
+			<div class="text-slate-900 font-heading font-black text-xl tracking-tighter">
+             Maysha<span class="text-pink-500">.</span>
+            </div>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-10">
+            <a href="#about" class="nav-link text-gray-500 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 uppercase tracking-widest text-[11px] font-bold">About</a>
+			<a href="#experience" class="nav-link text-gray-500 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 uppercase tracking-widest text-[11px] font-bold">Experience</a>
+			<a href="#contact" class="nav-link text-gray-500 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 uppercase tracking-widest text-[11px] font-bold">Contact</a>
+            <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-sm text-slate-600 dark:text-slate-300 transition-all hover:scale-110">
+                <i id="moonIcon" class="fa-solid fa-moon"></i>
+                <i id="sunIcon" class="fa-solid fa-sun hidden"></i>
+            </button>
+        </div>
+
+        <button class="md:hidden text-gray-800 dark:text-white text-2xl">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        
+        <!-- Interactive Flower Background -->
+        <div id="flowerTL" class="flower-hero flower-top-left">
+            <div class="petal" style="--angle: 0deg;"></div>
+            <div class="petal" style="--angle: 90deg;"></div>
+            <div class="petal" style="--angle: 180deg;"></div>
+            <div class="petal" style="--angle: 270deg;"></div>
+            <div class="flower-core"></div>
+        </div>
+
+        <div id="flowerBR" class="flower-hero flower-bottom-right">
+            <div class="petal" style="--angle: 45deg;"></div>
+            <div class="petal" style="--angle: 135deg;"></div>
+            <div class="petal" style="--angle: 225deg;"></div>
+            <div class="petal" style="--angle: 315deg;"></div>
+            <div class="flower-core"></div>
+        </div>
+		
         <div class="max-w-5xl text-center">
             <div class="reveal">
-                <p class="text-xl md:text-3xl font-heading font-black text-slate-400 dark:text-slate-500 mb-2 uppercase tracking-[0.2em]">Hi, I am</p>
+                <p class="text-xl md:text-3xl font-heading font-black text-slate-400 dark:text-slate-500 mb-2 tracking-[0.05em]">Hi, I am</p>
                 
-                <h1 class="text-6xl md:text-7xl font-heading font-black leading-none tracking-tighter mb-8 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 bg-clip-text text-transparent">
-                    MAYSHA <br class="md:hidden"> APRILLIA
-                </h1>
+                <h1 class="text-6xl md:text-8xl font-heading font-black leading-none tracking-tighter mb-8 bg-gradient-to-br from-rose-500 via-pink-300 to-rose-300 bg-clip-text text-transparent bg-[length:200%_auto] hover:bg-right transition-all duration-1000 cursor-default">
+                <span class="font-iconic pr-2">M</span>aysha <br class="md:hidden">
+				</h1>
 
                 <div class="flex flex-col items-center gap-7">
-                    <div class="px-6 py-3 rounded-2xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-800">
-                        <span id="typing-text" class="typing-cursor text-lg md:text-2xl font-bold text-slate-700 dark:text-slate-300"></span>
-                    </div>
+					<div class="px-6 py-3 rounded-2xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-800">
+						<span id="typing-text" class="typing-cursor text-base md:text-lg font-bold text-slate-700 dark:text-slate-300"></span>
+					</div>
 
-                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                        Crafting interactive digital learning experiences that drive meaningful engagement and measurable learning outcomes.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 justify-center mt-4 md:mt-6">
-                        <a href="#projects" class="btn-pink px-10 py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-xl">
-                            Explore My Work
+					<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+						Crafting interactive digital learning experiences that drive meaningful engagement and measurable learning outcomes.
+					</p>
+
+                    <div class="flex flex-wrap justify-center gap-6 mt-6">
+                        <!-- BUTTON DOWNLOAD CV: Dengan Bullet Pulse & Animasi Icon Slide Down -->
+                        <a href="https://drive.google.com/file/d/1y6iEFd8xSufeArI94Qi6zAc3wOn26Ciw/view?usp=sharing" target="_blank" rel="noopener noreferrer" 
+                           class="group inline-flex items-center px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-xs bg-pink-500 text-white shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all duration-300">
+                            <div class="pulse-bullet-container">
+                                <div class="pulse-bullet-main"></div>
+                                <div class="pulse-bullet-ring"></div>
+                            </div>
+                            <span class="mr-3">Download My CV</span>
+                            
                         </a>
-                        <a href="#contact" class="px-10 py-4 rounded-2xl font-black border-2 border-slate-200 dark:border-slate-800 hover:border-pink-500 hover:text-pink-500 transition text-sm uppercase tracking-wider bg-white/50 dark:bg-transparent backdrop-blur-sm">
-                            Let's Talk
+					
+                        <a href="#project" class="px-10 py-4 rounded-2xl font-black border-2 border-slate-200 dark:border-slate-800 hover:border-pink-500 hover:text-pink-500 transition text-xs uppercase tracking-wider bg-white/50 dark:bg-transparent backdrop-blur-sm">
+                            Explore My Work
                         </a>
                     </div>
                 </div>
@@ -187,376 +611,401 @@
         </div>
     </section>
 
-    <!-- About Section - Versi Diperbaiki -->
-<section id="about" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
-        <div class="grid md:grid-cols-12 gap-12 items-center">
-            
-            <!-- Foto Profil -->
-			<div class="md:col-span-5 flex justify-center reveal">
-			    <div class="relative w-64 h-80">
-			        <div class="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-400 rounded-[2rem] rotate-3 opacity-20"></div>
-			        <img src="https://raw.githubusercontent.com/mayshapr/portfolio/main/WhatsApp%20Image%202024-06-24%20at%2015.55.48_8ebb641f.jpg" 
-			             alt="Maysha Aprillia"
-			             class="relative w-full h-full object-cover rounded-[2rem] border-4 border-white dark:border-slate-700 shadow-2xl">
-			    </div>
-			</div>
-
-            <!-- Teks -->
-            <div class="md:col-span-7 reveal">
-                <h2 class="text-3xl md:text-4xl font-heading font-black mb-6 flex items-center gap-4">
-                    <span class="w-10 h-1 bg-pink-500 rounded-full"></span> 
-                    About me 👋🏻
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
-                    Halo! Saya Maysha. Saya memadukan latar belakang pendidikan dengan kreativitas visual untuk menciptakan program pelatihan yang berdampak. 
-                    Berfokus pada kemajuan teknologi digital dalam dunia edukasi dan korporasi.
+	<!-- Section Title & Controls -->
+	<section id="project">
+    <div class="pt-32 px-12 max-w-7xl md:px-20 mx-auto"> 
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="block text-pink-500 font-bold tracking-[0.2em] uppercase text-base mb-3">
+				Portfolio & Case Studies
+				</span>
+				<h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tighter mb-6">
+				Where Learning <br>
+				<span class="text-pink-500">Meets Design.</span>
+				</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-xl border-l-4 border-pink-500/20 pl-6">
+                    Bridging the gap between educational theory and functional digital tools through immersive instructional experiences.
                 </p>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                        <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Pendidikan</h4>
-                        <p class="text-sm font-bold">S1 Pendidikan UPI (3.79)</p>
-                    </div>
-                    <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-                        <h4 class="font-black text-pink-500 mb-1 uppercase text-[10px] tracking-widest">Keahlian Utama</h4>
-                        <p class="text-sm font-bold">L&D & Instructional Design</p>
-                    </div>
-                </div>
             </div>
-        </div>
 
-        <!-- Core Skills - Versi Lebih Menonjol -->
-        <div class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 reveal">
-            <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 text-center">CORE SKILLS</h3>
-            <div class="flex flex-wrap justify-center gap-4 md:gap-5">
-                <div class="glass px-7 py-5 rounded-3xl float-anim shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">Instructional Design</span>
-                </div>
-                <div class="glass px-7 py-5 rounded-3xl float-anim-delay-1 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">Training Facilitator</span>
-                </div>
-                <div class="glass px-7 py-5 rounded-3xl float-anim-delay-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">Digital Learning Content Development</span>
-                </div>
-                <div class="glass px-7 py-5 rounded-3xl float-anim shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">Editorial Layout Design</span>
-                </div>
-				<div class="glass px-7 py-5 rounded-3xl float-anim-delay-1 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">Content Writing</span>
-                </div>
-                <div class="glass px-7 py-5 rounded-3xl float-anim-delay-1 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-pink-100 dark:border-pink-900/30 bg-gradient-to-br from-pink-50 to-white dark:from-pink-950/40 dark:to-slate-900">
-                    <span class="font-semibold text-slate-700 dark:text-slate-200">UI/UX</span>
-                </div>
-            </div>
+            <div class="mb-12 flex items-center self-start md:self-end">
+                <button id="toggleLayout" 
+                class="flex items-center gap-3 px-8 py-4 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white rounded-full font-bold shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-pink-500 hover:border-pink-500 hover:text-white hover:shadow-lg hover:shadow-pink-500/20 transition-all duration-300 group">
+                <i class="fa-solid fa-table-cells-large group-hover:rotate-90 transition-transform duration-500"></i>
+                <span id="layoutText" class="tracking-wide">Grid Mode</span>
+            </button>
         </div>
+    </div>
+</section>
+	
+    <!-- Main View Area -->
+    <div id="projectContainer" class="slider-wrapper">
+        <div class="marquee-content" id="marquee">
+            <!-- Project Cards generated by JS -->
+        </div>
+    </div>
 
-        <!-- Tools -->
-        <div class="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 reveal text-center">
-            <h3 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-10">Tools I Use Regularly</h3>
-            <div class="flex flex-wrap justify-center gap-10 md:gap-16 text-slate-400">
-                <div class="flex flex-col items-center gap-3 group">
-                    <i class="fa-solid fa-file-powerpoint text-4xl group-hover:text-[#D24726] transition-all"></i>
-                    <span class="text-[10px] font-black group-hover:text-slate-600">MS OFFICE</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group">
-                    <i class="fa-brands fa-google text-4xl group-hover:text-[#4285F4] transition-all"></i>
-                    <span class="text-[10px] font-black group-hover:text-slate-600">GOOGLE WORKSPACE</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group">
-                    <i class="fa-solid fa-paintbrush text-4xl group-hover:text-[#00C4CC] transition-all"></i>
-                    <span class="text-[10px] font-black group-hover:text-slate-600">CANVA</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group">
-                    <i class="fa-solid fa-laptop-code text-4xl group-hover:text-pink-500 transition-all"></i>
-                    <span class="text-[10px] font-black group-hover:text-slate-600">ARTICULATE STORYLINE</span>
-                </div>
-				<div class="flex flex-col items-center gap-3 group">
-                    <i class="fa-brands fa-figma text-4xl group-hover:text-[#F24E1E] transition-all"></i>
-                    <span class="text-[10px] font-black group-hover:text-slate-600">FIGMA</span>
+    <!-- Modal Project -->
+    <div id="projectModal" class="items-center justify-center">
+        <div class="modal-body">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="fixed md:absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white md:text-slate-900 md:bg-slate-100 flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex flex-col md:flex-row h-full">
+                <!-- Hero Image -->
+                <div id="modalImg" class="w-full md:w-1/2 min-h-[300px] md:min-h-full bg-cover bg-center"></div>
+                
+                <!-- Content Area -->
+                <div class="w-full md:w-1/2 p-8 md:p-16">
+                    <div id="modalBadge" class="mb-4"></div>
+                    <h2 id="modalTitle" class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 font-heading"></h2>
+                    <p id="modalDesc" class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-8"></p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 gap-6 border-y border-slate-100 dark:border-slate-800 py-6">
+                        <div>
+                            <span class="block text-[10px] font-bold text-pink-500 uppercase tracking-widest mb-1">Impact</span>
+                            <p id="modalImpact" class="font-bold"></p>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-pink-500 uppercase tracking-widest mb-1">Tech Stack</span>
+                            <p id="modalStack" class="font-bold"></p>
+                        </div>
+                    </div>
+
+                    <!-- Supporting Gallery -->
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">Gallery Project</h4>
+                        <div class="gallery-grid" id="modalGallery">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+
+   
+
+	<!-- About Me Section -->
+	<section id="about" class="pt-32 pb-16 px-6 md:px-20 max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-12 reveal">
+        <span class="block text-pink-500 font-bold tracking-[0.2em] uppercase text-base mb-3">
+            Discover Me
+        </span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tighter mb-6">
+            Passionate About <br> <span class="text-pink-500">People & Growth.</span>
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-xl border-l-4 border-pink-500/20 pl-6">
+			I believe learning should be an experience, not just a module. My focus is on engagement, retention, and meaningful results.
+        </p>
+    </div>
+   
+
+        <!-- Bento Grid Structure -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
+            
+            <!-- Profile Column (Left) -->
+            <div class="bento-card lg:col-span-4 lg:row-span-3 p-8 group">
+                <div class="relative w-full aspect-[4/5] rounded-[30px] overflow-hidden mb-6">
+                    <div class="profile-blob"></div>
+                    <img src="https://raw.githubusercontent.com/mayshapr/portfolio/main/WhatsApp%20Image%202024-06-24%20at%2015.55.48_8ebb641f.jpg" 
+                         alt="Maysha Aprillia" 
+                         class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                
+                <h4 class="text-4xl font-black font-heading text-slate-900 dark:text-white mb-5">Maysha Aprillia</h4>
+                
+                <!-- Core Skill Pills -->
+                <div class="flex flex-wrap gap-1 mb-5">
+                    <span class="px-3 py-1.5 bg-pink-50 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-[10px] font-bold rounded-lg uppercase tracking-wider">L&D Professional</span>
+                    <span class="px-3 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 text-[10px] font-bold rounded-lg uppercase tracking-wider">Instructional Designer</span>
+                </div>
+
+                <!-- Education Shape -->
+                <div class="mt-auto p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-700/50 flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/40 text-pink-500 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Education</p>
+                        <p class="text-xs font-bold text-slate-900 dark:text-white">Universitas Pendidikan Indonesia</p>
+                        <p class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Bachelor of Education (GPA 3.79)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Narrative Column (Right) -->
+            <div class="bento-card lg:col-span-8 lg:row-span-2 p-10 bg-white dark:bg-slate-800 border-none shadow-2xl">
+                <div class="relative z-10">
+                    <p class="text-base md:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed font-semibold">
+                        I hold a solid academic background in <span class="text-slate-900 dark:text-white underline decoration-pink-500 decoration-4">Education</span> and am a highly enthusiastic <span class="text-pink-500">Learning & Development professional.</span>
+                    </p>
+                    <p class="mt-6 text-base text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+                        My training in educational methodology has instilled a rigorous problem-solving mentality. I thrive on turning complex instructional concepts into scalable, dependable, and engaging digital learning solutions. Whether it's designing intensive training programs or managing robust LMS ecosystems, I focus on delivering top-notch experiences that provide genuine business value.
+                    </p>
+                    <p class="mt-6 text-base text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Every project I undertake—from leading 21-day training programs with a <span class="text-indigo-500 font-bold">95% success rate</span> to creating interactive content—benefits from a unique combination of precision, reasoning, and creativity. User-centered design and performance optimization are the core guiding principles of my methodology.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Philosophy (Bottom Right Small - Replaces Education) -->
+            <div class="bento-card lg:col-span-3 lg:row-span-1 p-8 bg-gradient-to-br from-pink-500 to-indigo-600 text-white relative flex flex-col justify-center">
+                <i class="fa-solid fa-lightbulb absolute top-6 right-6 text-4xl opacity-20"></i>
+                <h5 class="text-[10px] font-bold uppercase tracking-widest text-white/70 mb-3">Philosophy</h5>
+                <p class="text-xl font-bold leading-tight font-heading italic">
+                    "Learning is an <span class="text-pink-200 underline decoration-pink-300">experience</span>, not just a module. We design for human minds."
+                </p>
+            </div>
+
+            <!-- Competency & Tools (Bottom Wide) -->
+            <div class="bento-card lg:col-span-5 lg:row-span-1 p-8 flex flex-col justify-between">
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Tools & Expertise</h5>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-pill">Instructional Design</span>
+						<span class="skill-pill">Training Facilitator</span>
+                        <span class="skill-pill">Digital Learning Content Development</span>
+                        <span class="skill-pill">LMS Management</span>
+                        <span class="skill-pill">Editorial Layout Design</span>
+						<span class="skill-pill">Content Writing</span>
+						<span class="skill-pill">UI/UX</span>
+                    </div>
+                </div>
+                
+                <!-- Tool Icons with Text Labels -->
+                <div class="flex items-start justify-between gap-2 w-full mt-auto">
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer w-1/5">
+                        <div class="tool-icon-wrapper group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-700 shadow-sm transition-transform"><i class="fa-solid fa-file-powerpoint text-red-500"></i></div>
+                        <span class="text-[8px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight group-hover:text-red-500 transition-colors">MS<br>Office</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer w-1/5">
+                        <div class="tool-icon-wrapper group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-700 shadow-sm transition-transform"><i class="fa-brands fa-google text-blue-500"></i></div>
+                        <span class="text-[8px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight group-hover:text-blue-500 transition-colors">Google<br>Workspace</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer w-1/5">
+                        <div class="tool-icon-wrapper group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-700 shadow-sm transition-transform"><i class="fa-solid fa-paintbrush text-teal-500"></i></div>
+                        <span class="text-[8px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight group-hover:text-teal-500 transition-colors">Canva</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer w-1/5">
+                        <div class="tool-icon-wrapper group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-700 shadow-sm transition-transform"><i class="fa-solid fa-laptop-code text-pink-500"></i></div>
+                        <span class="text-[8px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight group-hover:text-pink-500 transition-colors">Articulate<br>Storyline</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer w-1/5">
+                        <div class="tool-icon-wrapper group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-700 shadow-sm transition-transform"><i class="fa-brands fa-figma text-orange-500"></i></div>
+                        <span class="text-[8px] font-bold text-slate-500 dark:text-slate-400 uppercase text-center leading-tight group-hover:text-orange-500 transition-colors">Figma</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Experience Section - Garis Vertikal Fill from Bottom -->
-<section id="experience" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16 reveal">
-            <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">Experience</h2>
-            <p class="text-slate-500 dark:text-slate-400 mt-3 text-lg">Perjalanan profesional saya dalam dunia Learning & Development</p>
-            <div class="w-20 h-1 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 mx-auto mt-6 rounded-full"></div>
+	<section id="experience" class="pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-12 md:px-20">
+        
+        <div class="max-w-2xl mb-16 reveal">
+            <span class="block text-pink-500 font-bold tracking-[0.2em] uppercase text-base mb-3">
+                Career Journey
+            </span>
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tighter mb-6">
+                Beyond the <br>
+                <span class="text-pink-500">Resumé.</span>
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-xl border-l-4 border-pink-500/20 pl-6">
+                While my CV lists what I've done, this timeline reflects how I’ve evolved—solving real-world problems through education and strategic design.
+            </p>
         </div>
 
         <div class="space-y-12">
             
-            <!-- Experience 1 -->
             <div class="reveal group">
-                <div class="glass rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1 border border-transparent hover:border-pink-200">
+                <div class="bg-white dark:bg-slate-800/50 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-pink-500/5 transition-all duration-500 border border-slate-100 dark:border-slate-700/50 hover:border-pink-500/30">
                     <div class="flex flex-col md:flex-row relative">
-                        
-                        <!-- Accent Bar - Default Putih, Hover Fill Pink from Bottom -->
-                        <div class="md:w-3 bg-white/70 dark:bg-slate-700 relative overflow-hidden">
-                            <!-- Layer yang akan fill dari bawah -->
+                        <div class="md:w-2 bg-slate-100 dark:bg-slate-700 relative overflow-hidden">
                             <div class="absolute bottom-0 left-0 w-full h-0 bg-pink-500 transition-all duration-700 group-hover:h-full"></div>
                         </div>
-                        
-                        <div class="flex-1 p-8 md:p-10">
-                            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mb-6">
+                        <div class="flex-1 p-8 md:p-12">
+                            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
                                 <div>
-                                    <span class="text-xs font-black uppercase tracking-widest text-pink-500">Juli 2024 — Desember 2024</span>
-                                    <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white mt-1 transition-colors duration-500 group-hover:text-pink-500">
-                                        Training Officer
-                                    </h3>
-                                    <p class="text-lg font-semibold text-slate-600 dark:text-slate-400">Studio Renang</p>
-                                </div>
-                                <div class="md:ml-auto">
-                                    <div class="inline-flex items-center gap-2 bg-pink-100/70 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 px-5 py-2 rounded-2xl text-sm font-semibold transition-all group-hover:bg-pink-200">
-                                        <i class="fa-solid fa-clock"></i> 6 Bulan
-                                    </div>
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500 mb-2 block">July 2024 — December 2024</span>
+                                    <h3 class="font-heading font-black text-3xl text-slate-900 dark:text-white transition-colors duration-500 group-hover:text-pink-500">Training Officer</h3>
+                                    <p class="text-lg font-bold text-slate-500 dark:text-slate-400 mt-1">Studio Renang</p>
                                 </div>
                             </div>
-
-                            <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Merancang program pelatihan 21 hari untuk Outlet Manager & Admin dengan success rate 90-95%.</li>
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Mengembangkan materi pelatihan administrasi dan customer service sesuai SOP.</li>
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Memfasilitasi sesi role-playing dan simulasi untuk 70+ karyawan baru.</li>
-                            </ul>
+                            <div class="prose prose-slate dark:prose-invert max-w-none">
+                                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6 italic">
+                                    "How do you prepare new leaders for a fast-paced retail environment in just 21 days?"
+                                </p>
+                                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                    That was the challenge I took on at Studio Renang. I didn't just deliver modules; I built an <span class="text-slate-900 dark:text-white font-semibold">intensive 21-day immersive curriculum</span> for Outlet Managers and Admins. By integrating role-playing and real-time simulations, I ensured that 70+ new hires didn't just understand the SOP—they lived it. The result? A <span class="text-pink-500 font-bold">95% success rate</span> in training readiness and a streamlined path from onboarding to floor-ready performance.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Experience 2 -->
-            <div class="reveal group" style="animation-delay: 150ms;">
-                <div class="glass rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1 border border-transparent hover:border-pink-200">
+            <div class="reveal group">
+                <div class="bg-white dark:bg-slate-800/50 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-pink-500/5 transition-all duration-500 border border-slate-100 dark:border-slate-700/50 hover:border-pink-500/30">
                     <div class="flex flex-col md:flex-row relative">
-                        
-                        <!-- Accent Bar - Default Putih, Hover Fill Pink from Bottom -->
-                        <div class="md:w-3 bg-white/70 dark:bg-slate-700 relative overflow-hidden">
+                        <div class="md:w-2 bg-slate-100 dark:bg-slate-700 relative overflow-hidden">
                             <div class="absolute bottom-0 left-0 w-full h-0 bg-pink-500 transition-all duration-700 group-hover:h-full"></div>
                         </div>
-                        
-                        <div class="flex-1 p-8 md:p-10">
-                            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mb-6">
+                        <div class="flex-1 p-8 md:p-12">
+                            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
                                 <div>
-                                    <span class="text-xs font-black uppercase tracking-widest text-pink-500">Juli 2023 — Desember 2023</span>
-                                    <h3 class="font-heading font-black text-2xl text-slate-900 dark:text-white mt-1 transition-colors duration-500 group-hover:text-pink-500">
-                                        Guru Bahasa Indonesia
-                                    </h3>
-                                    <p class="text-lg font-semibold text-slate-600 dark:text-slate-400">SMA Kartika XIX-2 Bandung</p>
-                                </div>
-                                <div class="md:ml-auto">
-                                    <div class="inline-flex items-center gap-2 bg-pink-100/70 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 px-5 py-2 rounded-2xl text-sm font-semibold transition-all group-hover:bg-pink-200">
-                                        <i class="fa-solid fa-clock"></i> 6 Bulan
-                                    </div>
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500 mb-2 block">February 2023 — June 2023</span>
+                                    <h3 class="font-heading font-black text-3xl text-slate-900 dark:text-white transition-colors duration-500 group-hover:text-pink-500">Bahasa Indonesia Teacher</h3>
+                                    <p class="text-lg font-bold text-slate-500 dark:text-slate-400 mt-1">SMA Kartika XIX-2 Bandung</p>
                                 </div>
                             </div>
-
-                            <ul class="space-y-4 text-slate-600 dark:text-slate-400">
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Menyusun modul digital interaktif dan podcast edukasi untuk meningkatkan keterlibatan siswa.</li>
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Mengembangkan materi pembelajaran yang mengintegrasikan teknologi digital.</li>
-                                <li class="flex gap-3"><span class="text-pink-500 mt-1">•</span> Melakukan evaluasi dan improvement metode pengajaran.</li>
-                            </ul>
+                            <div class="prose prose-slate dark:prose-invert max-w-none">
+                                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                    Transitioning from traditional teaching to <span class="text-slate-900 dark:text-white font-semibold">blended learning</span>, I modernized the 11th-grade curriculum by introducing podcasts and interactive digital modules. My goal was to make language learning resonate with the digital generation. This approach didn't just engage students—it reflected in their performance, with class averages soaring above <span class="text-pink-500 font-bold">90/100</span>. I also mentored the "Jurnaltika" club, turning passion for media into practical journalistic skills for 20+ aspiring students.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <div class="reveal group">
+                <div class="bg-white dark:bg-slate-800/50 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-pink-500/5 transition-all duration-500 border border-slate-100 dark:border-slate-700/50 hover:border-pink-500/30">
+                    <div class="flex flex-col md:flex-row relative">
+                        <div class="md:w-2 bg-slate-100 dark:bg-slate-700 relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 w-full h-0 bg-pink-500 transition-all duration-700 group-hover:h-full"></div>
+                        </div>
+                        <div class="flex-1 p-8 md:p-12">
+                            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
+                                <div>
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-pink-500 mb-2 block">2019 — 2021</span>
+                                    <h3 class="font-heading font-black text-3xl text-slate-900 dark:text-white transition-colors duration-500 group-hover:text-pink-500">Entrepreneurial Journey</h3>
+                                    <p class="text-lg font-bold text-slate-500 dark:text-slate-400 mt-1">Founder of CaseSassy</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                Building a business from the ground up taught me the value of <span class="text-slate-900 dark:text-white font-semibold">agile operations and personal branding</span>. Managing CaseSassy wasn't just about selling 50+ products weekly; it was about understanding user needs, managing complex logistics, and creating a brand voice that connected. This phase sharpened my administrative discipline and strategic thinking, skills that I now bring into every L&D project I manage.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Download CV Button -->
-        <div class="flex justify-center mt-16 reveal">
-            <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" 
-               class="btn-pink group inline-flex items-center gap-3 px-10 py-5 rounded-3xl font-black uppercase tracking-widest text-sm shadow-xl hover:shadow-2xl transition-all duration-300">
-                <span>Download My CV</span>
-                <i class="fa-solid fa-download text-lg group-hover:rotate-12 transition-transform"></i>
-            </a>
+            <div class="reveal group">
+                <div class="bg-white dark:bg-slate-800/50 rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-pink-500/5 transition-all duration-500 border border-slate-100 dark:border-slate-700/50 hover:border-pink-500/30">
+                    <div class="flex flex-col md:flex-row relative">
+                        <div class="md:w-2 bg-slate-100 dark:bg-slate-700 relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 w-full h-0 bg-pink-500 transition-all duration-700 group-hover:h-full"></div>
+                        </div>
+                        <div class="flex-1 p-8 md:p-12">
+                            <h3 class="font-heading font-black text-3xl text-slate-900 dark:text-white mb-6 group-hover:text-pink-500 transition-colors">Foundation & Growth</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                My early career at <span class="text-slate-900 dark:text-white font-semibold">PT Hipernet Indodata</span> and <span class="text-slate-900 dark:text-white font-semibold">BSO Literat</span> served as a masterclass in organizational structure and visual communication. From meticulously managing KPI reporting and performance data to crafting high-engagement content planners, these experiences built the foundation of my double-threat capability: <span class="text-pink-500 font-bold">Data-driven administration mixed with creative design.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-24 px-6 bg-slate-50 dark:bg-slate-950">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">Education</h2>
-                <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Latar belakang akademis saya</p>
-                <div class="w-16 h-1 bg-gradient-to-r from-pink-500 to-rose-400 mx-auto mt-6 rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
-                <!-- UPI Card -->
-                <div class="reveal group">
-                    <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-pink-200 dark:hover:border-pink-900/50 transition-all">
-                        <div class="flex items-start gap-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-400 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="font-heading font-black text-2xl">Universitas Pendidikan Indonesia</h3>
-                                <p class="text-pink-600 dark:text-pink-400 font-semibold mt-1">S1 Pendidikan Bahasa dan Sastra Indonesia</p>
-                                <div class="mt-6 space-y-4">
-                                    <div>
-                                        <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
-                                        <p class="font-bold text-lg">2023 • IPK <span class="text-pink-500">3.79 / 4.00</span></p>
-                                    </div>
-                                    <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm border border-slate-100 dark:border-slate-700">
-                                        Fokus pada inovasi media pembelajaran digital dan desain instruksional.
-                                    </div>
-                                    <div class="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-950/50 dark:to-rose-950/50 border border-pink-100 dark:border-pink-900/30 rounded-2xl p-5 text-sm italic">
-                                        Thesis: Development of the BEBI Educational Mobile Learning App using the ADDIE Model
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SMK Card -->
-                <div class="reveal group" style="animation-delay: 150ms;">
-                    <div class="glass rounded-3xl p-8 md:p-10 h-full border border-transparent hover:border-rose-200 dark:hover:border-rose-900/50 transition-all">
-                        <div class="flex items-start gap-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-orange-400 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="font-heading font-black text-2xl">SMK Negeri 26 Jakarta</h3>
-                                <p class="text-rose-600 dark:text-rose-400 font-semibold mt-1">Teknik Komputer dan Jaringan</p>
-                                <div class="mt-6 space-y-4">
-                                    <div>
-                                        <span class="text-xs uppercase tracking-widest text-slate-400">Lulus Tahun</span>
-                                        <p class="font-bold text-lg">2018 • Nilai <span class="text-rose-500">88 / 100</span></p>
-                                    </div>
-                                    <div class="bg-white/70 dark:bg-slate-800/70 rounded-2xl p-5 text-sm border border-slate-100 dark:border-slate-700">
-                                        Memiliki dasar kuat dalam infrastruktur IT dan pengembangan sistem aplikasi.
-                                    </div>
-                                    <div class="bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-950/50 dark:to-amber-950/50 border border-rose-100 dark:border-rose-900/30 rounded-2xl p-5 text-sm italic">
-                                        Project Work: Design of a Web & Mobile-Based Student Attendance System Application
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-	<!-- Projects Section - Versi Unik dengan Tombol View Details -->
-<section id="projects" class="py-24 px-6 bg-slate-100/30 dark:bg-slate-900/20">
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16 reveal">
-            <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight text-slate-900 dark:text-white">
-                Featured Projects
+    <section id="education" class="pt-32 pb-24 bg-slate-50/50 dark:bg-slate-900/10">
+    <div class="max-w-7xl mx-auto px-12 md:px-20">
+        
+        <div class="max-w-2xl mb-16 reveal">
+            <span class="block text-pink-500 font-bold tracking-[0.2em] uppercase text-base mb-3">
+                Academic Background
+            </span>
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tighter mb-6">
+                Foundations of <br>
+                <span class="text-pink-500">Knowledge.</span>
             </h2>
-            <p class="text-slate-500 dark:text-slate-400 mt-3 text-lg max-w-md mx-auto">
-                Beberapa proyek pengembangan yang pernah saya kerjakan dengan fokus pada pembelajaran digital.
+            <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed max-w-xl border-l-4 border-pink-500/20 pl-6">
+                Merging technical IT infrastructure with educational methodology to create impactful digital learning experiences.
             </p>
-            <div class="w-20 h-1 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid lg:grid-cols-2 gap-8">
             
-            <!-- Project 1: Aplikasi BEBI -->
             <div class="reveal group">
-                <div class="glass rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 border border-transparent hover:border-pink-300 dark:hover:border-pink-800">
-                    <!-- Gradient Header -->
-                    <div class="h-40 bg-gradient-to-br from-violet-500 via-purple-600 to-pink-500 relative">
-                        <div class="absolute top-6 right-6 text-white/90 font-black text-7xl leading-none tracking-tighter opacity-20">01</div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <span class="uppercase text-xs tracking-[2px] font-bold">Mobile Learning</span>
-                            <h3 class="text-2xl font-black">APLIKASI BEBI</h3>
-                        </div>
-                    </div>
+                <div class="bg-white dark:bg-slate-800 rounded-[32px] p-8 md:p-10 h-full border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-2xl hover:shadow-pink-500/5 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
                     
-                    <!-- Content -->
-                    <div class="p-8 bg-white dark:bg-slate-900 flex flex-col h-full">
-                        <h4 class="font-heading font-black text-xl mb-3 text-slate-900 dark:text-white">BEBI Educational App</h4>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px] flex-grow">
-                            Pengembangan aplikasi pembelajaran mobile berbasis model ADDIE untuk meningkatkan aksesibilitas edukasi anak usia dini.
-                        </p>
-                        
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-4 py-1.5 bg-pink-100 dark:bg-pink-950 text-pink-600 dark:text-pink-400 text-xs font-semibold rounded-full">ADDIE Model</span>
-                            <span class="px-4 py-1.5 bg-violet-100 dark:bg-violet-950 text-violet-600 dark:text-violet-400 text-xs font-semibold rounded-full">Mobile App</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-pink-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-pink-500/20">
+                                <i class="fa-solid fa-university text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-black text-xl md:text-2xl text-slate-900 dark:text-white">Universitas Pendidikan Indonesia</h3>
+                                <p class="text-pink-500 font-bold text-xs uppercase tracking-widest mt-0.5">Bachelor of Education</p>
+                            </div>
                         </div>
 
-                        <!-- Tombol View Details -->
-                        <a href="#" 
-                           class="mt-8 inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-pink-600 dark:bg-white dark:text-slate-900 dark:hover:bg-pink-500 text-white dark:hover:text-white font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 group/btn">
-                            <span>View Details</span>
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
-                        </a>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-end border-b border-slate-50 dark:border-slate-700 pb-4">
+                                <div>
+                                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Major</p>
+                                    <p class="font-bold text-slate-700 dark:text-slate-200">Bahasa dan Sastra Indonesia</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">GPA</p>
+                                    <p class="font-black text-pink-500 text-xl">3.79<span class="text-xs text-slate-400 font-normal"> / 4.00</span></p>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-700">
+                                <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                                    <span class="font-bold text-slate-900 dark:text-white block mb-2 uppercase text-[10px] tracking-widest">Final Research:</span>
+                                    Development of the <span class="text-pink-500 font-semibold italic">"BEBI"</span> Educational Mobile Learning App using the <span class="font-bold">ADDIE Model</span>.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2: Modul Digital -->
             <div class="reveal group" style="animation-delay: 100ms;">
-                <div class="glass rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 border border-transparent hover:border-rose-300 dark:hover:border-rose-800">
-                    <!-- Gradient Header -->
-                    <div class="h-40 bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 relative">
-                        <div class="absolute top-6 right-6 text-white/90 font-black text-7xl leading-none tracking-tighter opacity-20">02</div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <span class="uppercase text-xs tracking-[2px] font-bold">Instructional Design</span>
-                            <h3 class="text-2xl font-black">MODUL DIGITAL</h3>
-                        </div>
-                    </div>
+                <div class="bg-white dark:bg-slate-800 rounded-[32px] p-8 md:p-10 h-full border border-slate-100 dark:border-slate-700/50 shadow-sm hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
                     
-                    <!-- Content -->
-                    <div class="p-8 bg-white dark:bg-slate-900 flex flex-col h-full">
-                        <h4 class="font-heading font-black text-xl mb-3 text-slate-900 dark:text-white">Digital Learning Module</h4>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px] flex-grow">
-                            Pembuatan modul pembelajaran interaktif berbasis web untuk siswa SMA guna meningkatkan keterlibatan dan pemahaman materi.
-                        </p>
-                        
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-4 py-1.5 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 text-xs font-semibold rounded-full">E-Learning</span>
-                            <span class="px-4 py-1.5 bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">Interactive Content</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-indigo-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                                <i class="fa-solid fa-code text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-black text-xl md:text-2xl text-slate-900 dark:text-white">SMK Negeri 26 Jakarta</h3>
+                                <p class="text-indigo-500 font-bold text-xs uppercase tracking-widest mt-0.5">Information Technology</p>
+                            </div>
                         </div>
 
-                        <!-- Tombol View Details -->
-                        <a href="#" 
-                           class="mt-8 inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-pink-600 dark:bg-white dark:text-slate-900 dark:hover:bg-pink-500 text-white dark:hover:text-white font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 group/btn">
-                            <span>View Details</span>
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-end border-b border-slate-50 dark:border-slate-700 pb-4">
+                                <div>
+                                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Specialization</p>
+                                    <p class="font-bold text-slate-700 dark:text-slate-200">Teknik Komputer & Jaringan</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Final Grade</p>
+                                    <p class="font-black text-indigo-500 text-xl">88<span class="text-xs text-slate-400 font-normal"> / 100</span></p>
+                                </div>
+                            </div>
 
-            <!-- Project 3: Sistem Absensi -->
-            <div class="reveal group" style="animation-delay: 200ms;">
-                <div class="glass rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 border border-transparent hover:border-amber-300 dark:hover:border-amber-800">
-                    <!-- Gradient Header -->
-                    <div class="h-40 bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 relative">
-                        <div class="absolute top-6 right-6 text-white/90 font-black text-7xl leading-none tracking-tighter opacity-20">03</div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <span class="uppercase text-xs tracking-[2px] font-bold">System Development</span>
-                            <h3 class="text-2xl font-black">SISTEM ABSENSI</h3>
+                            <div class="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-slate-700">
+                                <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                                    <span class="font-bold text-slate-900 dark:text-white block mb-2 uppercase text-[10px] tracking-widest">Project Work:</span>
+                                    Design and development of a <span class="text-indigo-500 font-semibold italic">Web & Mobile-Based</span> Student Attendance System.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- Content -->
-                    <div class="p-8 bg-white dark:bg-slate-900 flex flex-col h-full">
-                        <h4 class="font-heading font-black text-xl mb-3 text-slate-900 dark:text-white">Student Attendance System</h4>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px] flex-grow">
-                            Aplikasi berbasis web dan mobile untuk manajemen absensi siswa yang efisien di lingkungan sekolah.
-                        </p>
-                        
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-4 py-1.5 bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Web App</span>
-                            <span class="px-4 py-1.5 bg-yellow-100 dark:bg-yellow-950 text-yellow-600 dark:text-yellow-400 text-xs font-semibold rounded-full">Database</span>
-                        </div>
-
-                        <!-- Tombol View Details -->
-                        <a href="#" 
-                           class="mt-8 inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-pink-600 dark:bg-white dark:text-slate-900 dark:hover:bg-pink-500 text-white dark:hover:text-white font-semibold py-3.5 px-6 rounded-2xl transition-all duration-300 group/btn">
-                            <span>View Details</span>
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -565,196 +1014,273 @@
     </div>
 </section>
 
-    <!-- Footer - Social Vertical with Hover Text -->
-<footer id="contact" class="relative overflow-hidden bg-slate-950 py-28">
-    <div class="star-field"></div>
+    <footer id="contact" class="relative overflow-hidden bg-slate-50 dark:bg-slate-950 pt-32 pb-16">
     
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div class="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-pink-200/20 dark:bg-pink-900/10 blur-[120px] rounded-full animate-pulse"></div>
+        <div class="absolute top-40 -left-20 w-[400px] h-[400px] bg-rose-200/20 dark:bg-rose-900/10 blur-[100px] rounded-full animate-bounce" style="animation-duration: 10s;"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-8 relative z-10">
+        <div class="grid lg:grid-cols-5 gap-16 items-center">
             
-            <!-- Left Side - Text + Vertical Social -->
-            <div class="reveal">
-                <p class="text-slate-400 text-lg font-medium mb-3">Think we vibe? 🪄</p>
-                <h2 class="text-6xl md:text-7xl font-heading font-black text-white tracking-tighter leading-none mb-12">
-                    Get in touch
+            <div class="lg:col-span-2 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 mb-8 transform -rotate-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                    </span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-500">Let's be humans together</span>
+                </div>
+                
+                <h2 class="text-5xl md:text-6xl font-heading font-black text-slate-900 dark:text-white leading-[0.85] tracking-tighter mb-8">
+                    Got a <span class="italic font-light text-pink-500">wild</span> idea? <br>
+                    <span class="relative">
+                        Pour it out.
+                        <svg class="absolute -bottom-2 left-0 w-full h-2 text-rose-300/60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 25 0 50 5 T 100 5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    </span>
                 </h2>
+                
+                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-10 font-medium">
+                    Gak perlu formal-formal banget. <br>
+                    Ceritain aja apa yang lagi kamu pikirin, dan mari kita bikin itu jadi nyata. ✌🏻
+                </p>
 
-                <!-- Vertical Social Media -->
-                <div class="space-y-6">
-                    <!-- Email -->
-                    <a href="mailto:maysha9910@gmail.com" 
-                       class="social-item group flex items-center gap-5 text-white hover:text-pink-400 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 group-hover:bg-pink-500/20 transition-colors">
-                            <i class="fa-solid fa-envelope text-3xl"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Email me</p>
-                            <p id="email-hover" class="text-sm text-slate-400 group-hover:text-pink-300 transition-colors">maysha9910@gmail.com</p>
-                        </div>
+                <div class="flex gap-4">
+                    <a href="#" class="group relative w-12 h-12 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center shadow-lg hover:shadow-pink-500/20 transition-all hover:-translate-y-2">
+                        <i class="fa-brands fa-instagram text-slate-400 group-hover:text-pink-500 transition-colors"></i>
+                        <span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-pink-500 text-white text-[10px] px-2 py-1 rounded font-bold">Insta!</span>
                     </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/mayshaaprillia" target="_blank" 
-                       class="social-item group flex items-center gap-5 text-white hover:text-pink-400 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 group-hover:bg-pink-500/20 transition-colors">
-                            <i class="fa-brands fa-linkedin-in text-3xl"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">LinkedIn</p>
-                            <p id="linkedin-hover" class="text-sm text-slate-400 group-hover:text-pink-300 transition-colors">Maysha Aprillia</p>
-                        </div>
-                    </a>
-
-                    <!-- Instagram -->
-                    <a href="https://instagram.com/mayshapr" target="_blank" 
-                       class="social-item group flex items-center gap-5 text-white hover:text-pink-400 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 group-hover:bg-pink-500/20 transition-colors">
-                            <i class="fa-brands fa-instagram text-3xl"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Instagram</p>
-                            <p id="instagram-hover" class="text-sm text-slate-400 group-hover:text-pink-300 transition-colors">@mayshapr</p>
-                        </div>
+                    <a href="#" class="group relative w-12 h-12 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-2">
+                        <i class="fa-brands fa-linkedin-in text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                        <span class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-bold">Linked!</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Right Side - Glass Form -->
-            <div class="reveal">
-                <div class="glass bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-10 md:p-12 shadow-2xl">
-                    <h3 class="text-white text-2xl font-heading font-black mb-8">Kirim Pesan </h3>
-                    
-                    <form action="https://formspree.io/f/myourformid" method="POST" class="space-y-6">
-                        <input type="text" name="name" placeholder="Nama Anda" required 
-                               class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-400">
-                        
-                        <input type="email" name="email" placeholder="Email Anda" required 
-                               class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-400">
-                        
-                        <textarea name="message" rows="5" placeholder="Pesan Anda..." required 
-                                  class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-pink-400 resize-none"></textarea>
-                        
-                        <button type="submit" 
-                                class="w-full bg-pink-500 hover:bg-pink-600 py-4 rounded-2xl font-black uppercase tracking-widest transition-all">
-                            Kirim Pesan
-							<i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
+            <div class="lg:col-span-3 reveal">
+                <div class="relative group">
+                    <div class="absolute -top-10 -right-10 w-20 h-20 bg-white dark:bg-slate-800 rounded-3xl shadow-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-all duration-500 z-20 hidden md:flex">
+                        <span class="text-3xl">✨</span>
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-16 h-16 bg-pink-500 rounded-2xl shadow-xl flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-all duration-500 z-20 hidden md:flex text-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+
+                    <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 md:p-12 rounded-[3rem] border border-white dark:border-slate-800 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] relative z-10">
+                        <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">How should I call you?</label>
+                                <input type="text" placeholder="Your name" class="w-full bg-slate-50 dark:bg-slate-800/50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-500/20 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Where can I reply?</label>
+                                <input type="email" placeholder="Your email" class="w-full bg-slate-50 dark:bg-slate-800/50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-pink-500/20 transition-all">
+                            </div>
+                            <div class="md:col-span-2 space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">What's the tea? ☕</label>
+                                <textarea rows="4" placeholder="Share your thoughts, projects, or just a warm hello..." class="w-full bg-slate-50 dark:bg-slate-800/50 border-none rounded-[2rem] px-6 py-6 focus:ring-2 focus:ring-pink-500/20 transition-all resize-none"></textarea>
+                            </div>
+                            <div class="md:col-span-2 pt-4">
+                                <button type="submit" class="w-full h-16 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-4 group overflow-hidden relative">
+                                    <span class="group-hover:-translate-y-12 transition-all duration-500">Fly it away!</span>
+                                    <span class="absolute translate-y-12 group-hover:translate-y-0 transition-all duration-500 italic font-light">See you soon! ✨</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bottom Credit -->
-    <div class="text-center text-slate-500 text-sm tracking-widest mt-20">
-        © 2026 Maysha Aprillia • Handcrafted with ❤️
+        <div class="mt-32 pt-12 border-t border-slate-100 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2 text-center md:text-left">
+                <div class="font-heading font-black text-2xl text-slate-900 dark:text-white">Maysha<span class="text-pink-500">.</span></div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">Crafted with ❤️ & caffeine — 2026</p>
+            </div>
+            
+            <div class="group cursor-help relative">
+                <span class="text-sm text-slate-300 dark:text-slate-700 italic group-hover:text-pink-400 transition-colors">Hover for a secret...</span>
+                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-48 p-4 bg-white dark:bg-slate-800 shadow-2xl rounded-2xl border border-pink-100 dark:border-pink-900 opacity-0 group-hover:opacity-100 transition-all pointer-events-none text-center translate-y-4 group-hover:translate-y-0">
+                    <p class="text-xs font-medium text-slate-600 dark:text-slate-300">"You're doing amazing today, thank you for stopping by! ✨"</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <a href="#" class="hover:text-pink-500 transition-all">Dribbble</a>
+                <a href="#" class="hover:text-pink-500 transition-all">Behance</a>
+                <div class="h-4 w-[1px] bg-slate-200 dark:bg-slate-800"></div>
+                <p class="text-slate-900 dark:text-white">Coffee? ☕</p>
+            </div>
+        </div>
     </div>
 </footer>
 
     <script>
-    window.onload = function() {
-        // Theme Toggle dengan icon yang benar-benar berubah
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            
-            // Toggle icon visibility
-            if (document.body.classList.contains('dark')) {
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            } else {
-                moonIcon.classList.remove('hidden');
-                sunIcon.classList.add('hidden');
-            }
-        });
+        // ==================== 1. DATA PROJECT (Isi dari Canva/Portofoliomu) ====================
+    const projectData = [
+        {
+            title: "Gamified Onboarding System",
+            badge: "Instructional Design",
+            img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200", // Ganti link ini dengan gambar projectmu
+            desc: "Transformasi SOP retail menjadi perjalanan belajar 21 hari yang interaktif. Fokus pada retensi tinggi bagi manajer baru melalui elemen gamifikasi.",
+            impact: "95% Readiness Rate",
+            stack: "Articulate 360",
+            gallery: [
+                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=400",
+                "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400"
+            ]
+        },
+        {
+            title: "Toko Maysha Jaya Branding",
+            badge: "Creative Branding",
+            img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200",
+            desc: "Digitalisasi bisnis distribusi telur tradisional menjadi brand modern. Mencakup pembuatan logo, visual identity, dan optimasi Shopee store.",
+            impact: "Professional Presence",
+            stack: "Figma & Canva",
+            gallery: [
+                "https://images.unsplash.com/photo-1506784919141-93503993f310?q=80&w=400",
+                "https://images.unsplash.com/photo-1522071823991-b9671e30326e?q=80&w=400"
+            ]
+        },
+        {
+            title: "Digital Training Module",
+            badge: "E-Learning",
+            img: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1200",
+            desc: "Pengembangan konten pembelajaran asinkronus untuk siswa SMA, mengintegrasikan podcast dan modul digital interaktif.",
+            impact: "Score Average 90+",
+            stack: "CapCut & Canva",
+            gallery: [
+                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400",
+                "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=400"
+            ]
+        }
+    ];
 
-        // Reveal Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ==================== 2. CORE FUNCTIONS (Layout & Render) ====================
+    let isGrid = false;
+    const marquee = document.getElementById('marquee');
+    const layoutBtn = document.getElementById('toggleLayout');
+    const layoutText = document.getElementById('layoutText');
 
-        // Typing Effect - Versi Paling Stabil dengan Emoji
-        const typingText = document.getElementById('typing-text');
+    function renderCards() {
+        marquee.innerHTML = '';
+        // Jika Slider, kita duplikasi datanya agar loop mulus (infinite)
+        const list = isGrid ? projectData : [...projectData, ...projectData];
         
-        const phrases = [
-            { emoji: "✨", text: "Learning & Development Enthusiast" },
-            { emoji: "🧩", text: "Instructional Designer" },
-            { emoji: "💻", text: "Digital Learning Content Developer" },
-			{ emoji: "🚀", text: "Curiosity-Driven Educator" }
-        ];
+        list.forEach((project, index) => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <img src="${project.img}" class="project-img" alt="${project.title}">
+                <div class="card-overlay text-white">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">${project.badge}</span>
+                    <h4 class="text-3xl font-black mt-1 font-heading">${project.title}</h4>
+                    <button class="view-btn" onclick="openModal(${index % projectData.length})">
+                        View Project <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+            marquee.appendChild(card);
+        });
+    }
 
-        let pIdx = 0;
-        let cIdx = 0;
-        let deleting = false;
-        let isPaused = false;
+    layoutBtn.addEventListener('click', () => {
+        isGrid = !isGrid;
+        document.body.classList.toggle('grid-mode');
+        layoutText.innerText = isGrid ? "Slider Mode" : "Grid Mode";
+        layoutBtn.querySelector('i').classList.toggle('fa-table-cells-large');
+        layoutBtn.querySelector('i').classList.toggle('fa-arrows-left-right');
+        renderCards();
+    });
+
+    // ==================== 3. MODAL LOGIC ====================
+    function openModal(id) {
+        const data = projectData[id];
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalDesc').innerText = data.desc;
+        document.getElementById('modalImpact').innerText = data.impact;
+        document.getElementById('modalStack').innerText = data.stack;
+        document.getElementById('modalBadge').innerHTML = `<span class="px-4 py-2 bg-pink-100 text-pink-500 rounded-full text-xs font-bold uppercase">${data.badge}</span>`;
+        document.getElementById('modalImg').style.backgroundImage = `url(${data.img})`;
+        
+        document.getElementById('modalGallery').innerHTML = data.gallery.map(img => `
+            <div class="gallery-item"><img src="${img}" alt="gallery"></div>
+        `).join('');
+        
+        document.getElementById('projectModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('projectModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // ==================== 4. UI ENHANCEMENTS (Typing, Theme, etc.) ====================
+    function initTyping() {
+        const typingText = document.getElementById('typing-text');
+        const phrases = ["Learning & Development Specialist", "Instructional Designer", "Digital Content Creator"];
+        let pIdx = 0, cIdx = 0, deleting = false;
 
         function type() {
-            if (isPaused) return;
-
             const current = phrases[pIdx];
-
-            if (deleting) {
-                // Hapus teks saja (emoji tetap)
-                typingText.innerHTML = `<span>${current.emoji}</span> ${current.text.substring(0, cIdx--)}`;
+            typingText.innerHTML = current.substring(0, cIdx);
+            
+            if (!deleting && cIdx < current.length) {
+                cIdx++;
+                setTimeout(type, 100);
+            } else if (deleting && cIdx > 0) {
+                cIdx--;
+                setTimeout(type, 50);
             } else {
-                // Ketik teks
-                typingText.innerHTML = `<span>${current.emoji}</span> ${current.text.substring(0, cIdx++)}`;
+                deleting = !deleting;
+                if (!deleting) pIdx = (pIdx + 1) % phrases.length;
+                setTimeout(type, 1500);
             }
-
-            let speed = deleting ? 35 : 75;
-
-            if (!deleting && cIdx > current.text.length) {
-                // Selesai mengetik → jeda lalu hapus
-                deleting = true;
-                isPaused = true;
-                setTimeout(() => { isPaused = false; type(); }, 1800);
-                return;
-            }
-
-            if (deleting && cIdx < 0) {
-                // Selesai menghapus → ganti kalimat
-                deleting = false;
-                cIdx = 0;
-                pIdx = (pIdx + 1) % phrases.length;
-                isPaused = true;
-                setTimeout(() => { isPaused = false; type(); }, 600);
-                return;
-            }
-
-            setTimeout(type, speed);
         }
-
-        // Mulai
         type();
-    };
-	
-	// Smooth Navbar Scroll Effect
-	const navbar = document.getElementById('navbar');
-	const navContainer = document.getElementById('nav-container');
+    }
 
-	window.addEventListener('scroll', () => {
-		if (window.scrollY > 60) {   // muncul setelah scroll 60px
-			navContainer.classList.add(
-				'glass', 
-				'rounded-3xl', 
-				'shadow-sm',
-				'bg-white/80', 
-				'dark:bg-slate-900/80',
-				'backdrop-blur-xl'
-			);
-		} else {
-			navContainer.classList.remove(
-				'glass', 
-				'rounded-3xl', 
-				'shadow-sm',
-				'bg-white/80', 
-				'dark:bg-slate-900/80',
-				'backdrop-blur-xl'
-			);
-		}
-	});
-</script>
+    // Theme Toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        document.getElementById('moonIcon').classList.toggle('hidden');
+        document.getElementById('sunIcon').classList.toggle('hidden');
+    });
+
+    // Flower Parallax
+    document.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX - window.innerWidth/2) / 40;
+        const moveY = (e.clientY - window.innerHeight/2) / 40;
+        document.getElementById('flowerTL').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        document.getElementById('flowerBR').style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+    });
+
+    // Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+
+    // Initialize All
+    document.addEventListener('DOMContentLoaded', () => {
+        renderCards();
+        initTyping();
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        window.onclick = (e) => {
+            if (e.target == document.getElementById('projectModal')) closeModal();
+        };
+
+        // Navbar Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+            else navbar.classList.remove('nav-scrolled');
+        });
+    });
+    </script>
 </body>
 </html>
