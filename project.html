@@ -102,6 +102,51 @@
         }
         .back-btn i { transition: transform 0.3s ease; }
         .back-btn:hover i { transform: translateX(-4px); }
+
+        /* Story chapters */
+        .story-chapter { display: flex; flex-direction: column; gap: 28px; align-items: center; margin-bottom: 56px; }
+        @media (min-width: 768px) {
+            .story-chapter { flex-direction: row; gap: 48px; margin-bottom: 72px; }
+            .story-chapter.story-reverse { flex-direction: row-reverse; }
+        }
+        .story-media {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #f1f5f9;
+            border: 1px solid rgba(0,0,0,0.05);
+            aspect-ratio: 4 / 3;
+            flex-shrink: 0;
+        }
+        .dark .story-media { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        @media (min-width: 768px) { .story-media { width: 44%; } }
+        .story-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .story-text { flex: 1; }
+        .story-num {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+        }
+        .story-heading {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: #0f172a;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .dark .story-heading { color: #f1f5f9; }
+        @media (min-width: 768px) { .story-heading { font-size: 26px; } }
+        .story-text p {
+            color: #475569;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .dark .story-text p { color: #94a3b8; }
     </style>
 </head>
 
@@ -153,9 +198,9 @@
             </div>
         </div>
 
-        <div class="reveal mb-16">
-            <h3 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-5">The Process</h3>
-            <p id="pProcess" class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed text-justify"></p>
+        <div class="reveal mb-16" id="storySection">
+            <h3 id="storySectionTitle" class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-8">Behind The Scenes</h3>
+            <div id="storyContainer"></div>
         </div>
 
         <div class="reveal">
@@ -192,6 +237,32 @@
 
     <script src="projects-data.js"></script>
     <script>
+        function renderStory(data) {
+            const container = document.getElementById('storyContainer');
+            const titleEl = document.getElementById('storySectionTitle');
+
+            if (Array.isArray(data.story) && data.story.length) {
+                titleEl.innerText = data.storyTitle || 'Behind The Scenes';
+                container.innerHTML = data.story.map((ch, i) => {
+                    const reverseCls = i % 2 === 1 ? ' story-reverse' : '';
+                    return `
+                    <div class="story-chapter${reverseCls}">
+                        <div class="story-media">
+                            <img src="${ch.img}" alt="${data.title} - ${ch.heading}" loading="lazy">
+                        </div>
+                        <div class="story-text">
+                            <span class="story-num">Babak ${String(i + 1).padStart(2, '0')}</span>
+                            <h4 class="story-heading">${ch.heading}</h4>
+                            <p>${ch.text}</p>
+                        </div>
+                    </div>`;
+                }).join('');
+            } else {
+                titleEl.innerText = 'The Process';
+                container.innerHTML = `<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed text-justify">${data.process || ''}</p>`;
+            }
+        }
+
         function getProjectId() {
             const params = new URLSearchParams(window.location.search);
             const id = parseInt(params.get('id'), 10);
@@ -213,7 +284,7 @@
             document.getElementById('pDesc').innerText = data.desc;
             document.getElementById('pImpact').innerText = data.impact;
             document.getElementById('pStack').innerText = data.stack;
-            document.getElementById('pProcess').innerText = data.process || '';
+            renderStory(data);
 
             const galleryEl = document.getElementById('pGallery');
             galleryEl.innerHTML = (data.gallery || []).map((src, i) => `
