@@ -159,10 +159,32 @@ const projectData = [
         title: "Training Hub — Sistem Manajemen Training Studio Renang",
         badge: "Web App Development",
         img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=1000", // GANTI: cover training hub
-        desc: "Sistem manajemen training end-to-end untuk program pelatihan 21 hari karyawan baru StudioRenang.com, mencakup tiga kelas paralel dengan trainer masing-masing. Dashboard admin memantau seluruh pipeline trainee, sementara portal trainee menampilkan progress belajar mereka sendiri secara real-time.",
+        desc: "Bayangkan menjalankan program pelatihan 21 hari untuk puluhan karyawan baru, tiga kelas berjalan paralel, tiap trainer punya cara kerja sendiri — lalu semuanya masih dipantau manual lewat spreadsheet yang gampang selisih. Training Hub saya bangun untuk menghapus kekacauan itu: satu sistem yang menjalankan dua dunia sekaligus — dashboard komando untuk admin, dan portal personal untuk tiap trainee.",
         impact: "Mengelola pelatihan multi-batch dengan 3 kelas paralel sekaligus, mengotomatisasi perhitungan kelulusan berbasis threshold berbeda di tiap fase (Phase 1 ≥90%, Phase 2 ≥95%, Phase 3 100%)",
         stack: "HTML, CSS, JavaScript, Google Apps Script, Chart.js, Remix Icons",
-        process: "Ini adalah project paling kompleks yang pernah saya bangun sendirian: dua peran (admin/trainer dan trainee) dengan tampilan dan akses yang sepenuhnya berbeda dari satu basis kode yang sama. Sisi admin punya dashboard bento-style berisi training pipeline (donut chart), performa trainer, alert center yang dihitung otomatis dari kondisi data (bukan teks statis), workload distribution antar trainer, sampai panel review untuk trainee yang butuh pertimbangan khusus. Saya juga membangun sistem multi-batch supaya riwayat batch training lama tetap tersimpan dan bisa dibuka kembali, modul input nilai dengan preview lulus/belum otomatis, rekap absensi 21 hari yang bisa diklik langsung untuk diubah, generator studi kasus assessment per trainee per fase, sampai dashboard feedback & review trainer yang menghitung skor berbobot dari rating trainee (Kirkpatrick Level 1). Tantangan terbesarnya adalah menjaga satu basis kode tetap konsisten untuk dua role yang punya kebutuhan data dan alur kerja yang sangat berbeda, sambil terintegrasi dengan Google Apps Script sebagai backend.",
+        storyTitle: "Di Balik Layar",
+        story: [
+            {
+                heading: "Dua Peran, Satu Basis Kode",
+                text: "Tantangan pertama muncul sebelum satu baris desain pun dibuat: admin dan trainee butuh dunia yang sama sekali berbeda dari aplikasi yang sama. Admin butuh kontrol penuh — kelola trainee, input nilai, review kelulusan. Trainee cuma butuh melihat progress mereka sendiri, jelas dan personal, tanpa noise data orang lain. Saya rancang satu basis kode yang bisa \u201cberubah wajah\u201d total tergantung siapa yang login, tanpa duplikasi logic di belakang layar.",
+                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800" // GANTI: screenshot login/role selector
+            },
+            {
+                heading: "Dashboard yang Nggak Cuma Numpuk Angka",
+                text: "Dashboard admin saya desain gaya bento — training pipeline dalam donut chart, ranking performa trainer, sampai alert center yang isinya bukan teks statis, tapi dihitung otomatis dari kondisi data real: trainee mana yang belum mulai, nilai roleplay siapa di bawah standar, kelas mana butuh perhatian ekstra. Jadi begitu admin buka dashboard, mereka langsung tahu harus mulai dari mana — bukan scroll cari masalah sendiri.",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" // GANTI: screenshot dashboard bento
+            },
+            {
+                heading: "Riwayat yang Nggak Pernah Hilang",
+                text: "Training berjalan berulang, jadi saya bangun sistem multi-batch — tiap gelombang pelatihan tersimpan sebagai riwayat sendiri, bisa dibuka kembali kapan saja tanpa menimpa data batch aktif. Input nilai saya lengkapi dengan preview instan (lulus/belum berdasarkan threshold tiap fase), dan rekap absensi 21 hari bisa diklik langsung di tabel untuk diubah — nggak perlu buka form terpisah cuma untuk koreksi satu hari absen.",
+                img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800" // GANTI: screenshot batch history / input nilai
+            },
+            {
+                heading: "Menutup Lingkaran Evaluasi",
+                text: "Bagian yang paling saya banggakan: dashboard feedback & review trainer, yang mengubah rating bintang dari trainee jadi skor berbobot pakai kerangka Kirkpatrick Level 1 — bukan cuma rata-rata biasa. Ditambah generator studi kasus assessment per trainee per fase, seluruh siklus training tertutup rapi: dari hari pertama masuk sampai evaluasi akhir, semuanya terekam dan bisa dipertanggungjawabkan.",
+                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800" // GANTI: screenshot feedback dashboard
+            }
+        ],
         ratio: 16/9,
         gallery: [
             "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400", // GANTI: screenshot dashboard admin
