@@ -276,65 +276,48 @@ const projectData = [
         ]
     },
     {
-        title: "Egg Shop Bookkeeping System",
-        badge: "App Development",
-        img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000", // REPLACE: AppSheet screenshot
-        desc: "A sales tracking and bookkeeping app for Toko Telur Maysha Jaya, my family's egg distribution business. Built with AppSheet to digitize a manual record-keeping process that was previously prone to miscounts and ate up hours every day.",
-        impact: "Daily recap time cut drastically, with far more reliable accuracy",
-        stack: "AppSheet, Google Sheets",
-        storyTitle: "Behind The Scenes",
-        story: [
-            {
-                type: "quote",
-                quote: "\u201cThe real challenge was never technical — it was convincing my own family to trust a system that wasn't a notebook.\u201d"
-            },
-            {
-                type: "split",
-                side: "right",
-                heading: "Simple Enough to Need No Training",
-                text: "My family had kept sales records in a notebook for years, so I built the app to be as simple as possible — usable from day one with no lengthy technical training required.",
-                img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=800" // REPLACE: app screenshot
-            },
-            {
-                type: "stat",
-                value: "1 family",
-                label: "Direct, personal impact",
-                caption: "This is one of the projects closest to my heart, because its impact was felt directly by my own family."
-            }
-        ],
-        ratio: 4/3,
-        gallery: [
-            "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=400", // REPLACE: app screenshot 1
-            "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=400", // REPLACE: app screenshot 2
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400"  // REPLACE: app screenshot 3
-        ]
-    },
-    {
         title: "Studio Renang Hub — Employee Onboarding",
         badge: "Product Design & Development",
         img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000", // REPLACE: onboarding portal cover
-        desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children. Built from scratch as a standalone web app that guides new hires through four structured onboarding phases — from company culture to official certification.",
-        impact: "Replaced a manual onboarding process with a structured 4-phase portal, complete with an asset request system and real-time progress tracking",
+        desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
+        impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
         stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
         storyTitle: "Behind The Scenes",
         story: [
             {
-                type: "timeline",
-                heading: "Four Phases, One Journey",
-                intro: "I designed and built the entire onboarding flow as a self-contained portal — from employee login and a main dashboard with a progress ring and Employee of the Month, to a 'Company Soul' page introducing the company's vision, mission, and five core values (ACIDS — Alignment, Courage, Innovative, Devoted, Servitality).",
-                steps: [
-                    { label: "Culture & Company Soul", text: "New hires start by absorbing the company's culture, vision, and values before touching any operational task." },
-                    { label: "Operational Mastery", text: "Covers the day-to-day systems and workflows every employee needs to run the front line." },
-                    { label: "Aquatic Expertise", text: "Full SSI (Swim School International) curriculum training, phase by phase." },
-                    { label: "Evaluation & Graduation", text: "A final review confirming readiness before someone graduates into a full employee." }
-                ]
+                type: "quote",
+                quote: "\u201cThe brief didn't start as \u2018build an onboarding app.\u2019 It started as two teams asking the same question in different words: \u2018where did this actually land?\u2019\u201d"
             },
             {
                 type: "split",
                 side: "left",
-                heading: "A Portal That Motivates, Not Just Checks Boxes",
-                text: "I also built an asset request system (uniform, ID card, work devices) with a modal form and status tracking, plus an Employee Corner with announcements and quick links to SOPs, the team calendar, and Training Hub. The hardest part was making the whole thing feel personal and motivating — not just an administrative checklist — while staying connected to the larger Training Hub system for SSI curriculum.",
-                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" // REPLACE: onboarding dashboard
+                heading: "Where Training and HR Actually Overlap",
+                text: "Training owned the curriculum and progress; HR owned the paperwork and physical handovers — uniform, ID card, work device. In practice, both needed to answer the same question from two different angles: is this person actually ready, and has everything been handed over properly? Before this project, that meant HR messaging Training to check graduation status, and Training messaging HR to check whether an asset had actually been picked up. I sat with both teams to map that overlap, then designed a single data model both sides could read from without stepping on each other's workflow.",
+                img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" // REPLACE: team workflow / whiteboard planning
+            },
+            {
+                type: "timeline",
+                heading: "Four Phases, One Journey",
+                intro: "On the employee-facing side, I designed and built the entire onboarding flow as a self-contained portal — from login and a main dashboard with a progress ring and Employee of the Month, to a 'Company Soul' page introducing the company's vision, mission, and five core values (ACIDS — Alignment, Courage, Innovative, Devoted, Servitality).",
+                steps: [
+                    { label: "Culture & Company Soul", text: "New hires start by absorbing the company's culture, vision, and values before touching any operational task." },
+                    { label: "Operational Mastery", text: "Covers the day-to-day systems and workflows every employee needs to run the front line." },
+                    { label: "Aquatic Expertise", text: "Full SSI (Swim School International) curriculum training, phase by phase." },
+                    { label: "Evaluation & Graduation", text: "A final review confirming readiness before someone graduates into a full employee — the exact status HR needed visibility into." }
+                ]
+            },
+            {
+                type: "split",
+                side: "right",
+                heading: "Turning Asset Handover Into a Trackable Status",
+                text: "For HR's side of the problem, I built an asset request system covering uniforms, ID cards, and work devices — each with its own modal form and a status badge (Pending / Processing / Received) that updates in real time instead of living in a spreadsheet cell someone has to remember to edit. Paired with an Employee Corner for announcements and quick links to SOPs, the team calendar, and Training Hub, the goal was to make one glance at a profile answer both teams' questions at once: how far along is this person, and what have they actually received.",
+                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" // REPLACE: asset tracking dashboard
+            },
+            {
+                type: "stat",
+                value: "2 teams",
+                label: "One shared source of truth",
+                caption: "The hardest part was never the code — it was designing something that felt equally native to both a training curriculum and an HR checklist, without either team feeling like they'd inherited someone else's tool."
             }
         ],
         ratio: 16/9,
