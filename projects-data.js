@@ -11,6 +11,14 @@ const projectData = [
         desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. Before any design work began, I went straight to the source — conducting needs analysis directly with students and observing the real gap in learning materials and media. Bahasa Indonesia lessons kept feeling boring for one consistent reason: they stayed too textual, with no format engaging enough to hold a teenager's attention. BEBI was built to close that gap — bringing Review Text material to 11th-grade students through educational games and interactive assessments, designed specifically to lift their interest and motivation to learn.",
         impact: "96% improvement in Bahasa Indonesia learning outcomes following classroom implementation",
         stack: "Figma, Canva, Adobe Photoshop",
+        skills: [
+            { name: "Needs Analysis", note: "interviewed students directly to find the real gap", icon: "fa-magnifying-glass" },
+            { name: "Curriculum Design", note: "structured Review Text into a teachable sequence", icon: "fa-layer-group" },
+            { name: "Storyboarding & Prototyping", note: "mapped the experience before any UI work", icon: "fa-diagram-project" },
+            { name: "UI/UX Design", note: "designed the interface once the prototype was validated", icon: "fa-pen-ruler" },
+            { name: "Gamification", note: "four mechanics, each tied to a learning objective", icon: "fa-gamepad" },
+            { name: "Program Evaluation", note: "ran the classroom pilot and revised from the findings", icon: "fa-chart-line" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -341,6 +349,13 @@ const projectData = [
         desc: "Picture running a 21-day training program for dozens of new hires, three classes running in parallel, each trainer working their own way — and the whole thing still tracked manually on a spreadsheet that's one typo away from chaos. I built Training Hub to remove that chaos entirely: one system running two worlds at once — a command dashboard for admins, and a personal portal for every trainee.",
         impact: "Manages multi-batch training across 3 parallel classes at once, automating pass/fail calculations against different thresholds per phase (Phase 1 ≥90%, Phase 2 ≥95%, Phase 3 100%)",
         stack: "HTML, CSS, JavaScript, Google Apps Script, Chart.js, Remix Icons",
+        skills: [
+            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
+            { name: "Role-Based UX", note: "one codebase, two completely different user experiences", icon: "fa-users-gear" },
+            { name: "Dashboard & Data Visualization", note: "Chart.js pipeline, live alert center, trainer rankings", icon: "fa-chart-pie" },
+            { name: "Systems Thinking", note: "designed the multi-batch data model to preserve training history", icon: "fa-sitemap" },
+            { name: "Assessment Design", note: "built the weighted Kirkpatrick scoring for trainer feedback", icon: "fa-clipboard-check" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
