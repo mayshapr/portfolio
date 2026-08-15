@@ -103,26 +103,10 @@
         .back-btn i { transition: transform 0.3s ease; }
         .back-btn:hover i { transform: translateX(-4px); }
 
-        /* Story chapters */
-        .story-chapter { display: flex; flex-direction: column; gap: 28px; align-items: center; margin-bottom: 56px; }
-        @media (min-width: 768px) {
-            .story-chapter { flex-direction: row; gap: 48px; margin-bottom: 72px; }
-            .story-chapter.story-reverse { flex-direction: row-reverse; }
-        }
-        .story-media {
-            width: 100%;
-            border-radius: 24px;
-            overflow: hidden;
-            background: #f1f5f9;
-            border: 1px solid rgba(0,0,0,0.05);
-            aspect-ratio: 4 / 3;
-            flex-shrink: 0;
-        }
-        .dark .story-media { background: #1e293b; border-color: rgba(255,255,255,0.05); }
-        @media (min-width: 768px) { .story-media { width: 44%; } }
-        .story-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .story-text { flex: 1; }
-        .story-num {
+        /* ===== Story block system — six distinct layout modules ===== */
+
+        /* shared eyebrow + heading tokens */
+        .block-num {
             display: inline-block;
             font-size: 11px;
             font-weight: 900;
@@ -131,7 +115,7 @@
             color: var(--primary-pink);
             margin-bottom: 10px;
         }
-        .story-heading {
+        .block-heading {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             font-size: 22px;
@@ -139,14 +123,98 @@
             margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
-        .dark .story-heading { color: #f1f5f9; }
-        @media (min-width: 768px) { .story-heading { font-size: 26px; } }
-        .story-text p {
-            color: #475569;
-            line-height: 1.8;
-            text-align: justify;
+        .dark .block-heading { color: #f1f5f9; }
+        @media (min-width: 768px) { .block-heading { font-size: 26px; } }
+        .block-body p, .block-body { color: #475569; line-height: 1.8; text-align: justify; }
+        .dark .block-body p, .dark .block-body { color: #94a3b8; }
+
+        /* 1. SPLIT — image + text side by side, side is explicit per block */
+        .block-split { display: flex; flex-direction: column; gap: 28px; align-items: center; margin-bottom: 64px; }
+        @media (min-width: 768px) {
+            .block-split { flex-direction: row; gap: 48px; }
+            .block-split.side-right { flex-direction: row-reverse; }
         }
-        .dark .story-text p { color: #94a3b8; }
+        .block-split-media {
+            width: 100%; border-radius: 24px; overflow: hidden; background: #f1f5f9;
+            border: 1px solid rgba(0,0,0,0.05); aspect-ratio: 4 / 3; flex-shrink: 0;
+        }
+        .dark .block-split-media { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        @media (min-width: 768px) { .block-split-media { width: 44%; } }
+        .block-split-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .block-split-text { flex: 1; }
+
+        /* 2. FULL — full-width media, centered text below, editorial/magazine feel */
+        .block-full { margin-bottom: 64px; }
+        .block-full-media {
+            width: 100%; border-radius: 28px; overflow: hidden; background: #f1f5f9;
+            border: 1px solid rgba(0,0,0,0.05); aspect-ratio: 16 / 9; margin-bottom: 28px;
+        }
+        .dark .block-full-media { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        .block-full-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .block-full-text { max-width: 640px; margin: 0 auto; text-align: center; }
+        .block-full-text .block-body { text-align: justify; }
+
+        /* 3. DUO — a diptych of two images, text spans below */
+        .block-duo { margin-bottom: 64px; }
+        .block-duo-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+        .block-duo-media figure {
+            border-radius: 20px; overflow: hidden; background: #f1f5f9;
+            border: 1px solid rgba(0,0,0,0.05); aspect-ratio: 4 / 5; margin: 0;
+        }
+        .dark .block-duo-media figure { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        .block-duo-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* 4. QUOTE — a pull-quote break, no image, no numbering */
+        .block-quote {
+            max-width: 720px; margin: 0 auto 64px; padding: 4px 0 4px 28px;
+            border-left: 3px solid var(--primary-pink);
+        }
+        .block-quote p {
+            font-family: 'Outfit', sans-serif; font-style: italic; font-weight: 600;
+            font-size: 21px; line-height: 1.55; color: #0f172a;
+        }
+        .dark .block-quote p { color: #f1f5f9; }
+        @media (min-width: 768px) { .block-quote p { font-size: 25px; } }
+
+        /* 5. TIMELINE — vertical rail of named steps, for genuine sequences */
+        .block-timeline { margin-bottom: 64px; }
+        .block-timeline-rail { position: relative; padding-left: 30px; margin-top: 22px; }
+        .block-timeline-rail::before {
+            content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px;
+            background: linear-gradient(to bottom, rgba(236,72,153,0.4), rgba(236,72,153,0.05));
+        }
+        .block-timeline-step { position: relative; margin-bottom: 24px; }
+        .block-timeline-step:last-child { margin-bottom: 0; }
+        .block-timeline-dot {
+            position: absolute; left: -30px; top: 4px; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--primary-pink); box-shadow: 0 0 0 4px rgba(236,72,153,0.15);
+        }
+        .block-timeline-label {
+            font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 15px;
+            color: #0f172a; margin-bottom: 3px;
+        }
+        .dark .block-timeline-label { color: #f1f5f9; }
+        .block-timeline-step p { color: #475569; line-height: 1.7; text-align: left; }
+        .dark .block-timeline-step p { color: #94a3b8; }
+
+        /* 6. STAT — a callout number, no numbering */
+        .block-stat {
+            text-align: center; margin: 0 auto 64px; padding: 40px 28px; border-radius: 28px;
+            background: linear-gradient(135deg, rgba(236,72,153,0.06), rgba(219,39,119,0.03));
+            border: 1px solid rgba(236,72,153,0.14);
+        }
+        .block-stat-value {
+            font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 52px; line-height: 1;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        @media (min-width: 768px) { .block-stat-value { font-size: 64px; } }
+        .block-stat-label {
+            font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--hover-pink); margin-top: 12px;
+        }
+        .block-stat-caption { margin-top: 14px; color: #475569; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .dark .block-stat-caption { color: #94a3b8; }
     </style>
 </head>
 
@@ -243,19 +311,92 @@
 
             if (Array.isArray(data.story) && data.story.length) {
                 titleEl.innerText = data.storyTitle || 'Behind The Scenes';
-                container.innerHTML = data.story.map((ch, i) => {
-                    const reverseCls = i % 2 === 1 ? ' story-reverse' : '';
-                    return `
-                    <div class="story-chapter${reverseCls}">
-                        <div class="story-media">
-                            <img src="${ch.img}" alt="${data.title} - ${ch.heading}" loading="lazy">
-                        </div>
-                        <div class="story-text">
-                            <span class="story-num">Babak ${String(i + 1).padStart(2, '0')}</span>
-                            <h4 class="story-heading">${ch.heading}</h4>
-                            <p>${ch.text}</p>
-                        </div>
-                    </div>`;
+                let chapterCount = 0;
+                const numberedTypes = ['split', 'full', 'duo', 'timeline'];
+
+                container.innerHTML = data.story.map((b) => {
+                    const type = b.type || 'split';
+                    const isNumbered = numberedTypes.includes(type);
+                    if (isNumbered) chapterCount++;
+                    const numTag = isNumbered
+                        ? `<span class="block-num">Chapter ${String(chapterCount).padStart(2, '0')}</span>`
+                        : '';
+
+                    if (type === 'split') {
+                        const sideCls = b.side === 'right' ? ' side-right' : '';
+                        return `
+                        <div class="block-split reveal active${sideCls}">
+                            <div class="block-split-media">
+                                <img src="${b.img}" alt="${data.title} - ${b.heading}" loading="lazy">
+                            </div>
+                            <div class="block-split-text">
+                                ${numTag}
+                                <h4 class="block-heading">${b.heading}</h4>
+                                <div class="block-body"><p>${b.text}</p></div>
+                            </div>
+                        </div>`;
+                    }
+
+                    if (type === 'full') {
+                        return `
+                        <div class="block-full reveal">
+                            <div class="block-full-media">
+                                <img src="${b.img}" alt="${data.title} - ${b.heading}" loading="lazy">
+                            </div>
+                            <div class="block-full-text">
+                                ${numTag}
+                                <h4 class="block-heading">${b.heading}</h4>
+                                <div class="block-body"><p>${b.text}</p></div>
+                            </div>
+                        </div>`;
+                    }
+
+                    if (type === 'duo') {
+                        const imgs = (b.imgs || []).map(src =>
+                            `<figure><img src="${src}" alt="${data.title} - ${b.heading}" loading="lazy"></figure>`
+                        ).join('');
+                        return `
+                        <div class="block-duo reveal">
+                            <div class="block-duo-media">${imgs}</div>
+                            ${numTag}
+                            <h4 class="block-heading">${b.heading}</h4>
+                            <div class="block-body"><p>${b.text}</p></div>
+                        </div>`;
+                    }
+
+                    if (type === 'quote') {
+                        return `
+                        <div class="block-quote reveal">
+                            <p>${b.quote}</p>
+                        </div>`;
+                    }
+
+                    if (type === 'timeline') {
+                        const steps = (b.steps || []).map(s => `
+                            <div class="block-timeline-step">
+                                <span class="block-timeline-dot"></span>
+                                <div class="block-timeline-label">${s.label}</div>
+                                <p>${s.text}</p>
+                            </div>`).join('');
+                        return `
+                        <div class="block-timeline reveal">
+                            ${numTag}
+                            <h4 class="block-heading">${b.heading}</h4>
+                            ${b.intro ? `<div class="block-body"><p>${b.intro}</p></div>` : ''}
+                            <div class="block-timeline-rail">${steps}</div>
+                        </div>`;
+                    }
+
+                    if (type === 'stat') {
+                        return `
+                        <div class="block-stat reveal">
+                            <div class="block-stat-value">${b.value}</div>
+                            <div class="block-stat-label">${b.label}</div>
+                            ${b.caption ? `<div class="block-stat-caption">${b.caption}</div>` : ''}
+                        </div>`;
+                    }
+
+                    return '';
                 }).join('');
             } else {
                 titleEl.innerText = 'The Process';
