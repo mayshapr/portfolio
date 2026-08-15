@@ -8,35 +8,42 @@ const projectData = [
         title: "BEBI Mobile Learning App",
         badge: "Instructional Design",
         img: "https://lh3.googleusercontent.com/d/1QhLtlWzheP6LViBqYWhz3BcWq8qz3Eb1", // REPLACE: BEBI cover/hero
-        desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. BEBI brings Review Text material to 11th-grade high school students through educational games and interactive assessments — designed to make learning Bahasa Indonesia feel like play, not homework.",
-        impact: "96% of students reported feeling more engaged with Bahasa Indonesia lessons",
+        desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. Before any design work began, I went straight to the source — conducting needs analysis directly with students and observing the real gap in learning materials and media. Bahasa Indonesia lessons kept feeling boring for one consistent reason: they stayed too textual, with no format engaging enough to hold a teenager's attention. BEBI was built to close that gap — bringing Review Text material to 11th-grade students through educational games and interactive assessments, designed specifically to lift their interest and motivation to learn.",
+        impact: "96% improvement in Bahasa Indonesia learning outcomes following classroom implementation",
         stack: "Figma, Canva, Adobe Photoshop",
         storyTitle: "Behind The Scenes",
         story: [
             {
                 type: "timeline",
-                heading: "Five Stages, One Solo Sprint",
-                intro: "Everything started with a simple frustration: students found Bahasa Indonesia boring and overly textual. I ran the full ADDIE model on my own, start to finish.",
+                heading: "Five Stages, Built From Real Research",
+                intro: "I ran the complete ADDIE model on my own, start to finish — every stage grounded in what I actually found in the classroom, not assumptions made from a desk.",
                 steps: [
-                    { label: "Analysis", text: "Researched the needs and characteristics of 11th-grade students to understand exactly why the material wasn't landing." },
-                    { label: "Design", text: "Mapped the learning flow and structured four distinct educational game formats around the material." },
-                    { label: "Development", text: "Built the interactive content and all four games from the ground up." },
-                    { label: "Implementation", text: "Ran live trials directly with students in the classroom." },
-                    { label: "Evaluation", text: "Collected, processed, and analyzed the results myself." }
+                    { label: "Analysis", text: "Went directly to students for needs analysis, and observed the real gap in learning materials and media — the exact reason Bahasa Indonesia felt tedious and overly textual to them." },
+                    { label: "Design", text: "Compiled the full Review Text (teks resensi) curriculum, built the app's storyboard, moved into prototyping, and finalized the UI/UX design before writing a single line of code." },
+                    { label: "Development", text: "Built the complete application once every design decision from the previous stage was locked in." },
+                    { label: "Implementation", text: "Piloted the finished app directly with students in the classroom." },
+                    { label: "Evaluation", text: "Gathered feedback from the pilot and carried out the revisions it called for." }
                 ]
             },
             {
                 type: "split",
                 side: "left",
+                heading: "From Storyboard to Interface",
+                text: "The Design stage alone covered more ground than people usually assume 'making an app' involves. I first organized the entire Review Text material into a teachable structure, then storyboarded how a student would move through the app screen by screen, built that into a working prototype, and only then moved into full UI/UX design — so every visual decision was already validated by a structure I knew worked, not guessed at.",
+                img: "https://lh3.googleusercontent.com/d/1sG4gmPtfFWF1Fcs3IsnF8OKwLOsAr7Lz" // REPLACE: storyboard/prototype screenshot
+            },
+            {
+                type: "split",
+                side: "right",
                 heading: "Keeping It Fun Without Losing the Lesson",
-                text: "The hardest balance was making the games genuinely fun without diluting the educational weight behind them. Every mechanic had to serve a specific learning objective — never just novelty for its own sake.",
+                text: "Once development started, the hardest balance was making four educational game formats genuinely fun without diluting the material behind them. Every mechanic had to serve a specific learning objective from the Review Text curriculum — never just novelty for its own sake.",
                 img: "https://lh3.googleusercontent.com/d/1mt0sDksVpNGMHQnXrtxkfwXth1Hzmxx2" // REPLACE: game mechanic screenshot
             },
             {
                 type: "stat",
                 value: "96%",
-                label: "Reported feeling more engaged",
-                caption: "BEBI is now implemented in the school, with the majority of students preferring this gamified, smartphone-based approach over traditional textbook methods."
+                label: "Improvement in learning outcomes",
+                caption: "Measured directly through classroom implementation — evidence that a needs-based, gamified approach could move actual learning outcomes, not just how engaged students felt in the moment."
             }
         ],
         gallery: [
