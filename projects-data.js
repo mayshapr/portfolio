@@ -7,7 +7,7 @@ const projectData = [
     {
         title: "BEBI Mobile Learning App",
         badge: "Instructional Design",
-        img: "https://lh3.googleusercontent.com/d/1QhLtlWzheP6LViBqYWhz3BcWq8qz3Eb1", // REPLACE: BEBI cover/hero
+        img: "https://lh3.googleusercontent.com/d/1QZT_BgJc-9AWgjVBdDvCyby8M_t0j1w5", // REPLACE: BEBI cover/hero
         desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. Before any design work began, I went straight to the source — conducting needs analysis directly with students and observing the real gap in learning materials and media. Bahasa Indonesia lessons kept feeling boring for one consistent reason: they stayed too textual, with no format engaging enough to hold a teenager's attention. BEBI was built to close that gap — bringing Review Text material to 11th-grade students through educational games and interactive assessments, designed specifically to lift their interest and motivation to learn.",
         impact: "96% improvement in Bahasa Indonesia learning outcomes following classroom implementation",
         stack: "Figma, Canva, Adobe Photoshop",
@@ -38,7 +38,7 @@ const projectData = [
                 side: "left",
                 heading: "From Storyboard to Interface",
                 text: "The Design stage alone covered more ground than people usually assume 'making an app' involves. I first organized the entire Review Text material into a teachable structure, then storyboarded how a student would move through the app screen by screen, built that into a working prototype, and only then moved into full UI/UX design — so every visual decision was already validated by a structure I knew worked, not guessed at.",
-                img: "https://lh3.googleusercontent.com/d/1sG4gmPtfFWF1Fcs3IsnF8OKwLOsAr7Lz" // REPLACE: storyboard/prototype screenshot
+                img: "https://lh3.googleusercontent.com/d/1-0vuz5aupv6gU7eZwmYjSvCTJj8NOy9i" // REPLACE: storyboard/prototype screenshot
             },
             {
                 type: "split",
@@ -66,7 +66,7 @@ const projectData = [
     {
         title: "Social Media @p2msatrasia",
         badge: "Content Design",
-        img: "https://lh3.googleusercontent.com/d/1lNHwsO0K1WMRi3LxFEjV_vRgsH0cB120", // REPLACE: Instagram feed cover
+        img: "https://lh3.googleusercontent.com/d/1W5T7HC8M8udNJMveOwI5uI9mSnhph8Aq", // REPLACE: Instagram feed cover
         desc: "Running the Instagram account for @p2msatrasia, the official community outreach program by Indonesian Language & Literature Education students at UPI. I owned the entire creative side — content strategy, visual design, and caption writing — turning what's usually a stiff academic report into something people actually wanted to see on their feed.",
         impact: "Audience reach grew significantly throughout the program",
         stack: "Canva, Instagram",
@@ -81,22 +81,25 @@ const projectData = [
                 side: "left",
                 heading: "Building a Visual Identity From Zero",
                 text: "I started with a consistent visual system — color palette, typography, and a feed template other team members could use to post independently without breaking the account's look.",
-                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" // REPLACE: visual identity screenshot
+                img: "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7" // REPLACE: visual identity screenshot
             },
             {
                 type: "duo",
                 heading: "Content That Felt Like a Person Wrote It",
                 text: "Beyond design, I built out a content calendar and shifted the caption voice toward something more personal — less like an activity report, more like a conversation.",
                 imgs: [
-                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // REPLACE: feed sample 1
-                    "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800"  // REPLACE: feed sample 2
+                    "https://lh3.googleusercontent.com/d/1oVzbNvX5A766Xl-oY_8gbmAo6xzByoXg", // REPLACE: feed sample 1
+                    "https://lh3.googleusercontent.com/d/1XJ6h3SJN4qnGKO7CHWm8ZVci6xdVI9Eu"  // REPLACE: feed sample 2
                 ]
             }
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
-            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400", // REPLACE: feed sample 2
-            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=400"  // REPLACE: feed sample 3
+            "https://lh3.googleusercontent.com/d/1W5T7HC8M8udNJMveOwI5uI9mSnhph8Aq", // REPLACE: feed sample 1
+            "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7", // REPLACE: feed sample 2
+            "https://lh3.googleusercontent.com/d/1oVzbNvX5A766Xl-oY_8gbmAo6xzByoXg",  // REPLACE: feed sample 3
+            "https://lh3.googleusercontent.com/d/1XJ6h3SJN4qnGKO7CHWm8ZVci6xdVI9Eu",
+            "https://lh3.googleusercontent.com/d/1906U6hHdnJWSv6PxdjDQihSLmiouD-2W",
+            "https://lh3.googleusercontent.com/d/1hTMdJfimp3i9whh-odJJuW8DdVgVhTt5"
         ]
     },
     {
