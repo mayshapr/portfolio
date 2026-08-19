@@ -7,7 +7,7 @@ const projectData = [
     {
         title: "Training Hub — Studio Renang Training Management System",
         badge: "Web App Development",
-        img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=1000", // REPLACE: training hub cover
+        img: "https://lh3.googleusercontent.com/d/1wtIbohzredIbBQC-UsRdoR3ysS9eeYIP", // REPLACE: training hub cover
         desc: "Picture running a 21-day training program for dozens of new hires, three classes running in parallel, each trainer working their own way — and the whole thing still tracked manually on a spreadsheet that's one typo away from chaos. I built Training Hub to remove that chaos entirely: one system running two worlds at once — a command dashboard for admins, and a personal portal for every trainee.",
         impact: "Manages multi-batch training across 3 parallel classes at once, automating pass/fail calculations against different thresholds per phase (Phase 1 ≥90%, Phase 2 ≥95%, Phase 3 100%)",
         stack: "HTML, CSS, JavaScript, Google Apps Script, Chart.js, Remix Icons",
@@ -24,7 +24,7 @@ const projectData = [
                 type: "full",
                 heading: "Two Roles, One Codebase",
                 text: "The first challenge showed up before a single design decision was made: admins and trainees needed entirely different worlds from the same app. Admins needed full control — manage trainees, enter scores, review pass/fail decisions. Trainees just needed a clear, personal view of their own progress, with none of the noise from anyone else's data. I designed one codebase that could completely change face depending on who logged in, with zero duplicated logic behind the scenes.",
-                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=1200" // REPLACE: login/role selector (landscape)
+                img: "https://lh3.googleusercontent.com/d/12DlAk7TDrUI5bO6ZtmzYVKzcQ6bZLZw5" // REPLACE: login/role selector (landscape)
             },
             {
                 type: "stat",
@@ -37,8 +37,8 @@ const projectData = [
                 heading: "A Dashboard That Tells You Where to Look",
                 text: "I designed the admin dashboard bento-style — a training pipeline donut chart, trainer performance rankings, and an alert center that isn't static text but is calculated live from real data conditions: which trainees haven't started, whose roleplay score dropped below standard, which class needs extra attention.",
                 imgs: [
-                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", // REPLACE: bento dashboard
-                    "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800"  // REPLACE: alert center
+                    "https://lh3.googleusercontent.com/d/1lygI2fN44JmkH3v58jx1OCnZzOe0t8SF", // REPLACE: bento dashboard
+                    "https://lh3.googleusercontent.com/d/1nyjtyae7u5EhOpuTtf-bc6ghLQ2Cds4n"  // REPLACE: alert center
                 ]
             },
             {
@@ -55,9 +55,10 @@ const projectData = [
         ],
         ratio: 16/9,
         gallery: [
-            "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400", // REPLACE: admin dashboard
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400", // REPLACE: score entry
-            "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=400"  // REPLACE: trainee portal
+            "https://lh3.googleusercontent.com/d/1wtIbohzredIbBQC-UsRdoR3ysS9eeYIP", // REPLACE: admin dashboard
+            "https://lh3.googleusercontent.com/d/12DlAk7TDrUI5bO6ZtmzYVKzcQ6bZLZw5", // REPLACE: score entry
+            "https://lh3.googleusercontent.com/d/1lygI2fN44JmkH3v58jx1OCnZzOe0t8SF",  // REPLACE: trainee portal
+            "https://lh3.googleusercontent.com/d/1nyjtyae7u5EhOpuTtf-bc6ghLQ2Cds4n"
         ]
     },
     {
