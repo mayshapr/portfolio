@@ -7,7 +7,7 @@ const projectData = [
     {
         title: "BEBI Mobile Learning App",
         badge: "Instructional Design",
-        img: "https://lh3.googleusercontent.com/d/1QZT_BgJc-9AWgjVBdDvCyby8M_t0j1w5", // REPLACE: BEBI cover/hero
+        img: "https://lh3.googleusercontent.com/d/1QhLtlWzheP6LViBqYWhz3BcWq8qz3Eb1", // REPLACE: BEBI cover/hero
         desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. Before any design work began, I went straight to the source — conducting needs analysis directly with students and observing the real gap in learning materials and media. Bahasa Indonesia lessons kept feeling boring for one consistent reason: they stayed too textual, with no format engaging enough to hold a teenager's attention. BEBI was built to close that gap — bringing Review Text material to 11th-grade students through educational games and interactive assessments, designed specifically to lift their interest and motivation to learn.",
         impact: "96% improvement in Bahasa Indonesia learning outcomes following classroom implementation",
         stack: "Figma, Canva, Adobe Photoshop",
@@ -38,7 +38,7 @@ const projectData = [
                 side: "left",
                 heading: "From Storyboard to Interface",
                 text: "The Design stage alone covered more ground than people usually assume 'making an app' involves. I first organized the entire Review Text material into a teachable structure, then storyboarded how a student would move through the app screen by screen, built that into a working prototype, and only then moved into full UI/UX design — so every visual decision was already validated by a structure I knew worked, not guessed at.",
-                img: "https://lh3.googleusercontent.com/d/1-0vuz5aupv6gU7eZwmYjSvCTJj8NOy9i" // REPLACE: storyboard/prototype screenshot
+                img: "https://lh3.googleusercontent.com/d/1sG4gmPtfFWF1Fcs3IsnF8OKwLOsAr7Lz" // REPLACE: storyboard/prototype screenshot
             },
             {
                 type: "split",
@@ -66,10 +66,16 @@ const projectData = [
     {
         title: "Social Media @p2msatrasia",
         badge: "Content Design",
-        img: "https://lh3.googleusercontent.com/d/1W5T7HC8M8udNJMveOwI5uI9mSnhph8Aq", // REPLACE: Instagram feed cover
+        img: "https://lh3.googleusercontent.com/d/1lNHwsO0K1WMRi3LxFEjV_vRgsH0cB120", // REPLACE: Instagram feed cover
         desc: "Running the Instagram account for @p2msatrasia, the official community outreach program by Indonesian Language & Literature Education students at UPI. I owned the entire creative side — content strategy, visual design, and caption writing — turning what's usually a stiff academic report into something people actually wanted to see on their feed.",
         impact: "Audience reach grew significantly throughout the program",
         stack: "Canva, Instagram",
+        skills: [
+            { name: "Content Strategy", note: "built the calendar and shifted the caption voice toward something personal", icon: "fa-bullhorn" },
+            { name: "Visual Identity Design", note: "built a consistent palette, typography, and reusable feed templates", icon: "fa-palette" },
+            { name: "Copywriting", note: "wrote captions that read like a conversation, not an activity report", icon: "fa-pen-nib" },
+            { name: "Brand Consistency", note: "designed templates other team members could post from without breaking the look", icon: "fa-swatchbook" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -81,25 +87,22 @@ const projectData = [
                 side: "left",
                 heading: "Building a Visual Identity From Zero",
                 text: "I started with a consistent visual system — color palette, typography, and a feed template other team members could use to post independently without breaking the account's look.",
-                img: "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7" // REPLACE: visual identity screenshot
+                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" // REPLACE: visual identity screenshot
             },
             {
                 type: "duo",
                 heading: "Content That Felt Like a Person Wrote It",
                 text: "Beyond design, I built out a content calendar and shifted the caption voice toward something more personal — less like an activity report, more like a conversation.",
                 imgs: [
-                    "https://lh3.googleusercontent.com/d/1oVzbNvX5A766Xl-oY_8gbmAo6xzByoXg", // REPLACE: feed sample 1
-                    "https://lh3.googleusercontent.com/d/1XJ6h3SJN4qnGKO7CHWm8ZVci6xdVI9Eu"  // REPLACE: feed sample 2
+                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // REPLACE: feed sample 1
+                    "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800"  // REPLACE: feed sample 2
                 ]
             }
         ],
         gallery: [
-            "https://lh3.googleusercontent.com/d/1W5T7HC8M8udNJMveOwI5uI9mSnhph8Aq", // REPLACE: feed sample 1
-            "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7", // REPLACE: feed sample 2
-            "https://lh3.googleusercontent.com/d/1oVzbNvX5A766Xl-oY_8gbmAo6xzByoXg",  // REPLACE: feed sample 3
-            "https://lh3.googleusercontent.com/d/1XJ6h3SJN4qnGKO7CHWm8ZVci6xdVI9Eu",
-            "https://lh3.googleusercontent.com/d/1906U6hHdnJWSv6PxdjDQihSLmiouD-2W",
-            "https://lh3.googleusercontent.com/d/1hTMdJfimp3i9whh-odJJuW8DdVgVhTt5"
+            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400", // REPLACE: feed sample 2
+            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=400"  // REPLACE: feed sample 3
         ]
     },
     {
@@ -109,6 +112,12 @@ const projectData = [
         desc: "A digital storybook for elementary school readers, containing five stories with five different themes — where I worked as both writer and illustrator. This project was an experiment in merging creative writing with illustration design to build story worlds that feel close to a child's everyday life.",
         impact: "Five complete stories in one digital book, ready for elementary-age readers",
         stack: "Canva, Adobe Photoshop",
+        skills: [
+            { name: "Creative Writing", note: "wrote five distinct stories, each with its own theme", icon: "fa-pen-nib" },
+            { name: "Illustration", note: "designed the visual world and character art for every story", icon: "fa-palette" },
+            { name: "Child Development Research", note: "researched developmental psychology for ages 6–9 before writing a line", icon: "fa-child" },
+            { name: "Visual Identity Design", note: "kept five distinct styles tied under one cohesive book identity", icon: "fa-shapes" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -145,6 +154,12 @@ const projectData = [
         desc: "An interactive Bahasa Indonesia digital textbook for 8th-grade students, built as an academic group project. Aligned with the 2013 Curriculum, the book weaves in video, audio, images, and graphics — so students don't just read long blocks of text, they experience the material through multiple senses.",
         impact: "A Curriculum 2013-aligned textbook with fully integrated multimedia elements",
         stack: "Canva, Flip HTML5",
+        skills: [
+            { name: "Editorial Layout Design", note: "kept visual consistency across every page of the book", icon: "fa-layer-group" },
+            { name: "Multimedia Integration", note: "wove video, audio, and graphics into the textbook's structure", icon: "fa-photo-film" },
+            { name: "Cross-Team Collaboration", note: "coordinated content writing and layout with the rest of the group", icon: "fa-handshake" },
+            { name: "Curriculum Alignment", note: "kept the book's structure aligned to Curriculum 2013 standards", icon: "fa-book-open" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -179,6 +194,12 @@ const projectData = [
         desc: "A learning video on anecdotal texts that I produced entirely from scratch — writing the script, appearing on camera, and editing the final cut — turning material that usually feels dry on a textbook page into something visual, concise, and easy to follow.",
         impact: "Made the material easier to understand through a concise video format",
         stack: "Canva, Video Editing Software",
+        skills: [
+            { name: "Scriptwriting", note: "wrote a conversational script instead of reading straight from a textbook", icon: "fa-file-pen" },
+            { name: "Storyboarding", note: "mapped every scene before shooting a single frame", icon: "fa-diagram-project" },
+            { name: "On-Camera Presenting", note: "appeared on camera to deliver the lesson myself", icon: "fa-video" },
+            { name: "Video Editing", note: "shot and edited the final cut solo, kept under 10 minutes", icon: "fa-film" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -208,6 +229,12 @@ const projectData = [
         desc: "A digital tabloid tackling the lack of accessible learning media in schools, designed with a clean, minimalist concept so the content itself stays the focus — proof that a digital module can outperform a conventional printed one.",
         impact: "First edition published, from concept through final layout",
         stack: "Adobe Illustrator, Canva",
+        skills: [
+            { name: "Editorial Concept Development", note: "built the entire editorial concept from a blank page", icon: "fa-newspaper" },
+            { name: "Layout Design", note: "balanced whitespace and typography for a clean, readable page", icon: "fa-layer-group" },
+            { name: "Feature Writing", note: "wrote every article in the edition myself", icon: "fa-pen-nib" },
+            { name: "Visual Research", note: "drew design references from international magazines", icon: "fa-magnifying-glass" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -238,6 +265,12 @@ const projectData = [
         desc: "A feature article anthology paired with documentary photography to strengthen each story's narrative. Every article was laid out to create harmony between text and image, so reading it feels immersive and flowing — not just a stack of paragraphs.",
         impact: "Published on Kompasiana",
         stack: "Adobe Illustrator, Canva",
+        skills: [
+            { name: "Visual Storytelling", note: "chose every photo to serve the narrative, never just to decorate", icon: "fa-camera" },
+            { name: "Field Reporting", note: "did on-the-ground reporting before writing a single article", icon: "fa-route" },
+            { name: "Feature Writing", note: "wrote the articles that anchor each photo essay", icon: "fa-pen-nib" },
+            { name: "Photo Curation & Layout", note: "selected and laid out images so the reader's eye flows naturally", icon: "fa-images" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -270,6 +303,12 @@ const projectData = [
         desc: "A web and mobile-based student attendance system, built as a vocational high school graduation capstone. I owned the full UI design — from wireframes to prototype — while technical development was handled together with the team.",
         impact: "A vocational high school capstone project, built as a team effort",
         stack: "Figma, Adobe XD",
+        skills: [
+            { name: "UI Design", note: "owned the design from wireframes through final prototype", icon: "fa-pen-ruler" },
+            { name: "Developer Collaboration", note: "learned to weigh technical feasibility, not just visual polish", icon: "fa-handshake" },
+            { name: "Prototyping", note: "built the full interactive flow in Figma and Adobe XD", icon: "fa-diagram-project" },
+            { name: "Design System Thinking", note: "now rebuilding the mockups with more mature UI/UX conventions", icon: "fa-swatchbook" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -300,6 +339,13 @@ const projectData = [
         desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
         impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
         stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
+        skills: [
+            { name: "Cross-Team Discovery", note: "mapped exactly where Training and HR workflows overlapped", icon: "fa-people-arrows" },
+            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
+            { name: "Systems Design", note: "designed one data model both teams could read from without conflict", icon: "fa-sitemap" },
+            { name: "Status Tracking UX", note: "turned asset handover into a live, trackable status system", icon: "fa-list-check" },
+            { name: "Onboarding Program Design", note: "structured the full four-phase employee journey end to end", icon: "fa-route" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -409,6 +455,13 @@ const projectData = [
         desc: "A wedding planning SaaS for engaged couples in Indonesia, built and developed entirely solo — from backend architecture to the visual design system to product strategy. EverAfter helps couples manage every part of their wedding in one dashboard: checklist, budget, guest list, moodboard, and day-of run-of-show.",
         impact: "Sold as a two-tier product (Lite & Ultimate) on a one-time purchase model, live at everafter-planner.my.id",
         stack: "Cloudflare Pages, Supabase, Vanilla JavaScript, Custom Design System (Bloom 2.0)",
+        skills: [
+            { name: "Product Strategy", note: "decided pricing tiers, positioning, and the competitive landscape", icon: "fa-compass" },
+            { name: "Full-Stack Development", note: "architected and built across Google Apps Script, Supabase, and Cloudflare", icon: "fa-code" },
+            { name: "Design Systems", note: "built Bloom 2.0 from scratch — a complete custom visual language", icon: "fa-swatchbook" },
+            { name: "Backend Migration", note: "migrated the entire data layer from Sheets to Supabase without losing data", icon: "fa-database" },
+            { name: "Solo Product Ownership", note: "owned frontend, backend, and strategy end to end", icon: "fa-user-gear" }
+        ],
         storyTitle: "Behind The Scenes",
         story: [
             {
@@ -442,6 +495,49 @@ const projectData = [
             "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=400", // REPLACE: EverAfter dashboard
             "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=400", // REPLACE: budget tracker
             "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=400"  // REPLACE: moodboard
+        ]
+    },
+    {
+        title: "Literat Sastrasia — BSO Literat Content & Social Media",
+        badge: "Content Design",
+        img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000", // REPLACE: Literat Sastrasia feed cover
+        desc: "My earliest content design role — Design Graphic & Social Media Intern for BSO Literat, the semi-autonomous student body under Indonesian Language & Literature Education, running content for Literat Sastrasia. This wasn't a single-format account: one week I'd be reporting campus news, the next reviewing a poetry release, writing an opinion piece on intolerance, or covering a student theater performance — all needing to feel like they came from the same voice.",
+        impact: "Produced at least 3 pieces of Instagram and website content every week, sustained across a full internship period",
+        stack: "Canva, Instagram",
+        skills: [
+            { name: "Multi-Format Content Design", note: "designed everything from news recaps to literary reviews under one visual system", icon: "fa-shapes" },
+            { name: "Content Planning", note: "built and maintained a monthly content calendar for Instagram and the website", icon: "fa-calendar-days" },
+            { name: "Copywriting", note: "wrote captions built to pull readers from Instagram through to full website articles", icon: "fa-pen-nib" },
+            { name: "Editorial Range", note: "moved between journalism, opinion, and event coverage without breaking tone", icon: "fa-newspaper" }
+        ],
+        storyTitle: "Behind The Scenes",
+        story: [
+            {
+                type: "split",
+                side: "left",
+                heading: "Learning to Speak in Many Voices",
+                text: "This account never stuck to one lane. A campus news recap needed to read straightforward and factual. A poetry book release needed warmth. An opinion piece on intolerance needed conviction. A theater review needed color. My job was making all of it feel like it came from the same publication, without flattening what made each piece different.",
+                img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800" // REPLACE: sample news/opinion post
+            },
+            {
+                type: "duo",
+                heading: "Consistency Behind the Variety",
+                text: "Underneath all that range sat one content calendar, planned a month at a time, so the account never scrambled for what to post next. That habit of planning ahead — not just designing when inspiration struck — became a discipline I carried into every content role after this one.",
+                imgs: [
+                    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800", // REPLACE: theater/event coverage post
+                    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800"  // REPLACE: tips/how-to post
+                ]
+            },
+            {
+                type: "quote",
+                quote: "\u201cThis was the internship where I first learned that content design isn't about having one good aesthetic — it's about knowing which voice a story actually needs.\u201d"
+            }
+        ],
+        ratio: 1/1,
+        gallery: [
+            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
+            "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=400", // REPLACE: feed sample 2
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: feed sample 3
         ]
     }
 ];
