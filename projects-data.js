@@ -5,6 +5,122 @@
 
 const projectData = [
     {
+        title: "Training Hub — Studio Renang Training Management System",
+        badge: "Web App Development",
+        img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=1000", // REPLACE: training hub cover
+        desc: "Picture running a 21-day training program for dozens of new hires, three classes running in parallel, each trainer working their own way — and the whole thing still tracked manually on a spreadsheet that's one typo away from chaos. I built Training Hub to remove that chaos entirely: one system running two worlds at once — a command dashboard for admins, and a personal portal for every trainee.",
+        impact: "Manages multi-batch training across 3 parallel classes at once, automating pass/fail calculations against different thresholds per phase (Phase 1 ≥90%, Phase 2 ≥95%, Phase 3 100%)",
+        stack: "HTML, CSS, JavaScript, Google Apps Script, Chart.js, Remix Icons",
+        skills: [
+            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
+            { name: "Role-Based UX", note: "one codebase, two completely different user experiences", icon: "fa-users-gear" },
+            { name: "Dashboard & Data Visualization", note: "Chart.js pipeline, live alert center, trainer rankings", icon: "fa-chart-pie" },
+            { name: "Systems Thinking", note: "designed the multi-batch data model to preserve training history", icon: "fa-sitemap" },
+            { name: "Assessment Design", note: "built the weighted Kirkpatrick scoring for trainer feedback", icon: "fa-clipboard-check" }
+        ],
+        storyTitle: "Behind The Scenes",
+        story: [
+            {
+                type: "split",
+                side: "left",
+                heading: "Two Roles, One Codebase",
+                text: "The first challenge showed up before a single design decision was made: admins and trainees needed entirely different worlds from the same app. Admins needed full control — manage trainees, enter scores, review pass/fail decisions. Trainees just needed a clear, personal view of their own progress, with none of the noise from anyone else's data. I designed one codebase that could completely change face depending on who logged in, with zero duplicated logic behind the scenes.",
+                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800" // REPLACE: login/role selector
+            },
+            {
+                type: "stat",
+                value: "3",
+                label: "Parallel classes, one dashboard",
+                caption: "Every batch runs three classes at once, each with its own trainer, tracked side by side in real time."
+            },
+            {
+                type: "duo",
+                heading: "A Dashboard That Tells You Where to Look",
+                text: "I designed the admin dashboard bento-style — a training pipeline donut chart, trainer performance rankings, and an alert center that isn't static text but is calculated live from real data conditions: which trainees haven't started, whose roleplay score dropped below standard, which class needs extra attention.",
+                imgs: [
+                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", // REPLACE: bento dashboard
+                    "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800"  // REPLACE: alert center
+                ]
+            },
+            {
+                type: "timeline",
+                heading: "Closing the Evaluation Loop",
+                intro: "The part I'm proudest of is the feedback and review dashboard, which turns trainee star ratings into a weighted score using the Kirkpatrick Level 1 framework — not just a plain average.",
+                steps: [
+                    { label: "History that never disappears", text: "A multi-batch system keeps every past training wave archived as its own record, reopenable anytime without touching the active batch." },
+                    { label: "Instant scoring feedback", text: "Score entry comes with an instant pass/fail preview based on each phase's threshold." },
+                    { label: "One-click attendance fixes", text: "The 21-day attendance recap can be edited directly from the table — no separate form just to fix one day." },
+                    { label: "A closed evaluation loop", text: "An assessment case-study generator per trainee per phase means the entire training cycle, from day one to final evaluation, is fully recorded and accountable." }
+                ]
+            }
+        ],
+        ratio: 16/9,
+        gallery: [
+            "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400", // REPLACE: admin dashboard
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400", // REPLACE: score entry
+            "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=400"  // REPLACE: trainee portal
+        ]
+    },
+    {
+        title: "Studio Renang Hub — Employee Onboarding",
+        badge: "Product Design & Development",
+        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000", // REPLACE: onboarding portal cover
+        desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
+        impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
+        stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
+        skills: [
+            { name: "Cross-Team Discovery", note: "mapped exactly where Training and HR workflows overlapped", icon: "fa-people-arrows" },
+            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
+            { name: "Systems Design", note: "designed one data model both teams could read from without conflict", icon: "fa-sitemap" },
+            { name: "Status Tracking UX", note: "turned asset handover into a live, trackable status system", icon: "fa-list-check" },
+            { name: "Onboarding Program Design", note: "structured the full four-phase employee journey end to end", icon: "fa-route" }
+        ],
+        storyTitle: "Behind The Scenes",
+        story: [
+            {
+                type: "quote",
+                quote: "\u201cThe brief didn't start as \u2018build an onboarding app.\u2019 It started as two teams asking the same question in different words: \u2018where did this actually land?\u2019\u201d"
+            },
+            {
+                type: "split",
+                side: "left",
+                heading: "Where Training and HR Actually Overlap",
+                text: "Training owned the curriculum and progress; HR owned the paperwork and physical handovers — uniform, ID card, work device. In practice, both needed to answer the same question from two different angles: is this person actually ready, and has everything been handed over properly? Before this project, that meant HR messaging Training to check graduation status, and Training messaging HR to check whether an asset had actually been picked up. I sat with both teams to map that overlap, then designed a single data model both sides could read from without stepping on each other's workflow.",
+                img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" // REPLACE: team workflow / whiteboard planning
+            },
+            {
+                type: "timeline",
+                heading: "Four Phases, One Journey",
+                intro: "On the employee-facing side, I designed and built the entire onboarding flow as a self-contained portal — from login and a main dashboard with a progress ring and Employee of the Month, to a 'Company Soul' page introducing the company's vision, mission, and five core values (ACIDS — Alignment, Courage, Innovative, Devoted, Servitality).",
+                steps: [
+                    { label: "Culture & Company Soul", text: "New hires start by absorbing the company's culture, vision, and values before touching any operational task." },
+                    { label: "Operational Mastery", text: "Covers the day-to-day systems and workflows every employee needs to run the front line." },
+                    { label: "Aquatic Expertise", text: "Full SSI (Swim School International) curriculum training, phase by phase." },
+                    { label: "Evaluation & Graduation", text: "A final review confirming readiness before someone graduates into a full employee — the exact status HR needed visibility into." }
+                ]
+            },
+            {
+                type: "split",
+                side: "right",
+                heading: "Turning Asset Handover Into a Trackable Status",
+                text: "For HR's side of the problem, I built an asset request system covering uniforms, ID cards, and work devices — each with its own modal form and a status badge (Pending / Processing / Received) that updates in real time instead of living in a spreadsheet cell someone has to remember to edit. Paired with an Employee Corner for announcements and quick links to SOPs, the team calendar, and Training Hub, the goal was to make one glance at a profile answer both teams' questions at once: how far along is this person, and what have they actually received.",
+                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" // REPLACE: asset tracking dashboard
+            },
+            {
+                type: "stat",
+                value: "2 teams",
+                label: "One shared source of truth",
+                caption: "The hardest part was never the code — it was designing something that felt equally native to both a training curriculum and an HR checklist, without either team feeling like they'd inherited someone else's tool."
+            }
+        ],
+        ratio: 16/9,
+        gallery: [
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400", // REPLACE: login page
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400", // REPLACE: onboarding dashboard
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: my journey timeline
+        ]
+    },
+    {
         title: "BEBI Mobile Learning App",
         badge: "Instructional Design",
         img: "https://lh3.googleusercontent.com/d/1QhLtlWzheP6LViBqYWhz3BcWq8qz3Eb1", // REPLACE: BEBI cover/hero
@@ -61,90 +177,6 @@ const projectData = [
             "https://lh3.googleusercontent.com/d/1VWndp4ve2XutpDy6Vx7HzXVe9hM8988u", // REPLACE: screenshot 4
             "https://lh3.googleusercontent.com/d/1WugBZNMMbZ_-7ujTj5qTASyacW6zDGFP", // REPLACE: screenshot 5
             "https://lh3.googleusercontent.com/d/18FnNZ9FYK_ICEFC8OSx8DNWCoDZJ8-MK"  // REPLACE: screenshot 6
-        ]
-    },
-    {
-        title: "Social Media @p2msatrasia",
-        badge: "Content Design",
-        img: "https://lh3.googleusercontent.com/d/1lNHwsO0K1WMRi3LxFEjV_vRgsH0cB120", // REPLACE: Instagram feed cover
-        desc: "Running the Instagram account for @p2msatrasia, the official community outreach program by Indonesian Language & Literature Education students at UPI. I owned the entire creative side — content strategy, visual design, and caption writing — turning what's usually a stiff academic report into something people actually wanted to see on their feed.",
-        impact: "Audience reach grew significantly throughout the program",
-        stack: "Canva, Instagram",
-        skills: [
-            { name: "Content Strategy", note: "built the calendar and shifted the caption voice toward something personal", icon: "fa-bullhorn" },
-            { name: "Visual Identity Design", note: "built a consistent palette, typography, and reusable feed templates", icon: "fa-palette" },
-            { name: "Copywriting", note: "wrote captions that read like a conversation, not an activity report", icon: "fa-pen-nib" },
-            { name: "Brand Consistency", note: "designed templates other team members could post from without breaking the look", icon: "fa-swatchbook" }
-        ],
-        storyTitle: "Behind The Scenes",
-        story: [
-            {
-                type: "quote",
-                quote: "\u201cThe real challenge wasn't the design — it was translating something as formal as academic community service into content people would actually stop scrolling for.\u201d"
-            },
-            {
-                type: "split",
-                side: "left",
-                heading: "Building a Visual Identity From Zero",
-                text: "I started with a consistent visual system — color palette, typography, and a feed template other team members could use to post independently without breaking the account's look.",
-                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" // REPLACE: visual identity screenshot
-            },
-            {
-                type: "duo",
-                heading: "Content That Felt Like a Person Wrote It",
-                text: "Beyond design, I built out a content calendar and shifted the caption voice toward something more personal — less like an activity report, more like a conversation.",
-                imgs: [
-                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // REPLACE: feed sample 1
-                    "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800"  // REPLACE: feed sample 2
-                ]
-            }
-        ],
-        gallery: [
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
-            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400", // REPLACE: feed sample 2
-            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=400"  // REPLACE: feed sample 3
-        ]
-    },
-    {
-        title: "Mily, The Beloved Cat",
-        badge: "Creative Writing",
-        img: "https://lh3.googleusercontent.com/d/1qcFiwdm2vuEq9eU39NTAJMlCm4du8MGo", // REPLACE: book cover
-        desc: "A digital storybook for elementary school readers, containing five stories with five different themes — where I worked as both writer and illustrator. This project was an experiment in merging creative writing with illustration design to build story worlds that feel close to a child's everyday life.",
-        impact: "Five complete stories in one digital book, ready for elementary-age readers",
-        stack: "Canva, Adobe Photoshop",
-        skills: [
-            { name: "Creative Writing", note: "wrote five distinct stories, each with its own theme", icon: "fa-pen-nib" },
-            { name: "Illustration", note: "designed the visual world and character art for every story", icon: "fa-palette" },
-            { name: "Child Development Research", note: "researched developmental psychology for ages 6–9 before writing a line", icon: "fa-child" },
-            { name: "Visual Identity Design", note: "kept five distinct styles tied under one cohesive book identity", icon: "fa-shapes" }
-        ],
-        storyTitle: "Behind The Scenes",
-        story: [
-            {
-                type: "full",
-                heading: "Writing With a Six-Year-Old in Mind",
-                text: "Before writing a single line, I researched child development psychology for ages 6–9 — so word choice, sentence length, and themes would genuinely match how a reader that age thinks and feels.",
-                img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200" // REPLACE: story page spread
-            },
-            {
-                type: "duo",
-                heading: "Five Stories, Five Worlds",
-                text: "Each story got its own cast of characters, color palette, and illustration style — so every tale carries its own mood — while I kept them tied together under one cohesive visual identity as a single book.",
-                imgs: [
-                    "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=800", // REPLACE: story page 2
-                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800"  // REPLACE: story page 3
-                ]
-            },
-            {
-                type: "quote",
-                quote: "\u201cThe goal was never just to entertain — it was to build a story world a child could recognize as their own.\u201d"
-            }
-        ],
-        ratio: 3/4,
-        gallery: [
-            "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400", // REPLACE: story page 1
-            "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=400", // REPLACE: story page 2
-            "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400"  // REPLACE: story page 3
         ]
     },
     {
@@ -223,6 +255,48 @@ const projectData = [
         ]
     },
     {
+        title: "Mily, The Beloved Cat",
+        badge: "Creative Writing",
+        img: "https://lh3.googleusercontent.com/d/1qcFiwdm2vuEq9eU39NTAJMlCm4du8MGo", // REPLACE: book cover
+        desc: "A digital storybook for elementary school readers, containing five stories with five different themes — where I worked as both writer and illustrator. This project was an experiment in merging creative writing with illustration design to build story worlds that feel close to a child's everyday life.",
+        impact: "Five complete stories in one digital book, ready for elementary-age readers",
+        stack: "Canva, Adobe Photoshop",
+        skills: [
+            { name: "Creative Writing", note: "wrote five distinct stories, each with its own theme", icon: "fa-pen-nib" },
+            { name: "Illustration", note: "designed the visual world and character art for every story", icon: "fa-palette" },
+            { name: "Child Development Research", note: "researched developmental psychology for ages 6–9 before writing a line", icon: "fa-child" },
+            { name: "Visual Identity Design", note: "kept five distinct styles tied under one cohesive book identity", icon: "fa-shapes" }
+        ],
+        storyTitle: "Behind The Scenes",
+        story: [
+            {
+                type: "full",
+                heading: "Writing With a Six-Year-Old in Mind",
+                text: "Before writing a single line, I researched child development psychology for ages 6–9 — so word choice, sentence length, and themes would genuinely match how a reader that age thinks and feels.",
+                img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200" // REPLACE: story page spread
+            },
+            {
+                type: "duo",
+                heading: "Five Stories, Five Worlds",
+                text: "Each story got its own cast of characters, color palette, and illustration style — so every tale carries its own mood — while I kept them tied together under one cohesive visual identity as a single book.",
+                imgs: [
+                    "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=800", // REPLACE: story page 2
+                    "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800"  // REPLACE: story page 3
+                ]
+            },
+            {
+                type: "quote",
+                quote: "\u201cThe goal was never just to entertain — it was to build a story world a child could recognize as their own.\u201d"
+            }
+        ],
+        ratio: 3/4,
+        gallery: [
+            "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400", // REPLACE: story page 1
+            "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=400", // REPLACE: story page 2
+            "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400"  // REPLACE: story page 3
+        ]
+    },
+    {
         title: "Diurnalis — Digital Tabloid",
         badge: "Editorial Design",
         img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000", // REPLACE: tabloid cover
@@ -259,41 +333,88 @@ const projectData = [
         ]
     },
     {
-        title: "Feature Article Anthology",
-        badge: "Creative Writing",
-        img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1000", // REPLACE: anthology cover
-        desc: "A feature article anthology paired with documentary photography to strengthen each story's narrative. Every article was laid out to create harmony between text and image, so reading it feels immersive and flowing — not just a stack of paragraphs.",
-        impact: "Published on Kompasiana",
-        stack: "Adobe Illustrator, Canva",
+        title: "Social Media @p2msatrasia",
+        badge: "Content Design",
+        img: "https://lh3.googleusercontent.com/d/1lNHwsO0K1WMRi3LxFEjV_vRgsH0cB120", // REPLACE: Instagram feed cover
+        desc: "Running the Instagram account for @p2msatrasia, the official community outreach program by Indonesian Language & Literature Education students at UPI. I owned the entire creative side — content strategy, visual design, and caption writing — turning what's usually a stiff academic report into something people actually wanted to see on their feed.",
+        impact: "Audience reach grew significantly throughout the program",
+        stack: "Canva, Instagram",
         skills: [
-            { name: "Visual Storytelling", note: "chose every photo to serve the narrative, never just to decorate", icon: "fa-camera" },
-            { name: "Field Reporting", note: "did on-the-ground reporting before writing a single article", icon: "fa-route" },
-            { name: "Feature Writing", note: "wrote the articles that anchor each photo essay", icon: "fa-pen-nib" },
-            { name: "Photo Curation & Layout", note: "selected and laid out images so the reader's eye flows naturally", icon: "fa-images" }
+            { name: "Content Strategy", note: "built the calendar and shifted the caption voice toward something personal", icon: "fa-bullhorn" },
+            { name: "Visual Identity Design", note: "built a consistent palette, typography, and reusable feed templates", icon: "fa-palette" },
+            { name: "Copywriting", note: "wrote captions that read like a conversation, not an activity report", icon: "fa-pen-nib" },
+            { name: "Brand Consistency", note: "designed templates other team members could post from without breaking the look", icon: "fa-swatchbook" }
         ],
         storyTitle: "Behind The Scenes",
         story: [
             {
-                type: "full",
-                heading: "Learning What Visual Storytelling Actually Means",
-                text: "This project taught me what \u201cvisual storytelling\u201d really means in practice. Every photo I chose had to earn its place — never just decoration on the page.",
-                img: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=1200" // REPLACE: documentary shot
+                type: "quote",
+                quote: "\u201cThe real challenge wasn't the design — it was translating something as formal as academic community service into content people would actually stop scrolling for.\u201d"
+            },
+            {
+                type: "split",
+                side: "left",
+                heading: "Building a Visual Identity From Zero",
+                text: "I started with a consistent visual system — color palette, typography, and a feed template other team members could use to post independently without breaking the account's look.",
+                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" // REPLACE: visual identity screenshot
             },
             {
                 type: "duo",
-                heading: "From the Field to the Final Layout",
-                text: "The process began with on-the-ground reporting, then writing, then selecting the photos that best represented each story, then a final layout designed so the reader's eye flows naturally from one element to the next.",
+                heading: "Content That Felt Like a Person Wrote It",
+                text: "Beyond design, I built out a content calendar and shifted the caption voice toward something more personal — less like an activity report, more like a conversation.",
                 imgs: [
-                    "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=800", // REPLACE: field shot
-                    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800"  // REPLACE: layout spread
+                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // REPLACE: feed sample 1
+                    "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800"  // REPLACE: feed sample 2
                 ]
             }
         ],
-        ratio: 4/3,
         gallery: [
-            "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=400", // REPLACE: documentary 1
-            "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=400", // REPLACE: documentary 2
-            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=400"  // REPLACE: documentary 3
+            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400", // REPLACE: feed sample 2
+            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=400"  // REPLACE: feed sample 3
+        ]
+    },
+    {
+        title: "Literat Sastrasia — BSO Literat Content & Social Media",
+        badge: "Content Design",
+        img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000", // REPLACE: Literat Sastrasia feed cover
+        desc: "My earliest content design role — Design Graphic & Social Media Intern for BSO Literat, the semi-autonomous student body under Indonesian Language & Literature Education, running content for Literat Sastrasia. This wasn't a single-format account: one week I'd be reporting campus news, the next reviewing a poetry release, writing an opinion piece on intolerance, or covering a student theater performance — all needing to feel like they came from the same voice.",
+        impact: "Produced at least 3 pieces of Instagram and website content every week, sustained across a full internship period",
+        stack: "Canva, Instagram",
+        skills: [
+            { name: "Multi-Format Content Design", note: "designed everything from news recaps to literary reviews under one visual system", icon: "fa-shapes" },
+            { name: "Content Planning", note: "built and maintained a monthly content calendar for Instagram and the website", icon: "fa-calendar-days" },
+            { name: "Copywriting", note: "wrote captions built to pull readers from Instagram through to full website articles", icon: "fa-pen-nib" },
+            { name: "Editorial Range", note: "moved between journalism, opinion, and event coverage without breaking tone", icon: "fa-newspaper" }
+        ],
+        storyTitle: "Behind The Scenes",
+        story: [
+            {
+                type: "split",
+                side: "left",
+                heading: "Learning to Speak in Many Voices",
+                text: "This account never stuck to one lane. A campus news recap needed to read straightforward and factual. A poetry book release needed warmth. An opinion piece on intolerance needed conviction. A theater review needed color. My job was making all of it feel like it came from the same publication, without flattening what made each piece different.",
+                img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800" // REPLACE: sample news/opinion post
+            },
+            {
+                type: "duo",
+                heading: "Consistency Behind the Variety",
+                text: "Underneath all that range sat one content calendar, planned a month at a time, so the account never scrambled for what to post next. That habit of planning ahead — not just designing when inspiration struck — became a discipline I carried into every content role after this one.",
+                imgs: [
+                    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800", // REPLACE: theater/event coverage post
+                    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800"  // REPLACE: tips/how-to post
+                ]
+            },
+            {
+                type: "quote",
+                quote: "\u201cThis was the internship where I first learned that content design isn't about having one good aesthetic — it's about knowing which voice a story actually needs.\u201d"
+            }
+        ],
+        ratio: 1/1,
+        gallery: [
+            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
+            "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=400", // REPLACE: feed sample 2
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: feed sample 3
         ]
     },
     {
@@ -333,119 +454,41 @@ const projectData = [
         ]
     },
     {
-        title: "Studio Renang Hub — Employee Onboarding",
-        badge: "Product Design & Development",
-        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000", // REPLACE: onboarding portal cover
-        desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
-        impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
-        stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
+        title: "Feature Article Anthology",
+        badge: "Creative Writing",
+        img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1000", // REPLACE: anthology cover
+        desc: "A feature article anthology paired with documentary photography to strengthen each story's narrative. Every article was laid out to create harmony between text and image, so reading it feels immersive and flowing — not just a stack of paragraphs.",
+        impact: "Published on Kompasiana",
+        stack: "Adobe Illustrator, Canva",
         skills: [
-            { name: "Cross-Team Discovery", note: "mapped exactly where Training and HR workflows overlapped", icon: "fa-people-arrows" },
-            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
-            { name: "Systems Design", note: "designed one data model both teams could read from without conflict", icon: "fa-sitemap" },
-            { name: "Status Tracking UX", note: "turned asset handover into a live, trackable status system", icon: "fa-list-check" },
-            { name: "Onboarding Program Design", note: "structured the full four-phase employee journey end to end", icon: "fa-route" }
+            { name: "Visual Storytelling", note: "chose every photo to serve the narrative, never just to decorate", icon: "fa-camera" },
+            { name: "Field Reporting", note: "did on-the-ground reporting before writing a single article", icon: "fa-route" },
+            { name: "Feature Writing", note: "wrote the articles that anchor each photo essay", icon: "fa-pen-nib" },
+            { name: "Photo Curation & Layout", note: "selected and laid out images so the reader's eye flows naturally", icon: "fa-images" }
         ],
         storyTitle: "Behind The Scenes",
         story: [
             {
-                type: "quote",
-                quote: "\u201cThe brief didn't start as \u2018build an onboarding app.\u2019 It started as two teams asking the same question in different words: \u2018where did this actually land?\u2019\u201d"
-            },
-            {
-                type: "split",
-                side: "left",
-                heading: "Where Training and HR Actually Overlap",
-                text: "Training owned the curriculum and progress; HR owned the paperwork and physical handovers — uniform, ID card, work device. In practice, both needed to answer the same question from two different angles: is this person actually ready, and has everything been handed over properly? Before this project, that meant HR messaging Training to check graduation status, and Training messaging HR to check whether an asset had actually been picked up. I sat with both teams to map that overlap, then designed a single data model both sides could read from without stepping on each other's workflow.",
-                img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" // REPLACE: team workflow / whiteboard planning
-            },
-            {
-                type: "timeline",
-                heading: "Four Phases, One Journey",
-                intro: "On the employee-facing side, I designed and built the entire onboarding flow as a self-contained portal — from login and a main dashboard with a progress ring and Employee of the Month, to a 'Company Soul' page introducing the company's vision, mission, and five core values (ACIDS — Alignment, Courage, Innovative, Devoted, Servitality).",
-                steps: [
-                    { label: "Culture & Company Soul", text: "New hires start by absorbing the company's culture, vision, and values before touching any operational task." },
-                    { label: "Operational Mastery", text: "Covers the day-to-day systems and workflows every employee needs to run the front line." },
-                    { label: "Aquatic Expertise", text: "Full SSI (Swim School International) curriculum training, phase by phase." },
-                    { label: "Evaluation & Graduation", text: "A final review confirming readiness before someone graduates into a full employee — the exact status HR needed visibility into." }
-                ]
-            },
-            {
-                type: "split",
-                side: "right",
-                heading: "Turning Asset Handover Into a Trackable Status",
-                text: "For HR's side of the problem, I built an asset request system covering uniforms, ID cards, and work devices — each with its own modal form and a status badge (Pending / Processing / Received) that updates in real time instead of living in a spreadsheet cell someone has to remember to edit. Paired with an Employee Corner for announcements and quick links to SOPs, the team calendar, and Training Hub, the goal was to make one glance at a profile answer both teams' questions at once: how far along is this person, and what have they actually received.",
-                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" // REPLACE: asset tracking dashboard
-            },
-            {
-                type: "stat",
-                value: "2 teams",
-                label: "One shared source of truth",
-                caption: "The hardest part was never the code — it was designing something that felt equally native to both a training curriculum and an HR checklist, without either team feeling like they'd inherited someone else's tool."
-            }
-        ],
-        ratio: 16/9,
-        gallery: [
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400", // REPLACE: login page
-            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400", // REPLACE: onboarding dashboard
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: my journey timeline
-        ]
-    },
-    {
-        title: "Training Hub — Studio Renang Training Management System",
-        badge: "Web App Development",
-        img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=1000", // REPLACE: training hub cover
-        desc: "Picture running a 21-day training program for dozens of new hires, three classes running in parallel, each trainer working their own way — and the whole thing still tracked manually on a spreadsheet that's one typo away from chaos. I built Training Hub to remove that chaos entirely: one system running two worlds at once — a command dashboard for admins, and a personal portal for every trainee.",
-        impact: "Manages multi-batch training across 3 parallel classes at once, automating pass/fail calculations against different thresholds per phase (Phase 1 ≥90%, Phase 2 ≥95%, Phase 3 100%)",
-        stack: "HTML, CSS, JavaScript, Google Apps Script, Chart.js, Remix Icons",
-        skills: [
-            { name: "Full-Stack Development", note: "built the frontend and Google Apps Script backend solo", icon: "fa-code" },
-            { name: "Role-Based UX", note: "one codebase, two completely different user experiences", icon: "fa-users-gear" },
-            { name: "Dashboard & Data Visualization", note: "Chart.js pipeline, live alert center, trainer rankings", icon: "fa-chart-pie" },
-            { name: "Systems Thinking", note: "designed the multi-batch data model to preserve training history", icon: "fa-sitemap" },
-            { name: "Assessment Design", note: "built the weighted Kirkpatrick scoring for trainer feedback", icon: "fa-clipboard-check" }
-        ],
-        storyTitle: "Behind The Scenes",
-        story: [
-            {
-                type: "split",
-                side: "left",
-                heading: "Two Roles, One Codebase",
-                text: "The first challenge showed up before a single design decision was made: admins and trainees needed entirely different worlds from the same app. Admins needed full control — manage trainees, enter scores, review pass/fail decisions. Trainees just needed a clear, personal view of their own progress, with none of the noise from anyone else's data. I designed one codebase that could completely change face depending on who logged in, with zero duplicated logic behind the scenes.",
-                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800" // REPLACE: login/role selector
-            },
-            {
-                type: "stat",
-                value: "3",
-                label: "Parallel classes, one dashboard",
-                caption: "Every batch runs three classes at once, each with its own trainer, tracked side by side in real time."
+                type: "full",
+                heading: "Learning What Visual Storytelling Actually Means",
+                text: "This project taught me what \u201cvisual storytelling\u201d really means in practice. Every photo I chose had to earn its place — never just decoration on the page.",
+                img: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=1200" // REPLACE: documentary shot
             },
             {
                 type: "duo",
-                heading: "A Dashboard That Tells You Where to Look",
-                text: "I designed the admin dashboard bento-style — a training pipeline donut chart, trainer performance rankings, and an alert center that isn't static text but is calculated live from real data conditions: which trainees haven't started, whose roleplay score dropped below standard, which class needs extra attention.",
+                heading: "From the Field to the Final Layout",
+                text: "The process began with on-the-ground reporting, then writing, then selecting the photos that best represented each story, then a final layout designed so the reader's eye flows naturally from one element to the next.",
                 imgs: [
-                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800", // REPLACE: bento dashboard
-                    "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800"  // REPLACE: alert center
-                ]
-            },
-            {
-                type: "timeline",
-                heading: "Closing the Evaluation Loop",
-                intro: "The part I'm proudest of is the feedback and review dashboard, which turns trainee star ratings into a weighted score using the Kirkpatrick Level 1 framework — not just a plain average.",
-                steps: [
-                    { label: "History that never disappears", text: "A multi-batch system keeps every past training wave archived as its own record, reopenable anytime without touching the active batch." },
-                    { label: "Instant scoring feedback", text: "Score entry comes with an instant pass/fail preview based on each phase's threshold." },
-                    { label: "One-click attendance fixes", text: "The 21-day attendance recap can be edited directly from the table — no separate form just to fix one day." },
-                    { label: "A closed evaluation loop", text: "An assessment case-study generator per trainee per phase means the entire training cycle, from day one to final evaluation, is fully recorded and accountable." }
+                    "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=800", // REPLACE: field shot
+                    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800"  // REPLACE: layout spread
                 ]
             }
         ],
-        ratio: 16/9,
+        ratio: 4/3,
         gallery: [
-            "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400", // REPLACE: admin dashboard
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400", // REPLACE: score entry
-            "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=400"  // REPLACE: trainee portal
+            "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=400", // REPLACE: documentary 1
+            "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=400", // REPLACE: documentary 2
+            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=400"  // REPLACE: documentary 3
         ]
     },
     {
@@ -495,49 +538,6 @@ const projectData = [
             "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=400", // REPLACE: EverAfter dashboard
             "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=400", // REPLACE: budget tracker
             "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=400"  // REPLACE: moodboard
-        ]
-    },
-    {
-        title: "Literat Sastrasia — BSO Literat Content & Social Media",
-        badge: "Content Design",
-        img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000", // REPLACE: Literat Sastrasia feed cover
-        desc: "My earliest content design role — Design Graphic & Social Media Intern for BSO Literat, the semi-autonomous student body under Indonesian Language & Literature Education, running content for Literat Sastrasia. This wasn't a single-format account: one week I'd be reporting campus news, the next reviewing a poetry release, writing an opinion piece on intolerance, or covering a student theater performance — all needing to feel like they came from the same voice.",
-        impact: "Produced at least 3 pieces of Instagram and website content every week, sustained across a full internship period",
-        stack: "Canva, Instagram",
-        skills: [
-            { name: "Multi-Format Content Design", note: "designed everything from news recaps to literary reviews under one visual system", icon: "fa-shapes" },
-            { name: "Content Planning", note: "built and maintained a monthly content calendar for Instagram and the website", icon: "fa-calendar-days" },
-            { name: "Copywriting", note: "wrote captions built to pull readers from Instagram through to full website articles", icon: "fa-pen-nib" },
-            { name: "Editorial Range", note: "moved between journalism, opinion, and event coverage without breaking tone", icon: "fa-newspaper" }
-        ],
-        storyTitle: "Behind The Scenes",
-        story: [
-            {
-                type: "split",
-                side: "left",
-                heading: "Learning to Speak in Many Voices",
-                text: "This account never stuck to one lane. A campus news recap needed to read straightforward and factual. A poetry book release needed warmth. An opinion piece on intolerance needed conviction. A theater review needed color. My job was making all of it feel like it came from the same publication, without flattening what made each piece different.",
-                img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800" // REPLACE: sample news/opinion post
-            },
-            {
-                type: "duo",
-                heading: "Consistency Behind the Variety",
-                text: "Underneath all that range sat one content calendar, planned a month at a time, so the account never scrambled for what to post next. That habit of planning ahead — not just designing when inspiration struck — became a discipline I carried into every content role after this one.",
-                imgs: [
-                    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800", // REPLACE: theater/event coverage post
-                    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800"  // REPLACE: tips/how-to post
-                ]
-            },
-            {
-                type: "quote",
-                quote: "\u201cThis was the internship where I first learned that content design isn't about having one good aesthetic — it's about knowing which voice a story actually needs.\u201d"
-            }
-        ],
-        ratio: 1/1,
-        gallery: [
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
-            "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=400", // REPLACE: feed sample 2
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: feed sample 3
         ]
     }
 ];
