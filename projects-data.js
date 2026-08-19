@@ -21,11 +21,10 @@ const projectData = [
         storyTitle: "Behind The Scenes",
         story: [
             {
-                type: "split",
-                side: "left",
+                type: "full",
                 heading: "Two Roles, One Codebase",
                 text: "The first challenge showed up before a single design decision was made: admins and trainees needed entirely different worlds from the same app. Admins needed full control — manage trainees, enter scores, review pass/fail decisions. Trainees just needed a clear, personal view of their own progress, with none of the noise from anyone else's data. I designed one codebase that could completely change face depending on who logged in, with zero duplicated logic behind the scenes.",
-                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800" // REPLACE: login/role selector
+                img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=1200" // REPLACE: login/role selector (landscape)
             },
             {
                 type: "stat",
