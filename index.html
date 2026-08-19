@@ -319,10 +319,9 @@
         }
 
         .project-img {
-            width: 100%;
             height: 100%;
-            object-fit: cover;
-			aspect-ratio: auto;
+            width: auto;
+            display: block;
             transition: transform 0.7s ease, filter 0.5s ease;
         }
 
@@ -475,12 +474,11 @@
             display: block;
         }
 
-        /* Gambar di grid mode: tinggi otomatis sesuai rasio asli */
+        /* Gambar di grid mode: tinggi otomatis mengikuti rasio ASLI file gambar (tidak dipaksa crop) */
         .grid-mode .project-img {
             height: auto !important;
-            aspect-ratio: var(--card-ratio, 4/3);
             width: 100%;
-            object-fit: cover;
+            object-fit: initial;
         }
 
 		/* ENHANCED SLOW PULSE ANIMATION (WHITE FOR PINK BUTTON) */
@@ -1124,17 +1122,15 @@
             const list = isGrid ? projectData : [...projectData, ...projectData];
 
             list.forEach((project, index) => {
-                const ratio = project.ratio || 4/3;
-                const width = Math.round(CARD_HEIGHT * ratio);
+                // Estimasi awal (biar nggak ada "flash" lebar 0 sebelum gambar dimuat)
+                const guessRatio = project.ratio || 4 / 3;
+                const guessWidth = Math.round(CARD_HEIGHT * guessRatio);
                 const realIdx = index % projectData.length;
 
                 const card = document.createElement('div');
                 card.className = 'project-card';
-                card.style.setProperty('--card-ratio', ratio);
 
-                // Slider mode: fixed width sesuai ratio
-                // Grid mode: lebar 100% kolom, tinggi auto (diatur CSS)
-                if (!isGrid) card.style.width = width + 'px';
+                if (!isGrid) card.style.width = guessWidth + 'px';
 
                 card.innerHTML = `
                     <img src="${project.img}" class="project-img" alt="${project.title}">
@@ -1148,6 +1144,21 @@
                     </div>
                 `;
                 card.addEventListener('click', () => { window.location.href = 'project.html?id=' + realIdx; });
+
+                // Setelah gambar asli dimuat, koreksi lebar kartu (slider mode) sesuai rasio ASLI
+                // filenya — bukan angka tebakan — jadi gambar nggak pernah kepotong.
+                if (!isGrid) {
+                    const imgEl = card.querySelector('.project-img');
+                    const applyRealRatio = () => {
+                        if (imgEl.naturalWidth && imgEl.naturalHeight) {
+                            const realRatio = imgEl.naturalWidth / imgEl.naturalHeight;
+                            card.style.width = Math.round(CARD_HEIGHT * realRatio) + 'px';
+                        }
+                    };
+                    if (imgEl.complete) applyRealRatio();
+                    else imgEl.addEventListener('load', applyRealRatio);
+                }
+
                 marquee.appendChild(card);
             });
         }
