@@ -64,7 +64,7 @@ const projectData = [
     {
         title: "Studio Renang Hub — Employee Onboarding",
         badge: "Product Design & Development",
-        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000", // REPLACE: onboarding portal cover
+        img: "https://lh3.googleusercontent.com/d/1cKWw552CfXLblE40dbCTMk2gvAuSAIOe", // REPLACE: onboarding portal cover
         desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
         impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
         stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
@@ -86,7 +86,7 @@ const projectData = [
                 side: "left",
                 heading: "Where Training and HR Actually Overlap",
                 text: "Training owned the curriculum and progress; HR owned the paperwork and physical handovers — uniform, ID card, work device. In practice, both needed to answer the same question from two different angles: is this person actually ready, and has everything been handed over properly? Before this project, that meant HR messaging Training to check graduation status, and Training messaging HR to check whether an asset had actually been picked up. I sat with both teams to map that overlap, then designed a single data model both sides could read from without stepping on each other's workflow.",
-                img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" // REPLACE: team workflow / whiteboard planning
+                img: "https://lh3.googleusercontent.com/d/1qNEyAflMBidkPSyB1RYmzkL39ezreYHd" // REPLACE: team workflow / whiteboard planning
             },
             {
                 type: "timeline",
@@ -104,7 +104,7 @@ const projectData = [
                 side: "right",
                 heading: "Turning Asset Handover Into a Trackable Status",
                 text: "For HR's side of the problem, I built an asset request system covering uniforms, ID cards, and work devices — each with its own modal form and a status badge (Pending / Processing / Received) that updates in real time instead of living in a spreadsheet cell someone has to remember to edit. Paired with an Employee Corner for announcements and quick links to SOPs, the team calendar, and Training Hub, the goal was to make one glance at a profile answer both teams' questions at once: how far along is this person, and what have they actually received.",
-                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" // REPLACE: asset tracking dashboard
+                img: "https://lh3.googleusercontent.com/d/1IPNsTD0u1a4g6XZF0hEPh51vNa430YwD" // REPLACE: asset tracking dashboard
             },
             {
                 type: "stat",
@@ -115,15 +115,15 @@ const projectData = [
         ],
         ratio: 16/9,
         gallery: [
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400", // REPLACE: login page
-            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400", // REPLACE: onboarding dashboard
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400"  // REPLACE: my journey timeline
+            "https://lh3.googleusercontent.com/d/10fMpYnewRDkZrnQPWv2MpSsui-OugUUQ", // REPLACE: login page
+            "https://lh3.googleusercontent.com/d/1qNEyAflMBidkPSyB1RYmzkL39ezreYHd", // REPLACE: onboarding dashboard
+            "https://lh3.googleusercontent.com/d/1IPNsTD0u1a4g6XZF0hEPh51vNa430YwD"  // REPLACE: my journey timeline
         ]
     },
     {
         title: "BEBI Mobile Learning App",
         badge: "Instructional Design",
-        img: "https://lh3.googleusercontent.com/d/1QhLtlWzheP6LViBqYWhz3BcWq8qz3Eb1", // REPLACE: BEBI cover/hero
+        img: "https://lh3.googleusercontent.com/d/1lTv7_N4km3Ps1wAfGHemLdd6BlyLaM3z", // REPLACE: BEBI cover/hero
         desc: "An Android mobile learning app born from my own undergraduate thesis research, built from scratch through all five stages of the ADDIE model. Before any design work began, I went straight to the source — conducting needs analysis directly with students and observing the real gap in learning materials and media. Bahasa Indonesia lessons kept feeling boring for one consistent reason: they stayed too textual, with no format engaging enough to hold a teenager's attention. BEBI was built to close that gap — bringing Review Text material to 11th-grade students through educational games and interactive assessments, designed specifically to lift their interest and motivation to learn.",
         impact: "96% improvement in Bahasa Indonesia learning outcomes following classroom implementation",
         stack: "Figma, Canva, Adobe Photoshop",
@@ -154,7 +154,7 @@ const projectData = [
                 side: "left",
                 heading: "From Storyboard to Interface",
                 text: "The Design stage alone covered more ground than people usually assume 'making an app' involves. I first organized the entire Review Text material into a teachable structure, then storyboarded how a student would move through the app screen by screen, built that into a working prototype, and only then moved into full UI/UX design — so every visual decision was already validated by a structure I knew worked, not guessed at.",
-                img: "https://lh3.googleusercontent.com/d/1sG4gmPtfFWF1Fcs3IsnF8OKwLOsAr7Lz" // REPLACE: storyboard/prototype screenshot
+                img: "https://lh3.googleusercontent.com/d/1-0vuz5aupv6gU7eZwmYjSvCTJj8NOy9i" // REPLACE: storyboard/prototype screenshot
             },
             {
                 type: "split",
@@ -182,7 +182,7 @@ const projectData = [
     {
         title: "Interactive Digital Book",
         badge: "E-Learning",
-        img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000", // REPLACE: digital book cover
+        img: "https://lh3.googleusercontent.com/d/1ig89a0TC-eanLt7Xz1CXytvAnMTx8a7x", // REPLACE: digital book cover
         desc: "An interactive Bahasa Indonesia digital textbook for 8th-grade students, built as an academic group project. Aligned with the 2013 Curriculum, the book weaves in video, audio, images, and graphics — so students don't just read long blocks of text, they experience the material through multiple senses.",
         impact: "A Curriculum 2013-aligned textbook with fully integrated multimedia elements",
         stack: "Canva, Flip HTML5",
@@ -257,7 +257,7 @@ const projectData = [
     {
         title: "Mily, The Beloved Cat",
         badge: "Creative Writing",
-        img: "https://lh3.googleusercontent.com/d/1qcFiwdm2vuEq9eU39NTAJMlCm4du8MGo", // REPLACE: book cover
+        img: "https://lh3.googleusercontent.com/d/16YdMCKI71ltzlCiHCndY2vWpaxiJVvfZ", // REPLACE: book cover
         desc: "A digital storybook for elementary school readers, containing five stories with five different themes — where I worked as both writer and illustrator. This project was an experiment in merging creative writing with illustration design to build story worlds that feel close to a child's everyday life.",
         impact: "Five complete stories in one digital book, ready for elementary-age readers",
         stack: "Canva, Adobe Photoshop",
@@ -299,7 +299,7 @@ const projectData = [
     {
         title: "Diurnalis — Digital Tabloid",
         badge: "Editorial Design",
-        img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000", // REPLACE: tabloid cover
+        img: "https://lh3.googleusercontent.com/d/11rfz2L-IAsknP3adOndd22yoA6RDawPr", // REPLACE: tabloid cover
         desc: "A digital tabloid tackling the lack of accessible learning media in schools, designed with a clean, minimalist concept so the content itself stays the focus — proof that a digital module can outperform a conventional printed one.",
         impact: "First edition published, from concept through final layout",
         stack: "Adobe Illustrator, Canva",
@@ -335,7 +335,7 @@ const projectData = [
     {
         title: "Social Media @p2msatrasia",
         badge: "Content Design",
-        img: "https://lh3.googleusercontent.com/d/1lNHwsO0K1WMRi3LxFEjV_vRgsH0cB120", // REPLACE: Instagram feed cover
+        img: "https://lh3.googleusercontent.com/d/1QohMZzuaRpWva_FprLgWyznVH3d3TzrE", // REPLACE: Instagram feed cover
         desc: "Running the Instagram account for @p2msatrasia, the official community outreach program by Indonesian Language & Literature Education students at UPI. I owned the entire creative side — content strategy, visual design, and caption writing — turning what's usually a stiff academic report into something people actually wanted to see on their feed.",
         impact: "Audience reach grew significantly throughout the program",
         stack: "Canva, Instagram",
@@ -377,7 +377,7 @@ const projectData = [
     {
         title: "Literat Sastrasia — BSO Literat Content & Social Media",
         badge: "Content Design",
-        img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1000", // REPLACE: Literat Sastrasia feed cover
+        img: "https://lh3.googleusercontent.com/d/10-OiQQjlXaKwZIzDl0-HKmdDgOxkuAy5", // REPLACE: Literat Sastrasia feed cover
         desc: "My earliest content design role — Design Graphic & Social Media Intern for BSO Literat, the semi-autonomous student body under Indonesian Language & Literature Education, running content for Literat Sastrasia. This wasn't a single-format account: one week I'd be reporting campus news, the next reviewing a poetry release, writing an opinion piece on intolerance, or covering a student theater performance — all needing to feel like they came from the same voice.",
         impact: "Produced at least 3 pieces of Instagram and website content every week, sustained across a full internship period",
         stack: "Canva, Instagram",
@@ -420,7 +420,7 @@ const projectData = [
     {
         title: "Student Attendance System",
         badge: "UI/UX Design",
-        img: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=1000", // REPLACE: main UI mockup
+        img: "https://lh3.googleusercontent.com/d/1QV7b3G5AfZ_Ef63fC-r0-wWY78gIfHWV", // REPLACE: main UI mockup
         desc: "A web and mobile-based student attendance system, built as a vocational high school graduation capstone. I owned the full UI design — from wireframes to prototype — while technical development was handled together with the team.",
         impact: "A vocational high school capstone project, built as a team effort",
         stack: "Figma, Adobe XD",
