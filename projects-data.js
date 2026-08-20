@@ -38,7 +38,7 @@ const projectData = [
                 text: "I designed the admin dashboard bento-style — a training pipeline donut chart, trainer performance rankings, and an alert center that isn't static text but is calculated live from real data conditions: which trainees haven't started, whose roleplay score dropped below standard, which class needs extra attention.",
                 imgs: [
                     "https://lh3.googleusercontent.com/d/1lygI2fN44JmkH3v58jx1OCnZzOe0t8SF", // REPLACE: bento dashboard
-                    "https://lh3.googleusercontent.com/d/1nyjtyae7u5EhOpuTtf-bc6ghLQ2Cds4n"  // REPLACE: alert center
+                    "https://lh3.googleusercontent.com/d/1Vg9ihuQEQ38o0X0YuRdSIS7dJarIgOeR"  // REPLACE: alert center
                 ]
             },
             {
@@ -222,7 +222,7 @@ const projectData = [
     {
         title: "Anecdotal Text Video Lesson",
         badge: "Digital Learning Content",
-        img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000", // REPLACE: video thumbnail
+        img: "https://lh3.googleusercontent.com/d/1PiUk3_igL-NQ1QeW9dRstH_No3jGABVF", // REPLACE: video thumbnail
         desc: "A learning video on anecdotal texts that I produced entirely from scratch — writing the script, appearing on camera, and editing the final cut — turning material that usually feels dry on a textbook page into something visual, concise, and easy to follow.",
         impact: "Made the material easier to understand through a concise video format",
         stack: "Canva, Video Editing Software",
@@ -456,7 +456,7 @@ const projectData = [
     {
         title: "Feature Article Anthology",
         badge: "Creative Writing",
-        img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1000", // REPLACE: anthology cover
+        img: "https://lh3.googleusercontent.com/d/1MKn9y_LPQDSjZ3OzQ1UXkS_OYsJ08jM9", // REPLACE: anthology cover
         desc: "A feature article anthology paired with documentary photography to strengthen each story's narrative. Every article was laid out to create harmony between text and image, so reading it feels immersive and flowing — not just a stack of paragraphs.",
         impact: "Published on Kompasiana",
         stack: "Adobe Illustrator, Canva",
@@ -494,7 +494,7 @@ const projectData = [
     {
         title: "EverAfter — Wedding Planning SaaS",
         badge: "Product Design & Development",
-        img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000", // REPLACE: EverAfter dashboard cover
+        img: "https://lh3.googleusercontent.com/d/1cvhBZs6DP2TDnJalpwS_jSD4Iky2KCk-", // REPLACE: EverAfter dashboard cover
         desc: "A wedding planning SaaS for engaged couples in Indonesia, built and developed entirely solo — from backend architecture to the visual design system to product strategy. EverAfter helps couples manage every part of their wedding in one dashboard: checklist, budget, guest list, moodboard, and day-of run-of-show.",
         impact: "Sold as a two-tier product (Lite & Ultimate) on a one-time purchase model, live at everafter-planner.my.id",
         stack: "Cloudflare Pages, Supabase, Vanilla JavaScript, Custom Design System (Bloom 2.0)",
