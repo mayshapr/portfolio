@@ -360,22 +360,24 @@ const projectData = [
                 side: "left",
                 heading: "Building a Visual Identity From Zero",
                 text: "I started with a consistent visual system — color palette, typography, and a feed template other team members could use to post independently without breaking the account's look.",
-                img: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800" // REPLACE: visual identity screenshot
+                img: "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7" // REPLACE: visual identity screenshot
             },
             {
                 type: "duo",
                 heading: "Content That Felt Like a Person Wrote It",
                 text: "Beyond design, I built out a content calendar and shifted the caption voice toward something more personal — less like an activity report, more like a conversation.",
                 imgs: [
-                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // REPLACE: feed sample 1
-                    "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800"  // REPLACE: feed sample 2
+                    "https://lh3.googleusercontent.com/d/1906U6hHdnJWSv6PxdjDQihSLmiouD-2W", // REPLACE: feed sample 1
+                    "https://lh3.googleusercontent.com/d/1hTMdJfimp3i9whh-odJJuW8DdVgVhTt5"  // REPLACE: feed sample 2
                 ]
             }
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400", // REPLACE: feed sample 1
-            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400", // REPLACE: feed sample 2
-            "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=400"  // REPLACE: feed sample 3
+            "https://lh3.googleusercontent.com/d/1QohMZzuaRpWva_FprLgWyznVH3d3TzrE", // REPLACE: feed sample 1
+            "https://lh3.googleusercontent.com/d/1YpypGSfGQTnGGQkmFiM7ym2kTFA8CFh7", // REPLACE: feed sample 2
+            "https://lh3.googleusercontent.com/d/1906U6hHdnJWSv6PxdjDQihSLmiouD-2W",  // REPLACE: feed sample 3
+            "https://lh3.googleusercontent.com/d/1hTMdJfimp3i9whh-odJJuW8DdVgVhTt5",
+            "https://lh3.googleusercontent.com/d/1oVzbNvX5A766Xl-oY_8gbmAo6xzByoXg"
         ]
     },
     {
