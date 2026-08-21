@@ -226,7 +226,7 @@ const projectData = [
     {
         title: "Anecdotal Text Video Lesson",
         badge: "Digital Learning Content",
-        img: "https://lh3.googleusercontent.com/d/1Osq5D1K0q9JWbjZK8ezDweToURNBBh3S", // REPLACE: video thumbnail
+        img: "https://lh3.googleusercontent.com/d/1HV8mqSVGNK5Z0ZTLcHU_VZ13lQBU_uFe", // REPLACE: video thumbnail
         desc: "A learning video on anecdotal texts that I produced entirely from scratch — writing the script, appearing on camera, and editing the final cut — turning material that usually feels dry on a textbook page into something visual, concise, and easy to follow.",
         impact: "Made the material easier to understand through a concise video format",
         stack: "Canva, Video Editing Software",
