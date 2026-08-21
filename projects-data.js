@@ -68,7 +68,7 @@ const projectData = [
     {
         title: "Studio Renang Hub — Employee Onboarding",
         badge: "Product Design & Development",
-        img: "https://lh3.googleusercontent.com/d/1cKWw552CfXLblE40dbCTMk2gvAuSAIOe", // REPLACE: onboarding portal cover
+        img: "https://lh3.googleusercontent.com/d/1ZXtlzacd4LRm5kg0wwOGccmsatw6Vxic", // REPLACE: onboarding portal cover
         desc: "An employee onboarding portal for StudioRenang.com, an aquatic education swim school for children — built out of a cross-team collaboration between the Training team and HR. The two teams shared the same headache: asset handovers (uniforms, ID cards, work devices) and a new hire's graduation status were scattered across chat threads and spreadsheets, with no single place either team could check without pinging the other. Studio Renang Hub became that single place — a standalone web app guiding every new hire through four structured onboarding phases, from company culture to official certification, while giving both teams a shared, real-time view of where each person actually stands.",
         impact: "Replaced a manual, cross-team asset and graduation-status tracking process with one structured 4-phase portal, giving Training and HR a shared real-time view instead of two disconnected records",
         stack: "HTML, CSS, JavaScript (vanilla), Google Apps Script",
