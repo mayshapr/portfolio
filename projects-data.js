@@ -222,7 +222,7 @@ const projectData = [
     {
         title: "Anecdotal Text Video Lesson",
         badge: "Digital Learning Content",
-        img: "https://lh3.googleusercontent.com/d/1PiUk3_igL-NQ1QeW9dRstH_No3jGABVF", // REPLACE: video thumbnail
+        img: "https://lh3.googleusercontent.com/d/1HV8mqSVGNK5Z0ZTLcHU_VZ13lQBU_uFe", // REPLACE: video thumbnail
         desc: "A learning video on anecdotal texts that I produced entirely from scratch — writing the script, appearing on camera, and editing the final cut — turning material that usually feels dry on a textbook page into something visual, concise, and easy to follow.",
         impact: "Made the material easier to understand through a concise video format",
         stack: "Canva, Video Editing Software",
@@ -238,7 +238,7 @@ const projectData = [
                 type: "full",
                 heading: "Learning to Direct Myself",
                 text: "This was the first time I really learned how to build an effective educational video — not just record a slide presentation. The process started with researching anecdotal text content, writing a conversational script instead of reading straight from a textbook, storyboarding each scene, then shooting and editing it myself.",
-                img: "https://images.unsplash.com/photo-1593697820827-9a5fa22eff1e?q=80&w=1200" // REPLACE: behind the scenes
+                img: "https://lh3.googleusercontent.com/d/1yX9KmxdPSQn2_2dv-HKBu0LmaShi4PnQ" // REPLACE: behind the scenes
             },
             {
                 type: "stat",
@@ -249,9 +249,9 @@ const projectData = [
         ],
         ratio: 16/9,
         gallery: [
-            "https://images.unsplash.com/photo-1593697820827-9a5fa22eff1e?q=80&w=400", // REPLACE: behind the scenes 1
-            "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=400", // REPLACE: behind the scenes 2
-            "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=400"  // REPLACE: behind the scenes 3
+            "https://lh3.googleusercontent.com/d/14sez80PBD8i51MxaE6PKSx7CebzfiO12", // REPLACE: behind the scenes 1
+            "https://lh3.googleusercontent.com/d/1RKyx6kJTFtjPu18jeskQccDByUGCiCQi", // REPLACE: behind the scenes 2
+            "https://lh3.googleusercontent.com/d/1mkqUYHO2SaD9wL3iATWEOJWcnssrOtx4"  // REPLACE: behind the scenes 3
         ]
     },
     {
