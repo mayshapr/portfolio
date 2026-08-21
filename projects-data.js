@@ -38,7 +38,7 @@ const projectData = [
                 text: "I designed the admin dashboard bento-style — a training pipeline donut chart, trainer performance rankings, and an alert center that isn't static text but is calculated live from real data conditions: which trainees haven't started, whose roleplay score dropped below standard, which class needs extra attention.",
                 imgs: [
                     "https://lh3.googleusercontent.com/d/1lygI2fN44JmkH3v58jx1OCnZzOe0t8SF", // REPLACE: bento dashboard
-                    "https://lh3.googleusercontent.com/d/1Vg9ihuQEQ38o0X0YuRdSIS7dJarIgOeR"  // REPLACE: alert center
+                    "https://lh3.googleusercontent.com/d/1KoBI5fF2ytGNrAjnZEsinB7UqBq4GNHd"  // REPLACE: alert center
                 ]
             },
             {
@@ -58,7 +58,11 @@ const projectData = [
             "https://lh3.googleusercontent.com/d/1wtIbohzredIbBQC-UsRdoR3ysS9eeYIP", // REPLACE: admin dashboard
             "https://lh3.googleusercontent.com/d/12DlAk7TDrUI5bO6ZtmzYVKzcQ6bZLZw5", // REPLACE: score entry
             "https://lh3.googleusercontent.com/d/1lygI2fN44JmkH3v58jx1OCnZzOe0t8SF",  // REPLACE: trainee portal
-            "https://lh3.googleusercontent.com/d/1nyjtyae7u5EhOpuTtf-bc6ghLQ2Cds4n"
+            "https://lh3.googleusercontent.com/d/1KoBI5fF2ytGNrAjnZEsinB7UqBq4GNHd",
+            "https://lh3.googleusercontent.com/d/1ZRs76ei85oV9YiGPb1rSDAKzTc111RKy",
+            "https://lh3.googleusercontent.com/d/1P6wdxr0GrDctOIWd8M3y01CIRYdl-_CW",
+            "https://lh3.googleusercontent.com/d/1yggMq_Zj2DERFR_p8N8OunXLJ3JZs4SU",
+            "https://lh3.googleusercontent.com/d/1cRKJXip9blHjyKclyY4eyh459vDo7nau"
         ]
     },
     {
@@ -222,7 +226,7 @@ const projectData = [
     {
         title: "Anecdotal Text Video Lesson",
         badge: "Digital Learning Content",
-        img: "https://lh3.googleusercontent.com/d/1HV8mqSVGNK5Z0ZTLcHU_VZ13lQBU_uFe", // REPLACE: video thumbnail
+        img: "https://lh3.googleusercontent.com/d/1Osq5D1K0q9JWbjZK8ezDweToURNBBh3S", // REPLACE: video thumbnail
         desc: "A learning video on anecdotal texts that I produced entirely from scratch — writing the script, appearing on camera, and editing the final cut — turning material that usually feels dry on a textbook page into something visual, concise, and easy to follow.",
         impact: "Made the material easier to understand through a concise video format",
         stack: "Canva, Video Editing Software",
